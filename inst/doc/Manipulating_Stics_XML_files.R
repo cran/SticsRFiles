@@ -1,4 +1,4 @@
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -37,7 +37,7 @@ if (length(files_list))  {
   file.remove(files_list)
 }
 
-## ---- eval = TRUE, echo = FALSE, class.output="xml"---------------------------
+## ----eval = TRUE, echo = FALSE, class.output="xml"----------------------------
 par_xml <- file.path(examples_path, "param_gen.xml")
 par <- readLines(par_xml)
 idx_water <- grep(pattern = "formalisme", par)[9:10]
@@ -47,7 +47,7 @@ cat("```xml\n")
 cat(paste(par[idx_water[1]:idx_water[2]], collapse = "\n"))
 cat("\n```\n")
 
-## ---- eval = TRUE, echo = FALSE, class.output="xml"---------------------------
+## ----eval = TRUE, echo = FALSE, class.output="xml"----------------------------
 sol_xml <- file.path(examples_path, "sols.xml")
 sol <- readLines(sol_xml)
 lines_sol <- c(sol[3], "...", sol[70:79], "...", sol[110:119], "...")
@@ -57,7 +57,7 @@ cat("```xml\n")
 cat(paste(lines_sol, collapse = "\n"))
 cat("\n```\n")
 
-## ---- eval = TRUE, echo = FALSE, class.output="xml"---------------------------
+## ----eval = TRUE, echo = FALSE, class.output="xml"----------------------------
 tec_xml <- file.path(examples_path, "file_tec.xml")
 tec <- readLines(tec_xml)[3:22]
 tec <- c(tec, "...", tec[12:20], "...")
@@ -72,7 +72,7 @@ cat("\n```\n")
 xml_dir <- get_examples_path(file_type = "xml", stics_version = stics_version)
 
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  xml_dir <- get_examples_path(file_type = "xml", stics_version = stics_version)
 #  
 #  # For linux
@@ -107,14 +107,14 @@ xml_files <- list.files(path = xml_dir, pattern = ".xml$", full.names = TRUE)
 #> examples/V10.0/file_sta.xml"
 
 
-## ---- echo=FALSE, results="hide"----------------------------------------------
+## ----echo=FALSE, results="hide"-----------------------------------------------
 files_list <- list.files(path = xml_dir, pattern = ".xml$")
 legend <- c("initializations", "plant", "station", "crop management",
             "general", "general (new formalisms)", "soils", "usms")
 dt <- data.frame(files = files_list, groups = legend)
 
 
-## ---- echo = FALSE------------------------------------------------------------
+## ----echo = FALSE-------------------------------------------------------------
 knitr::kable(dt)
 #, caption = "Correspondence between XML example files names
 # and parameters groups")
@@ -131,15 +131,18 @@ file.copy(from = file.path(xml_dir, "sols.xml"),
 
 file.copy(from = xml_files, to = xml_loc_dir)
 
-## ---- eval = FALSE------------------------------------------------------------
+## ----echo=FALSE---------------------------------------------------------------
+knitr::kable(read.csv(file = "param_files_keywords.csv", sep = ";"), col.names = c("keyword", "xml file", "parameter kind"))
+
+## ----eval = FALSE-------------------------------------------------------------
 #  
 #  param_names <- get_param_info()
 #  
 #  head(param_names)
 #  
 
-## ----echo=FALSE---------------------------------------------------------------
-param_names <- load_param_names()
+## ----echo = FALSE-------------------------------------------------------------
+param_names <- get_param_info()
 
 head(param_names)
 
@@ -147,14 +150,14 @@ head(param_names)
 # Displaying the returned data as a paged table
 rmarkdown::paged_table(param_names)
 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 #  
 #  get_param_info(param = "albedo")
 #  
 #  get_param_info(param = c("albedo", "latitude", "humcapil"))
 #  
 
-## ----echo=FALSE---------------------------------------------------------------
+## ----echo = FALSE-------------------------------------------------------------
 param_names[grep("albedo", param_names$name), ]
 
 idx <- grepl("albedo", param_names$name) |
@@ -164,111 +167,32 @@ idx <- grepl("albedo", param_names$name) |
 param_names[idx, ]
 
 
-## ----eval=FALSE---------------------------------------------------------------
-#  
-#  get_param_info(param = "hum")
-#  
-#  
-#  param_names <- get_param_info(param = c("al", "hum"))
-#  
+## -----------------------------------------------------------------------------
 
-## ----echo=FALSE---------------------------------------------------------------
-param_names[grep("hum", param_names$name), ]
+get_param_info(param = "hum")
 
-idx <- grepl("al", param_names$name) |
-  grepl("hum", param_names$name)
 
-param_names <- param_names[idx, ]
+param_names <- get_param_info(param = c("alb", "hum"))
+
 
 ## ----echo=FALSE---------------------------------------------------------------
 # Displaying the returned data as a paged table
 rmarkdown::paged_table(param_names)
 
-## ---- warning=FALSE, eval=FALSE-----------------------------------------------
+## ----warning = FALSE, eval = FALSE--------------------------------------------
 #  
-#  get_param_info(formalism = "yield")
-#  
-#  
-#  param_formalisms <- get_param_info(formalism = c("yield", "leaves"))
-#  
-#  head(param_formalisms)
-#  
-
-## ----echo=FALSE---------------------------------------------------------------
-param_names <- load_param_names()
-
-param_names[grep("yield", param_names$formalism), ]
-
-idx <- grepl("yield", param_names$formalism) |
-  grepl("leaves", param_names$formalism)
-
-param_formalisms <- param_names[idx, ]
-
-head(param_formalisms)
-
-
-## ----echo=FALSE---------------------------------------------------------------
-# Displaying the returned data as a paged table
-rmarkdown::paged_table(param_formalisms)
-
-## ---- warning=FALSE, eval=FALSE-----------------------------------------------
-#  
-#  get_param_info(formalism = "yield", param = "grain")
+#  get_param_info(keyword = "hum")
 #  
 #  
-#  param_formalisms <- get_param_info(formalism = "yield",
-#                                     param = c("inflo", "lai"))
+#  param_names <- get_param_info(keyword = c("alb", "hum"))
 #  
 #  
 
-## ----echo=FALSE---------------------------------------------------------------
-param_names <- load_param_names()
-
-idx <- grepl("yield", param_names$formalism) |
-  grepl("grain", param_names$name)
-
-param_names[idx, ]
-
-idx <- grepl("yield", param_names$formalism) |
-  grepl("inflo", param_names$name) |
-  grepl("lai", param_names$name)
-
-param_formalisms <- param_names[idx, ]
+## ----echo = FALSE-------------------------------------------------------------
+param_names <- get_param_info(keyword = c("alb", "hum"))
 
 
-## ---- warning=FALSE, echo = FALSE---------------------------------------------
-
-rmarkdown::paged_table(param_formalisms)
-
-
-## ---- warning=FALSE, eval=FALSE-----------------------------------------------
-#  
-#  get_param_info(keyword = "plant")
-#  
-#  
-#  param_names <- get_param_info(keyword = c("plant", "leave"))
-#  
-#  
-
-## ----echo=FALSE---------------------------------------------------------------
-param_names <- load_param_names()
-
-idx <- grepl("plant", param_names$formalism) |
-  grepl("plant", param_names$name) |
-  grepl("plant", param_names$file)
-
-param_names[idx, ]
-
-idx <- idx |
-  grepl("leave", param_names$formalism) |
-  grepl("leave", param_names$name) |
-  grepl("leave", param_names$file)
-
-param_names <- param_names[idx, ]
-
-
-
-## ---- warning=FALSE, echo = FALSE---------------------------------------------
+## ----warning=FALSE, echo = FALSE----------------------------------------------
 # Displaying the returned data as a paged table
 rmarkdown::paged_table(param_names)
 

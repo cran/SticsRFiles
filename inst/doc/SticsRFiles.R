@@ -1,4 +1,4 @@
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -36,7 +36,7 @@ SticsRFiles::get_var_info(keyword = "lai")
 get_param_info(param = "lai")
 
 ## -----------------------------------------------------------------------------
-get_param_info(file = plant_file)
+get_param_info(keyword = "plant")
 
 ## -----------------------------------------------------------------------------
 dlaimax <- get_param_xml(plant_file, "dlaimax")
@@ -64,7 +64,7 @@ obs_df <- data.frame(usm_name = "Test", ian = 2021, mo = 3:10, jo = 1,
 ## -----------------------------------------------------------------------------
 obs <- get_obs(workspace)
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  sim <- get_sim(workspace)
 #  #> Warning in get_file_(workspace = x, usm_name = usm_name, usms_filepath =
 #  #> usms_path, : Not any sim file detected in

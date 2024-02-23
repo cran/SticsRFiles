@@ -6,23 +6,24 @@
 content}
 \usage{
 gen_usms_xml2txt(
-  javastics,
+  javastics = NULL,
   workspace = NULL,
   out_dir = NULL,
   usm = c(),
+  stics_version = "latest",
   verbose = TRUE,
   dir_per_usm_flag = TRUE,
-  check = TRUE,
   java_cmd = "java",
+  java_converter = FALSE,
   javastics_path = lifecycle::deprecated(),
   workspace_path = lifecycle::deprecated(),
   target_path = lifecycle::deprecated(),
-  usms_list = lifecycle::deprecated(),
-  check_files = lifecycle::deprecated()
+  usms_list = lifecycle::deprecated()
 )
 }
 \arguments{
-\item{javastics}{Path of JavaSTICS.}
+\item{javastics}{Path of JavaSTICS. Optional (needed if the JavaSTICS
+converter is used, java_converter set to TRUE in inputs)}
 
 \item{workspace}{Path of a JavaSTICS workspace
 (i.e. containing the STICS XML input files). Optional, if not provided
@@ -32,7 +33,10 @@ the current workspace stored in JavaSTICS preferences will be used.}
 (Optional), if not provided the JavaSTICS workspace will be used as root}
 
 \item{usm}{List of usms to generate (Optional). If not provided, all
-usms contained in workspace_path/usms.xml file will be generated.}
+usms contained in workspace/usms.xml file will be generated.}
+
+\item{stics_version}{the STICS files version to use (optional,
+default to latest).}
 
 \item{verbose}{Logical value for displaying information while running}
 
@@ -40,9 +44,14 @@ usms contained in workspace_path/usms.xml file will be generated.}
 per USM, FALSE if USM files are generated in the target_path
 (only useful for usms_list of size one)}
 
-\item{check}{Logical, TRUE to check if usms files exist, FALSE otherwise}
+\item{java_cmd}{For unix like systems, the java virtual machine command
+name or executable path. Usefull only if the JavaSTICS command line
+is used for generating files. "java" is the default system command,
+but a full path to a java executable (other than the default one)
+may be given}
 
-\item{java_cmd}{The java virtual machine command name or executable path}
+\item{java_converter}{logical TRUE for using JavaStics command
+(a JavaSTICS path must be set in the function inputs), FALSE otherwise}
 
 \item{javastics_path}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} \code{javastics_path}
 is no longer supported, use \code{javastics} instead.}
@@ -55,9 +64,6 @@ longer supported, use \code{out_dir} instead.}
 
 \item{usms_list}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} \code{usms_list} is no
 longer supported, use \code{usm} instead.}
-
-\item{check_files}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} \code{check_files} is no
-longer supported, use \code{check} instead.}
 }
 \value{
 A list with named elements:

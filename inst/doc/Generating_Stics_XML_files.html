@@ -1635,7 +1635,7 @@ package, but will be included in a future version. One can use the tool
 provided by JavaSTICS GUI to perform these files generation.</p></li>
 </ul>
 <p>This document has been generated using the latest STICS version
-<strong>V10.0</strong>.</p>
+<strong>V10.1.0</strong>.</p>
 </div>
 <div id="pkg-funs" class="section level1">
 <h1>Package functions to be used</h1>
@@ -1673,25 +1673,21 @@ replaced with a real path depending on the operating system
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;inputs_stics_example.xlsx  has been copied in directory</span></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &quot;/path/to/xl/dir</span></span></code></pre></div>
-<pre><code>#&gt; Warning in download_usm_xl(file = &quot;inputs_stics_example.xlsx&quot;, out_dir = workspace_path): Error copying files:
-#&gt; /tmp/RtmpU3Shko/csv/V10.0/inputs_stics_example.xlsx</code></pre>
 </div>
 <div id="get-csv" class="section level2">
 <h2>Getting an USMs inputs <code>CSV</code> example file from the
 <code>SticsRFiles</code> package</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Getting the file in the current directory</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>usm_csv_file <span class="ot">&lt;-</span> <span class="fu">download_usm_csv</span>(<span class="at">file =</span> <span class="st">&quot;inputs_stics_example_USMs.csv&quot;</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Getting the file in a specific directory</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>csv_dir <span class="ot">&lt;-</span> <span class="st">&quot;/path/to/csv/dir&quot;</span> <span class="co"># or something like C:/path/to/xl/dir&quot; for Windows</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>usm_csv_file <span class="ot">&lt;-</span> <span class="fu">download_usm_csv</span>(<span class="at">file =</span> <span class="st">&quot;inputs_stics_example_USMs.csv&quot;</span>,</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">out_dir =</span> csv_dir)</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] inputs_stics_example_USMs.csv  has been copied in directory</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &quot;/path/to/csv/dir</span></span></code></pre></div>
-<pre><code>#&gt; Warning in download_usm_xl(file = csv_name, out_dir = dest_dir, stics_version = version_name, : Error copying files:
-#&gt; /tmp/RtmpU3Shko/csv/V10.0/inputs_stics_example_USMs.csv</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Getting the file in the current directory</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>usm_csv_file <span class="ot">&lt;-</span> <span class="fu">download_usm_csv</span>(<span class="at">file =</span> <span class="st">&quot;inputs_stics_example_USMs.csv&quot;</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Getting the file in a specific directory</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>csv_dir <span class="ot">&lt;-</span> <span class="st">&quot;/path/to/csv/dir&quot;</span> <span class="co"># or something like C:/path/to/xl/dir&quot; for Windows</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>usm_csv_file <span class="ot">&lt;-</span> <span class="fu">download_usm_csv</span>(<span class="at">file =</span> <span class="st">&quot;inputs_stics_example_USMs.csv&quot;</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">out_dir =</span> csv_dir)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] inputs_stics_example_USMs.csv  has been copied in directory</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &quot;/path/to/csv/dir</span></span></code></pre></div>
 </div>
 </div>
 <div id="description-of-tables-expected-content-and-use" class="section level1">
@@ -2108,11 +2104,11 @@ code shows how to get data from the downloaded examples <a href="#get-xl">Excel<
 <div id="getting-data" class="section level2">
 <h2>Getting data</h2>
 <!-- Only for the show -->
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reading the Excel file</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>usms_param <span class="ot">&lt;-</span> <span class="fu">read_params_table</span>(usm_xl_file, <span class="at">sheet_name =</span> <span class="st">&quot;USMs&quot;</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Or</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Reading the CSV file</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>usms_param <span class="ot">&lt;-</span> <span class="fu">read_params_table</span>(usm_csv_file)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reading the Excel file</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>usms_param <span class="ot">&lt;-</span> <span class="fu">read_params_table</span>(usm_xl_file, <span class="at">sheet_name =</span> <span class="st">&quot;USMs&quot;</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Or</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Reading the CSV file</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>usms_param <span class="ot">&lt;-</span> <span class="fu">read_params_table</span>(usm_csv_file)</span></code></pre></div>
 <!-- active chunk to be run -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
@@ -2123,20 +2119,20 @@ code shows how to get data from the downloaded examples <a href="#get-xl">Excel<
 <div id="generating-the-file" class="section level2">
 <h2>Generating the file</h2>
 <!-- Only for the show -->
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Output file path</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>out_file <span class="ot">&lt;-</span> <span class="st">&quot;/path/to/file/usms.xml&quot;</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># or something like C:/path/to/file/usms.xml&quot; for Windows</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Generating a new usms.xml file, for all xl_param lines</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_usms_xml</span>(<span class="at">file =</span> out_file, <span class="at">param_df =</span> usms_param)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Output file path</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>out_file <span class="ot">&lt;-</span> <span class="st">&quot;/path/to/file/usms.xml&quot;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># or something like C:/path/to/file/usms.xml&quot; for Windows</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Generating a new usms.xml file, for all xl_param lines</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_usms_xml</span>(<span class="at">file =</span> out_file, <span class="at">param_df =</span> usms_param)</span></code></pre></div>
 <!-- active chunk to be run -->
 </div>
 <div id="usms.xml-file-content" class="section level2">
 <h2><code>usms.xml</code> file content</h2>
 <p>Example of the first <code>usm</code> parameters:</p>
 <pre><code>#&gt; &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
-#&gt; &lt;usms version=&quot;10.0&quot;&gt;
+#&gt; &lt;usms version=&quot;10.1.0&quot;&gt;
 #&gt;   &lt;usm nom=&quot;USM_2017_T1_CI&quot;&gt;
 #&gt;     &lt;datedebut&gt;199&lt;/datedebut&gt;
 #&gt;     &lt;datefin&gt;263&lt;/datefin&gt;
@@ -2172,8 +2168,8 @@ generation section.</p>
 <div id="getting-data-1" class="section level2">
 <h2>Getting data</h2>
 <!-- Only for the show -->
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reading the Excel file</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>soils_param <span class="ot">&lt;-</span> <span class="fu">read_params_table</span>(usm_xl_file, <span class="at">sheet_name =</span> <span class="st">&quot;Soils&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reading the Excel file</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>soils_param <span class="ot">&lt;-</span> <span class="fu">read_params_table</span>(usm_xl_file, <span class="at">sheet_name =</span> <span class="st">&quot;Soils&quot;</span>)</span></code></pre></div>
 <!-- active chunk to be run -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
@@ -2184,20 +2180,20 @@ generation section.</p>
 <div id="generating-the-file-1" class="section level2">
 <h2>Generating the file</h2>
 <!-- Only for the show -->
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Output file path</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>out_file <span class="ot">&lt;-</span> <span class="st">&quot;/path/to/file/sols.xml&quot;</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># or something like C:/path/to/file/usms.xml&quot; for Windows</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Generating a new sols.xml file, for all xl_param lines</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_sols_xml</span>(<span class="at">file =</span> out_file, <span class="at">param_df =</span> soils_param)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Output file path</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>out_file <span class="ot">&lt;-</span> <span class="st">&quot;/path/to/file/sols.xml&quot;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># or something like C:/path/to/file/usms.xml&quot; for Windows</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Generating a new sols.xml file, for all xl_param lines</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_sols_xml</span>(<span class="at">file =</span> out_file, <span class="at">param_df =</span> soils_param)</span></code></pre></div>
 <!-- active chunk to be run -->
 </div>
 <div id="sols.xml-file-content" class="section level2">
 <h2><code>sols.xml</code> file content</h2>
 <p>Example of the first <code>sol</code> parameters sub-list:</p>
 <pre><code>#&gt; &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-#&gt; &lt;sols version=&quot;10.0&quot;&gt;
+#&gt; &lt;sols version=&quot;10.1.0&quot;&gt;
 #&gt;   &lt;sol nom=&quot;USM_T1&quot;&gt;
 #&gt;     &lt;param format=&quot;real&quot; max=&quot;60.0&quot; min=&quot;0.0&quot; nom=&quot;argi&quot;&gt;20.35&lt;/param&gt;
 #&gt;     &lt;param format=&quot;real&quot; max=&quot;0.5&quot; min=&quot;0.05&quot; nom=&quot;norg&quot;&gt;0.1&lt;/param&gt;
@@ -2238,8 +2234,8 @@ generation section.</p>
 <div id="getting-data-2" class="section level2">
 <h2>Getting data</h2>
 <!-- Only for the show -->
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reading the Excel file</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>tec_param <span class="ot">&lt;-</span> <span class="fu">read_params_table</span>(usm_xl_file, <span class="at">sheet_name =</span> <span class="st">&quot;Tec&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reading the Excel file</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>tec_param <span class="ot">&lt;-</span> <span class="fu">read_params_table</span>(usm_xl_file, <span class="at">sheet_name =</span> <span class="st">&quot;Tec&quot;</span>)</span></code></pre></div>
 <!-- active chunk to be run -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
@@ -2250,12 +2246,12 @@ generation section.</p>
 <div id="generating-files" class="section level2">
 <h2>Generating files</h2>
 <!-- Only for the show -->
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># *_tec.xml files, one for each xl_param line</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_tec_xml</span>(<span class="at">param_df =</span> tec_param, <span class="at">out_dir =</span> workspace_path)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># *_tec.xml files, one for each xl_param line</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_tec_xml</span>(<span class="at">param_df =</span> tec_param, <span class="at">out_dir =</span> workspace_path)</span></code></pre></div>
 <!-- active chunk to be run -->
 <p>Example of a <code>tec</code> parameters file content sub-list:</p>
 <pre><code>#&gt; &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
-#&gt; &lt;fichiertec version=&quot;10.0&quot;&gt;
+#&gt; &lt;fichiertec version=&quot;10.1.0&quot;&gt;
 #&gt;   &lt;formalisme nom=&quot;supply of organic residus&quot;&gt;
 #&gt;     &lt;ta nb_interventions=&quot;1&quot; nom=&quot;interventions&quot;&gt;
 #&gt;       &lt;ta_entete nb_colonnes=&quot;7&quot;&gt;
@@ -2294,8 +2290,8 @@ generation section.</p>
 <div id="getting-data-3" class="section level2">
 <h2>Getting data</h2>
 <!-- Only for the show -->
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reading the Excel file</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>ini_param <span class="ot">&lt;-</span> <span class="fu">read_params_table</span>(usm_xl_file, <span class="at">sheet_name =</span> <span class="st">&quot;Ini&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reading the Excel file</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>ini_param <span class="ot">&lt;-</span> <span class="fu">read_params_table</span>(usm_xl_file, <span class="at">sheet_name =</span> <span class="st">&quot;Ini&quot;</span>)</span></code></pre></div>
 <!-- active chunk to be run -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
@@ -2306,15 +2302,15 @@ generation section.</p>
 <div id="generating-files-1" class="section level2">
 <h2>Generating files</h2>
 <!-- Only for the show -->
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># *_ini.xml files, one for each xl_param line</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_ini_xml</span>(<span class="at">param_df =</span> ini_param, <span class="at">out_dir =</span> workspace_path)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># *_ini.xml files, one for each xl_param line</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_ini_xml</span>(<span class="at">param_df =</span> ini_param, <span class="at">out_dir =</span> workspace_path)</span></code></pre></div>
 <!-- active chunk to be run -->
 </div>
 <div id="xml-file-content" class="section level2">
 <h2>XML file content</h2>
 <p>Example of a <code>ini</code> parameters file content sub-list:</p>
 <pre><code>#&gt; &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-#&gt; &lt;initialisations version=&quot;10.0&quot;&gt;
+#&gt; &lt;initialisations version=&quot;10.1.0&quot;&gt;
 #&gt;   &lt;nbplantes&gt;1&lt;/nbplantes&gt;
 #&gt;   &lt;plante dominance=&quot;1&quot;&gt;
 #&gt;     &lt;stade0&gt;snu&lt;/stade0&gt;
@@ -2342,8 +2338,8 @@ generation section.</p>
 <div id="getting-data-4" class="section level2">
 <h2>Getting data</h2>
 <!-- Only for the show -->
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reading the Excel file</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>sta_param <span class="ot">&lt;-</span> <span class="fu">read_params_table</span>(usm_xl_file, <span class="at">sheet_name =</span> <span class="st">&quot;Station&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reading the Excel file</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>sta_param <span class="ot">&lt;-</span> <span class="fu">read_params_table</span>(usm_xl_file, <span class="at">sheet_name =</span> <span class="st">&quot;Station&quot;</span>)</span></code></pre></div>
 <!-- active chunk to be run -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
@@ -2354,15 +2350,15 @@ generation section.</p>
 <div id="generating-files-2" class="section level2">
 <h2>Generating files</h2>
 <!-- Only for the show -->
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># *_sta.xml files, one for each xl_param line</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_sta_xml</span>(<span class="at">param_df =</span> sta_param, <span class="at">out_dir =</span> workspace_path)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># *_sta.xml files, one for each xl_param line</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_sta_xml</span>(<span class="at">param_df =</span> sta_param, <span class="at">out_dir =</span> workspace_path)</span></code></pre></div>
 <!-- active chunk to be run -->
 </div>
 <div id="xml-file-content-1" class="section level2">
 <h2>XML file content</h2>
 <p>Example of a <code>sta</code> parameters file content sub-list:</p>
 <pre><code>#&gt; &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
-#&gt; &lt;fichiersta version=&quot;10.0&quot;&gt;
+#&gt; &lt;fichiersta version=&quot;10.1.0&quot;&gt;
 #&gt;   &lt;formalisme nom=&quot;Weather station&quot;&gt;
 #&gt;     &lt;param format=&quot;real&quot; max=&quot;10.0&quot; min=&quot;2.0&quot; nom=&quot;zr&quot;&gt;2.5&lt;/param&gt;
 #&gt;     &lt;param format=&quot;real&quot; max=&quot;10.0&quot; min=&quot;0.0&quot; nom=&quot;NH3ref&quot;&gt;0&lt;/param&gt;

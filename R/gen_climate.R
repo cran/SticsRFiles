@@ -10,9 +10,8 @@
 #'
 #' @examples
 #' \dontrun{
-#' gen_climate(
-#'                   c("path/to/weather.year1", "path/to/weather.year2"),
-#'                  "/path/to/out/dir" )
+#' gen_climate(c("path/to/weather.year1", "path/to/weather.year2"),
+#'            "/path/to/out/dir" )
 #' }
 #'
 #' @keywords internal
@@ -22,7 +21,7 @@
 gen_climate <- function(files_path, out_dir) {
 
   # generate intermediate paths for a multi-years simulation
-  # i.e. over 2
+  # i.e. greater than 2
   files_path <- complete_climate_paths(files_path)
 
   # data concatenation
@@ -43,9 +42,6 @@ gen_climate <- function(files_path, out_dir) {
 
   return(invisible(TRUE))
 
-
-
-  return(TRUE)
 }
 
 
@@ -90,9 +86,5 @@ complete_climate_paths <- function(files_path) {
     dirname(files_path[1]), paste0(file_name, ".", years_chr)
   )
 
-
-
-
   return(files_path)
-
 }

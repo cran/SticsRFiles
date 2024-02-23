@@ -42,7 +42,7 @@ longer supported, use \code{file} instead.}
 longer supported, use \code{out_dir} instead.}
 }
 \value{
-an invisible xml_document object or a list of
+None
 }
 \description{
 Generate STICS tec xml file(s) from a template or an input file
@@ -80,6 +80,6 @@ If not given (the default, \code{NULL}), the function returns the template as is
 \examples{
 xl_path <- download_usm_xl(file = "inputs_stics_example.xlsx")
 tec_param_df <- read_params_table(file = xl_path, sheet_name = "Tec")
-gen_tec_xml(out_dir = tempdir(), param_df = tec_param_df)
+gen_tec_xml(out_dir = tempdir(), param_df = tec_param_df[1:2, ])
 
 }

@@ -4,7 +4,7 @@
 ## ----include=FALSE------------------------------------------------------------
 suppressWarnings(library(SticsRFiles))
 
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -26,7 +26,7 @@ knitr::opts_chunk$set(
 #  #> "/path/to/xl/dir
 #  
 
-## ---- eval=TRUE, echo = FALSE, results='hide'---------------------------------
+## ----eval=TRUE, echo = FALSE, results='hide'----------------------------------
 usm_xl_file <- download_usm_xl(file = "inputs_stics_example.xlsx",
                                out_dir = workspace_path)
 
@@ -43,7 +43,7 @@ usm_xl_file <- download_usm_xl(file = "inputs_stics_example.xlsx",
 #  #> [1] inputs_stics_example_USMs.csv  has been copied in directory
 #  #> "/path/to/csv/dir
 
-## ---- eval=TRUE, echo = FALSE, results='hide'---------------------------------
+## ----eval=TRUE, echo = FALSE, results='hide'----------------------------------
 usm_csv_file <- download_usm_csv(file = "inputs_stics_example_USMs.csv",
                                  out_dir = workspace_path)
 
@@ -53,7 +53,7 @@ df <- data.frame(keyword = names(l), realname = unlist(l, use.names = FALSE),
                  stringsAsFactors = FALSE)
 rmarkdown::paged_table(df)
 
-## ---- eval = TRUE, echo = FALSE-----------------------------------------------
+## ----eval = TRUE, echo = FALSE------------------------------------------------
 library(readxl)
 xl_param <- read_params_table(usm_xl_file, sheet = "USMs")
 knitr::kable(xl_param)
