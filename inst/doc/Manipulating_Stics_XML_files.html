@@ -1611,7 +1611,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SticsRFiles)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(SticsRFiles)</span></code></pre></div>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
 <p>The purpose of this document is to provide starting information
@@ -1668,24 +1668,24 @@ attribute <code>choix</code> of the option node. For example, the value
 of the parameter <code>codesymbiose</code> is <code>2</code> in the
 example (<em>choix=“2”</em>).</p></li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">formalisme</span><span class="ot"> nom=</span><span class="st">&quot;Water absorption and nitrogen content of the plant&quot;</span>&gt;</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">param</span><span class="ot"> format=</span><span class="st">&quot;real&quot;</span><span class="ot"> max=</span><span class="st">&quot;2.0&quot;</span><span class="ot"> min=</span><span class="st">&quot;1.0&quot;</span><span class="ot"> nom=</span><span class="st">&quot;beta&quot;</span>&gt;1.40000&lt;/<span class="kw">param</span>&gt;</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">param</span><span class="ot"> format=</span><span class="st">&quot;real&quot;</span><span class="ot"> max=</span><span class="st">&quot;1.0&quot;</span><span class="ot"> min=</span><span class="st">&quot;0.2&quot;</span><span class="ot"> nom=</span><span class="st">&quot;lvopt&quot;</span>&gt;0.50000&lt;/<span class="kw">param</span>&gt;</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">param</span><span class="ot"> format=</span><span class="st">&quot;real&quot;</span><span class="ot"> max=</span><span class="st">&quot;0.1&quot;</span><span class="ot"> min=</span><span class="st">&quot;0.01&quot;</span><span class="ot"> nom=</span><span class="st">&quot;difN&quot;</span>&gt;0.04500&lt;/<span class="kw">param</span>&gt;</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">param</span><span class="ot"> format=</span><span class="st">&quot;real&quot;</span><span class="ot"> max=</span><span class="st">&quot;30.0&quot;</span><span class="ot"> min=</span><span class="st">&quot;5.0&quot;</span><span class="ot"> nom=</span><span class="st">&quot;plNmin&quot;</span>&gt;10.00000&lt;/<span class="kw">param</span>&gt;</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">param</span><span class="ot"> format=</span><span class="st">&quot;real&quot;</span><span class="ot"> max=</span><span class="st">&quot;50.0&quot;</span><span class="ot"> min=</span><span class="st">&quot;0.0&quot;</span><span class="ot"> nom=</span><span class="st">&quot;irrlev&quot;</span>&gt;20.00000&lt;/<span class="kw">param</span>&gt;</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">param</span><span class="ot"> format=</span><span class="st">&quot;real&quot;</span><span class="ot"> max=</span><span class="st">&quot;50.0&quot;</span><span class="ot"> min=</span><span class="st">&quot;0.0&quot;</span><span class="ot"> nom=</span><span class="st">&quot;QNpltminINN&quot;</span>&gt;0.00000&lt;/<span class="kw">param</span>&gt;</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">option</span><span class="ot"> choix=</span><span class="st">&quot;2&quot;</span><span class="ot"> nom=</span><span class="st">&quot;Nitrogen fixation by legumes&quot;</span><span class="ot"> nomParam=</span><span class="st">&quot;codesymbiose&quot;</span>&gt;</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">choix</span><span class="ot"> code=</span><span class="st">&quot;1&quot;</span><span class="ot"> nom=</span><span class="st">&quot;critical nitrogen&quot;</span>/&gt;</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">choix</span><span class="ot"> code=</span><span class="st">&quot;2&quot;</span><span class="ot"> nom=</span><span class="st">&quot;nodule activity&quot;</span>&gt;</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">option</span><span class="ot"> choix=</span><span class="st">&quot;2&quot;</span><span class="ot"> nom=</span><span class="st">&quot;mineral nitrogen inhibition&quot;</span><span class="ot"> nomParam=</span><span class="st">&quot;codefxn&quot;</span>&gt;</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">choix</span><span class="ot"> code=</span><span class="st">&quot;1&quot;</span><span class="ot"> nom=</span><span class="st">&quot;no effect&quot;</span>/&gt;</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>                    &lt;<span class="kw">choix</span><span class="ot"> code=</span><span class="st">&quot;2&quot;</span><span class="ot"> nom=</span><span class="st">&quot;nitrogen amount&quot;</span>/&gt;</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>                    &lt;<span class="kw">choix</span><span class="ot"> code=</span><span class="st">&quot;3&quot;</span><span class="ot"> nom=</span><span class="st">&quot;nitrogen concentration&quot;</span>/&gt;</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>                &lt;/<span class="kw">option</span>&gt;</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>            &lt;/<span class="kw">choix</span>&gt;</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">option</span>&gt;</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">formalisme</span>&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>    &lt;<span class="kw">formalisme</span><span class="ot"> nom=</span><span class="st">&quot;Water absorption and nitrogen content of the plant&quot;</span>&gt;</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>    &lt;<span class="kw">param</span><span class="ot"> format=</span><span class="st">&quot;real&quot;</span><span class="ot"> max=</span><span class="st">&quot;2.0&quot;</span><span class="ot"> min=</span><span class="st">&quot;1.0&quot;</span><span class="ot"> nom=</span><span class="st">&quot;beta&quot;</span>&gt;1.40000&lt;/<span class="kw">param</span>&gt;</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>        &lt;<span class="kw">param</span><span class="ot"> format=</span><span class="st">&quot;real&quot;</span><span class="ot"> max=</span><span class="st">&quot;1.0&quot;</span><span class="ot"> min=</span><span class="st">&quot;0.2&quot;</span><span class="ot"> nom=</span><span class="st">&quot;lvopt&quot;</span>&gt;0.50000&lt;/<span class="kw">param</span>&gt;</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>        &lt;<span class="kw">param</span><span class="ot"> format=</span><span class="st">&quot;real&quot;</span><span class="ot"> max=</span><span class="st">&quot;0.1&quot;</span><span class="ot"> min=</span><span class="st">&quot;0.01&quot;</span><span class="ot"> nom=</span><span class="st">&quot;difN&quot;</span>&gt;0.04500&lt;/<span class="kw">param</span>&gt;</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>        &lt;<span class="kw">param</span><span class="ot"> format=</span><span class="st">&quot;real&quot;</span><span class="ot"> max=</span><span class="st">&quot;30.0&quot;</span><span class="ot"> min=</span><span class="st">&quot;5.0&quot;</span><span class="ot"> nom=</span><span class="st">&quot;plNmin&quot;</span>&gt;10.00000&lt;/<span class="kw">param</span>&gt;</span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>        &lt;<span class="kw">param</span><span class="ot"> format=</span><span class="st">&quot;real&quot;</span><span class="ot"> max=</span><span class="st">&quot;50.0&quot;</span><span class="ot"> min=</span><span class="st">&quot;0.0&quot;</span><span class="ot"> nom=</span><span class="st">&quot;irrlev&quot;</span>&gt;20.00000&lt;/<span class="kw">param</span>&gt;</span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>        &lt;<span class="kw">param</span><span class="ot"> format=</span><span class="st">&quot;real&quot;</span><span class="ot"> max=</span><span class="st">&quot;50.0&quot;</span><span class="ot"> min=</span><span class="st">&quot;0.0&quot;</span><span class="ot"> nom=</span><span class="st">&quot;QNpltminINN&quot;</span>&gt;0.00000&lt;/<span class="kw">param</span>&gt;</span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>        &lt;<span class="kw">option</span><span class="ot"> choix=</span><span class="st">&quot;2&quot;</span><span class="ot"> nom=</span><span class="st">&quot;Nitrogen fixation by legumes&quot;</span><span class="ot"> nomParam=</span><span class="st">&quot;codesymbiose&quot;</span>&gt;</span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a>        &lt;<span class="kw">choix</span><span class="ot"> code=</span><span class="st">&quot;1&quot;</span><span class="ot"> nom=</span><span class="st">&quot;critical nitrogen&quot;</span>/&gt;</span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>            &lt;<span class="kw">choix</span><span class="ot"> code=</span><span class="st">&quot;2&quot;</span><span class="ot"> nom=</span><span class="st">&quot;nodule activity&quot;</span>&gt;</span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>            &lt;<span class="kw">option</span><span class="ot"> choix=</span><span class="st">&quot;2&quot;</span><span class="ot"> nom=</span><span class="st">&quot;mineral nitrogen inhibition&quot;</span><span class="ot"> nomParam=</span><span class="st">&quot;codefxn&quot;</span>&gt;</span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a>                &lt;<span class="kw">choix</span><span class="ot"> code=</span><span class="st">&quot;1&quot;</span><span class="ot"> nom=</span><span class="st">&quot;no effect&quot;</span>/&gt;</span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a>                    &lt;<span class="kw">choix</span><span class="ot"> code=</span><span class="st">&quot;2&quot;</span><span class="ot"> nom=</span><span class="st">&quot;nitrogen amount&quot;</span>/&gt;</span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a>                    &lt;<span class="kw">choix</span><span class="ot"> code=</span><span class="st">&quot;3&quot;</span><span class="ot"> nom=</span><span class="st">&quot;nitrogen concentration&quot;</span>/&gt;</span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a>                &lt;/<span class="kw">option</span>&gt;</span>
+<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a>            &lt;/<span class="kw">choix</span>&gt;</span>
+<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a>        &lt;/<span class="kw">option</span>&gt;</span>
+<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a>    &lt;/<span class="kw">formalisme</span>&gt;</span></code></pre></div>
 <ul>
 <li><p>Parameters with several values (for soil layers, technical
 operations,…) Several values may be defined for example relatively to
@@ -1698,30 +1698,30 @@ nodes) is repeated for each soil layer (layers names are set in the
 The parameters names are defined in a <code>nom</code> attribute in each
 <code>colonne</code> XML tag.</p></li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">sol</span><span class="ot"> nom=</span><span class="st">&quot;solcanne&quot;</span>&gt;</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>...</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">tableau_entete</span>&gt;</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">tableau</span><span class="ot"> nb_colonnes=</span><span class="st">&quot;8&quot;</span><span class="ot"> nom=</span><span class="st">&quot;layer 1&quot;</span>&gt;</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;epc&quot;</span>&gt;20.00&lt;/<span class="kw">colonne</span>&gt;</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;HCCF&quot;</span>&gt;46.80&lt;/<span class="kw">colonne</span>&gt;</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;HMINF&quot;</span>&gt;26.20&lt;/<span class="kw">colonne</span>&gt;</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;DAF&quot;</span>&gt;1.08&lt;/<span class="kw">colonne</span>&gt;</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;cailloux&quot;</span>&gt;0.00&lt;/<span class="kw">colonne</span>&gt;</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;typecailloux&quot;</span>&gt;1&lt;/<span class="kw">colonne</span>&gt;</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;infil&quot;</span>&gt;50.00&lt;/<span class="kw">colonne</span>&gt;</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;epd&quot;</span>&gt;10&lt;/<span class="kw">colonne</span>&gt;</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>...</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">tableau</span>&gt;</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">tableau</span><span class="ot"> nb_colonnes=</span><span class="st">&quot;8&quot;</span><span class="ot"> nom=</span><span class="st">&quot;layer 5&quot;</span>&gt;</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;epc&quot;</span>&gt;20.00&lt;/<span class="kw">colonne</span>&gt;</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;HCCF&quot;</span>&gt;50.10&lt;/<span class="kw">colonne</span>&gt;</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;HMINF&quot;</span>&gt;25.50&lt;/<span class="kw">colonne</span>&gt;</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;DAF&quot;</span>&gt;0.99&lt;/<span class="kw">colonne</span>&gt;</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;cailloux&quot;</span>&gt;0.00&lt;/<span class="kw">colonne</span>&gt;</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;typecailloux&quot;</span>&gt;1&lt;/<span class="kw">colonne</span>&gt;</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;infil&quot;</span>&gt;50.00&lt;/<span class="kw">colonne</span>&gt;</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;epd&quot;</span>&gt;10&lt;/<span class="kw">colonne</span>&gt;</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>...</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>  &lt;<span class="kw">sol</span><span class="ot"> nom=</span><span class="st">&quot;solcanne&quot;</span>&gt;</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>...</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>    &lt;/<span class="kw">tableau_entete</span>&gt;</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>    &lt;<span class="kw">tableau</span><span class="ot"> nb_colonnes=</span><span class="st">&quot;8&quot;</span><span class="ot"> nom=</span><span class="st">&quot;layer 1&quot;</span>&gt;</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>      &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;epc&quot;</span>&gt;20.00&lt;/<span class="kw">colonne</span>&gt;</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>      &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;HCCF&quot;</span>&gt;46.80&lt;/<span class="kw">colonne</span>&gt;</span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>      &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;HMINF&quot;</span>&gt;26.20&lt;/<span class="kw">colonne</span>&gt;</span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>      &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;DAF&quot;</span>&gt;1.08&lt;/<span class="kw">colonne</span>&gt;</span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a>      &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;cailloux&quot;</span>&gt;0.00&lt;/<span class="kw">colonne</span>&gt;</span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a>      &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;typecailloux&quot;</span>&gt;1&lt;/<span class="kw">colonne</span>&gt;</span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a>      &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;infil&quot;</span>&gt;50.00&lt;/<span class="kw">colonne</span>&gt;</span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a>      &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;epd&quot;</span>&gt;10&lt;/<span class="kw">colonne</span>&gt;</span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a>...</span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a>    &lt;/<span class="kw">tableau</span>&gt;</span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a>    &lt;<span class="kw">tableau</span><span class="ot"> nb_colonnes=</span><span class="st">&quot;8&quot;</span><span class="ot"> nom=</span><span class="st">&quot;layer 5&quot;</span>&gt;</span>
+<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a>      &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;epc&quot;</span>&gt;20.00&lt;/<span class="kw">colonne</span>&gt;</span>
+<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a>      &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;HCCF&quot;</span>&gt;50.10&lt;/<span class="kw">colonne</span>&gt;</span>
+<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a>      &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;HMINF&quot;</span>&gt;25.50&lt;/<span class="kw">colonne</span>&gt;</span>
+<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a>      &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;DAF&quot;</span>&gt;0.99&lt;/<span class="kw">colonne</span>&gt;</span>
+<span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a>      &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;cailloux&quot;</span>&gt;0.00&lt;/<span class="kw">colonne</span>&gt;</span>
+<span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a>      &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;typecailloux&quot;</span>&gt;1&lt;/<span class="kw">colonne</span>&gt;</span>
+<span id="cb3-22"><a href="#cb3-22" tabindex="-1"></a>      &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;infil&quot;</span>&gt;50.00&lt;/<span class="kw">colonne</span>&gt;</span>
+<span id="cb3-23"><a href="#cb3-23" tabindex="-1"></a>      &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;epd&quot;</span>&gt;10&lt;/<span class="kw">colonne</span>&gt;</span>
+<span id="cb3-24"><a href="#cb3-24" tabindex="-1"></a>...</span></code></pre></div>
 <ul>
 <li>Example from tec files In the above file extract for crop management
 parameters, each set of parameters is repeated for each operation
@@ -1730,37 +1730,37 @@ Inside each <code>intervention</code> node, parameters names are defined
 in a <code>nom</code> attribute for each <code>colonne</code> XML
 tag.</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">formalisme</span><span class="ot"> nom=</span><span class="st">&quot;supply of organic residus&quot;</span>&gt;</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">ta</span><span class="ot"> nb_interventions=</span><span class="st">&quot;1&quot;</span><span class="ot"> nom=</span><span class="st">&quot;interventions&quot;</span>&gt;</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">ta_entete</span><span class="ot"> nb_colonnes=</span><span class="st">&quot;7&quot;</span>&gt;</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;julres&quot;</span>/&gt;</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;coderes&quot;</span>/&gt;</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;qres&quot;</span>/&gt;</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;Crespc&quot;</span>/&gt;</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;CsurNres&quot;</span>/&gt;</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;Nminres&quot;</span>/&gt;</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;eaures&quot;</span>/&gt;</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>      &lt;/<span class="kw">ta_entete</span>&gt;</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">intervention</span><span class="ot"> nb_colonnes=</span><span class="st">&quot;7&quot;</span>&gt;</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;julres&quot;</span>&gt;112&lt;/<span class="kw">colonne</span>&gt;</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;coderes&quot;</span>&gt;1&lt;/<span class="kw">colonne</span>&gt;</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;qres&quot;</span>&gt;1.00&lt;/<span class="kw">colonne</span>&gt;</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;Crespc&quot;</span>&gt;42.00&lt;/<span class="kw">colonne</span>&gt;</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;CsurNres&quot;</span>&gt;60.00&lt;/<span class="kw">colonne</span>&gt;</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;Nminres&quot;</span>&gt;0.00&lt;/<span class="kw">colonne</span>&gt;</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;eaures&quot;</span>&gt;0.00&lt;/<span class="kw">colonne</span>&gt;</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>      &lt;/<span class="kw">intervention</span>&gt;</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>...</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">intervention</span><span class="ot"> nb_colonnes=</span><span class="st">&quot;7&quot;</span>&gt;</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;julres&quot;</span>&gt;220&lt;/<span class="kw">colonne</span>&gt;</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;coderes&quot;</span>&gt;1&lt;/<span class="kw">colonne</span>&gt;</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;qres&quot;</span>&gt;1.00&lt;/<span class="kw">colonne</span>&gt;</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;Crespc&quot;</span>&gt;42.00&lt;/<span class="kw">colonne</span>&gt;</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;CsurNres&quot;</span>&gt;60.00&lt;/<span class="kw">colonne</span>&gt;</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;Nminres&quot;</span>&gt;0.00&lt;/<span class="kw">colonne</span>&gt;</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;eaures&quot;</span>&gt;0.00&lt;/<span class="kw">colonne</span>&gt;</span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>      &lt;/<span class="kw">intervention</span>&gt;</span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>...</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>  &lt;<span class="kw">formalisme</span><span class="ot"> nom=</span><span class="st">&quot;supply of organic residus&quot;</span>&gt;</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>    &lt;<span class="kw">ta</span><span class="ot"> nb_interventions=</span><span class="st">&quot;1&quot;</span><span class="ot"> nom=</span><span class="st">&quot;interventions&quot;</span>&gt;</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>      &lt;<span class="kw">ta_entete</span><span class="ot"> nb_colonnes=</span><span class="st">&quot;7&quot;</span>&gt;</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;julres&quot;</span>/&gt;</span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;coderes&quot;</span>/&gt;</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;qres&quot;</span>/&gt;</span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;Crespc&quot;</span>/&gt;</span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;CsurNres&quot;</span>/&gt;</span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;Nminres&quot;</span>/&gt;</span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;eaures&quot;</span>/&gt;</span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a>      &lt;/<span class="kw">ta_entete</span>&gt;</span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a>      &lt;<span class="kw">intervention</span><span class="ot"> nb_colonnes=</span><span class="st">&quot;7&quot;</span>&gt;</span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;julres&quot;</span>&gt;112&lt;/<span class="kw">colonne</span>&gt;</span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;coderes&quot;</span>&gt;1&lt;/<span class="kw">colonne</span>&gt;</span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;qres&quot;</span>&gt;1.00&lt;/<span class="kw">colonne</span>&gt;</span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;Crespc&quot;</span>&gt;42.00&lt;/<span class="kw">colonne</span>&gt;</span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;CsurNres&quot;</span>&gt;60.00&lt;/<span class="kw">colonne</span>&gt;</span>
+<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;Nminres&quot;</span>&gt;0.00&lt;/<span class="kw">colonne</span>&gt;</span>
+<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;eaures&quot;</span>&gt;0.00&lt;/<span class="kw">colonne</span>&gt;</span>
+<span id="cb4-20"><a href="#cb4-20" tabindex="-1"></a>      &lt;/<span class="kw">intervention</span>&gt;</span>
+<span id="cb4-21"><a href="#cb4-21" tabindex="-1"></a>...</span>
+<span id="cb4-22"><a href="#cb4-22" tabindex="-1"></a>      &lt;<span class="kw">intervention</span><span class="ot"> nb_colonnes=</span><span class="st">&quot;7&quot;</span>&gt;</span>
+<span id="cb4-23"><a href="#cb4-23" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;julres&quot;</span>&gt;220&lt;/<span class="kw">colonne</span>&gt;</span>
+<span id="cb4-24"><a href="#cb4-24" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;coderes&quot;</span>&gt;1&lt;/<span class="kw">colonne</span>&gt;</span>
+<span id="cb4-25"><a href="#cb4-25" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;qres&quot;</span>&gt;1.00&lt;/<span class="kw">colonne</span>&gt;</span>
+<span id="cb4-26"><a href="#cb4-26" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;Crespc&quot;</span>&gt;42.00&lt;/<span class="kw">colonne</span>&gt;</span>
+<span id="cb4-27"><a href="#cb4-27" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;CsurNres&quot;</span>&gt;60.00&lt;/<span class="kw">colonne</span>&gt;</span>
+<span id="cb4-28"><a href="#cb4-28" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;Nminres&quot;</span>&gt;0.00&lt;/<span class="kw">colonne</span>&gt;</span>
+<span id="cb4-29"><a href="#cb4-29" tabindex="-1"></a>        &lt;<span class="kw">colonne</span><span class="ot"> nom=</span><span class="st">&quot;eaures&quot;</span>&gt;0.00&lt;/<span class="kw">colonne</span>&gt;</span>
+<span id="cb4-30"><a href="#cb4-30" tabindex="-1"></a>      &lt;/<span class="kw">intervention</span>&gt;</span>
+<span id="cb4-31"><a href="#cb4-31" tabindex="-1"></a>...</span></code></pre></div>
 </div>
 <div id="functions-for-xml-files-manipulations" class="section level2">
 <h2>Functions for XML files manipulations</h2>
@@ -1784,36 +1784,36 @@ them have been renamed).</p>
 <h2>Getting the XML files source directory</h2>
 <p>In xml_dir, we store the directory path of the XML files available in
 the SticsRFiles installation directory.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>xml_dir <span class="ot">&lt;-</span> <span class="fu">get_examples_path</span>(<span class="at">file_type =</span> <span class="st">&quot;xml&quot;</span>, <span class="at">stics_version =</span> stics_version)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># For linux &gt; &#39;/path/to/user/R/x86_64-pc-linux-gnu-library/3.6/SticsRFiles/ &gt;</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># extdata/xml/examples/V10.0&#39;</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># For windows &gt; &#39;C:/Users/username/Documents/R/win-lib/3.6/SticsRFiles/ &gt;</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># extdata/xml/examples/V10.0&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>xml_dir <span class="ot">&lt;-</span> <span class="fu">get_examples_path</span>(<span class="at">file_type =</span> <span class="st">&quot;xml&quot;</span>, <span class="at">stics_version =</span> stics_version)</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="co"># For linux &gt; &#39;/path/to/user/R/x86_64-pc-linux-gnu-library/3.6/SticsRFiles/ &gt;</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co"># extdata/xml/examples/V10.0&#39;</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="co"># For windows &gt; &#39;C:/Users/username/Documents/R/win-lib/3.6/SticsRFiles/ &gt;</span></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="co"># extdata/xml/examples/V10.0&#39;</span></span></code></pre></div>
 </div>
 <div id="examples-files" class="section level2">
 <h2>Examples files</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>xml_files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">path =</span> xml_dir, <span class="at">pattern =</span> <span class="st">&quot;.xml$&quot;</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Listing only the first three files of the entire list</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># For linux &gt; [1]</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># &#39;/path/to/user/R/x86_64-pc-linux-gnu-library/3.6/SticsRFiles/extdata/xml &gt;</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># /examples/V10.0/file_ini.xml&#39; &gt; [2]</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># &#39;/path/to/user/R/x86_64-pc-linux-gnu-library/3.6/SticsRFiles/extdata/xml &gt;</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># /examples/V10.0/file_plt.xml&#39; &gt; [3]</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># &#39;/path/to/user/R/x86_64-pc-linux-gnu-library/3.6/SticsRFiles/extdata/xml &gt;</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># /examples/V10.0/file_sta.xml&#39;</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># For windows &gt; [1]</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co"># &#39;C:/Users/username/Documents/R/win-lib/3.6/SticsRFiles/extdata/xml/ &gt;</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co"># examples/V10.0/file_ini.xml&#39; &gt; [2]</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co"># &#39;C:/Users/username/Documents/R/win-lib/3.6/SticsRFiles/extdata/xml/ &gt;</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co"># examples/V10.0/file_plt.xml&#39; &gt; [3]</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co"># &#39;C:/Users/username/Documents/R/win-lib/3.6/SticsRFiles/extdata/xml/ &gt;</span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co"># examples/V10.0/file_sta.xml&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>xml_files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">path =</span> xml_dir, <span class="at">pattern =</span> <span class="st">&quot;.xml$&quot;</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="co"># Listing only the first three files of the entire list</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="co"># For linux &gt; [1]</span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="co"># &#39;/path/to/user/R/x86_64-pc-linux-gnu-library/3.6/SticsRFiles/extdata/xml &gt;</span></span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a><span class="co"># /examples/V10.0/file_ini.xml&#39; &gt; [2]</span></span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="co"># &#39;/path/to/user/R/x86_64-pc-linux-gnu-library/3.6/SticsRFiles/extdata/xml &gt;</span></span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a><span class="co"># /examples/V10.0/file_plt.xml&#39; &gt; [3]</span></span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a><span class="co"># &#39;/path/to/user/R/x86_64-pc-linux-gnu-library/3.6/SticsRFiles/extdata/xml &gt;</span></span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a><span class="co"># /examples/V10.0/file_sta.xml&#39;</span></span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a><span class="co"># For windows &gt; [1]</span></span>
+<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a><span class="co"># &#39;C:/Users/username/Documents/R/win-lib/3.6/SticsRFiles/extdata/xml/ &gt;</span></span>
+<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a><span class="co"># examples/V10.0/file_ini.xml&#39; &gt; [2]</span></span>
+<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a><span class="co"># &#39;C:/Users/username/Documents/R/win-lib/3.6/SticsRFiles/extdata/xml/ &gt;</span></span>
+<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a><span class="co"># examples/V10.0/file_plt.xml&#39; &gt; [3]</span></span>
+<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a><span class="co"># &#39;C:/Users/username/Documents/R/win-lib/3.6/SticsRFiles/extdata/xml/ &gt;</span></span>
+<span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a><span class="co"># examples/V10.0/file_sta.xml&#39;</span></span></code></pre></div>
 <p>The corresponding files types to file names is given in the above
 table:</p>
 <table>
@@ -1863,17 +1863,17 @@ table:</p>
 <h2>Copying files in a local directory</h2>
 <div id="a-specific-file" class="section level3">
 <h3>A specific file</h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Setting a local directory path xml_loc_dir &lt;- &#39;/path/to/local/directory&#39;</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">file.copy</span>(<span class="at">from =</span> <span class="fu">file.path</span>(xml_dir, <span class="st">&quot;sols.xml&quot;</span>), <span class="at">to =</span> <span class="fu">file.path</span>(xml_loc_dir, <span class="st">&quot;sols.xml&quot;</span>),</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co"># Setting a local directory path xml_loc_dir &lt;- &#39;/path/to/local/directory&#39;</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="fu">file.copy</span>(<span class="at">from =</span> <span class="fu">file.path</span>(xml_dir, <span class="st">&quot;sols.xml&quot;</span>), <span class="at">to =</span> <span class="fu">file.path</span>(xml_loc_dir, <span class="st">&quot;sols.xml&quot;</span>),</span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>    <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 </div>
 <div id="all-files" class="section level3">
 <h3>All files</h3>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">file.copy</span>(<span class="at">from =</span> xml_files, <span class="at">to =</span> xml_loc_dir)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="fu">file.copy</span>(<span class="at">from =</span> xml_files, <span class="at">to =</span> xml_loc_dir)</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="co">#&gt; [1]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE</span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -1976,10 +1976,10 @@ or with specifying the desired <code>STICS</code> version, allows to get
 a table containing all input parameters.</p>
 <p>In the above code block, an extract of the returned information table
 is shown:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>param_names <span class="ot">&lt;-</span> <span class="fu">get_param_info</span>()</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(param_names)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>param_names <span class="ot">&lt;-</span> <span class="fu">get_param_info</span>()</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a><span class="fu">head</span>(param_names)</span></code></pre></div>
 <pre><code>#&gt;         name    file min max
 #&gt; 1     aangst STATION   0 0.9
 #&gt; 2 abscission  PARPLT   0   1
@@ -2006,10 +2006,10 @@ paged table.</p>
 <h3>Getting information about one or more parameters</h3>
 <p>If parameters names are known and are given with the right syntax,
 information can be retrieved as follows</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_info</span>(<span class="at">param =</span> <span class="st">&quot;albedo&quot;</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_info</span>(<span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;albedo&quot;</span>, <span class="st">&quot;latitude&quot;</span>, <span class="st">&quot;humcapil&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="fu">get_param_info</span>(<span class="at">param =</span> <span class="st">&quot;albedo&quot;</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="fu">get_param_info</span>(<span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;albedo&quot;</span>, <span class="st">&quot;latitude&quot;</span>, <span class="st">&quot;humcapil&quot;</span>))</span></code></pre></div>
 <pre><code>#&gt;                      name   file  min max                  definition
 #&gt; 55                 albedo PARSOL 0.05 0.6 albedo of the bare dry soil
 #&gt; 56   albedomulchplastique PARTEC 0.05 0.8     albedo of plastic cover
@@ -2093,33 +2093,33 @@ information can be retrieved as follows</p>
 <div id="getting-parameters-information-using-partial-names-matching" class="section level3">
 <h3>Getting parameters information using partial names matching</h3>
 <p>A search with incomplete names may be done as follows</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_info</span>(<span class="at">param =</span> <span class="st">&quot;hum&quot;</span>)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                   name    file min  max</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 392       codetesthumN PARAMV6   1    2</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 803           humcapil  PARSOL   2   10</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 804            humirac PARAMV6   0    2</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 805  humirac_decisemis  PARTEC   0    1</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1249           profhum  PARSOL  10  150</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1250 profhumrecolteuse  PARTEC   0  100</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1251     profhumsemoir  PARTEC   0  100</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1282    prophumtassrec   PARAM 0.8  1.8</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1283    prophumtasssem   PARAM 0.8  1.8</span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1293          psihumin   PARAM  -5 -0.1</span></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                                                                                                                                    definition</span></span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 392                                            option to define automatic N fertilisation calculation: 1 = based on rainfall, 2 = based on soil water content</span></span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 803                                                                  threshold of soil gravimetric water content under which capillary rise occurs (dry soil)</span></span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 804  A revoir: 1 = la fonction F_humirac atteint un plateau (ancien code) / 2 = la fonction n atteint pas de plateau (identique a la phase germination-levee)</span></span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 805                                     relative soil moisture threshold above which sowing is possible (0 = no sensitivity to drought, 1 = highly sensitive)</span></span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1249                                                                                                    maximum soil depth with an active biological activity</span></span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1250                                                         soil depth at which moisture is considered to allow harvesting (if soil compaction is activated)</span></span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1251                                                             soil depth at which moisture is considered to allow sowing (if soil compaction is activated)</span></span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1282                                                    soil moisture content (fraction of field capacity) above which compaction may occur and delay harvest</span></span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1283                                                     soil moisture content (fraction of field capacity) above which compaction may occur and delay sowing</span></span>
-<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1293                                                                                                      soil water potential corresponding to wilting point</span></span>
-<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>param_names <span class="ot">&lt;-</span> <span class="fu">get_param_info</span>(<span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;alb&quot;</span>, <span class="st">&quot;hum&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a></span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="fu">get_param_info</span>(<span class="at">param =</span> <span class="st">&quot;hum&quot;</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="co">#&gt;                   name    file min  max</span></span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a><span class="co">#&gt; 392       codetesthumN PARAMV6   1    2</span></span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a><span class="co">#&gt; 803           humcapil  PARSOL   2   10</span></span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a><span class="co">#&gt; 804            humirac PARAMV6   0    2</span></span>
+<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a><span class="co">#&gt; 805  humirac_decisemis  PARTEC   0    1</span></span>
+<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a><span class="co">#&gt; 1249           profhum  PARSOL  10  150</span></span>
+<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a><span class="co">#&gt; 1250 profhumrecolteuse  PARTEC   0  100</span></span>
+<span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a><span class="co">#&gt; 1251     profhumsemoir  PARTEC   0  100</span></span>
+<span id="cb13-11"><a href="#cb13-11" tabindex="-1"></a><span class="co">#&gt; 1282    prophumtassrec   PARAM 0.8  1.8</span></span>
+<span id="cb13-12"><a href="#cb13-12" tabindex="-1"></a><span class="co">#&gt; 1283    prophumtasssem   PARAM 0.8  1.8</span></span>
+<span id="cb13-13"><a href="#cb13-13" tabindex="-1"></a><span class="co">#&gt; 1293          psihumin   PARAM  -5 -0.1</span></span>
+<span id="cb13-14"><a href="#cb13-14" tabindex="-1"></a><span class="co">#&gt;                                                                                                                                                    definition</span></span>
+<span id="cb13-15"><a href="#cb13-15" tabindex="-1"></a><span class="co">#&gt; 392                                            option to define automatic N fertilisation calculation: 1 = based on rainfall, 2 = based on soil water content</span></span>
+<span id="cb13-16"><a href="#cb13-16" tabindex="-1"></a><span class="co">#&gt; 803                                                                  threshold of soil gravimetric water content under which capillary rise occurs (dry soil)</span></span>
+<span id="cb13-17"><a href="#cb13-17" tabindex="-1"></a><span class="co">#&gt; 804  A revoir: 1 = la fonction F_humirac atteint un plateau (ancien code) / 2 = la fonction n atteint pas de plateau (identique a la phase germination-levee)</span></span>
+<span id="cb13-18"><a href="#cb13-18" tabindex="-1"></a><span class="co">#&gt; 805                                     relative soil moisture threshold above which sowing is possible (0 = no sensitivity to drought, 1 = highly sensitive)</span></span>
+<span id="cb13-19"><a href="#cb13-19" tabindex="-1"></a><span class="co">#&gt; 1249                                                                                                    maximum soil depth with an active biological activity</span></span>
+<span id="cb13-20"><a href="#cb13-20" tabindex="-1"></a><span class="co">#&gt; 1250                                                         soil depth at which moisture is considered to allow harvesting (if soil compaction is activated)</span></span>
+<span id="cb13-21"><a href="#cb13-21" tabindex="-1"></a><span class="co">#&gt; 1251                                                             soil depth at which moisture is considered to allow sowing (if soil compaction is activated)</span></span>
+<span id="cb13-22"><a href="#cb13-22" tabindex="-1"></a><span class="co">#&gt; 1282                                                    soil moisture content (fraction of field capacity) above which compaction may occur and delay harvest</span></span>
+<span id="cb13-23"><a href="#cb13-23" tabindex="-1"></a><span class="co">#&gt; 1283                                                     soil moisture content (fraction of field capacity) above which compaction may occur and delay sowing</span></span>
+<span id="cb13-24"><a href="#cb13-24" tabindex="-1"></a><span class="co">#&gt; 1293                                                                                                      soil water potential corresponding to wilting point</span></span>
+<span id="cb13-25"><a href="#cb13-25" tabindex="-1"></a></span>
+<span id="cb13-26"><a href="#cb13-26" tabindex="-1"></a></span>
+<span id="cb13-27"><a href="#cb13-27" tabindex="-1"></a>param_names <span class="ot">&lt;-</span> <span class="fu">get_param_info</span>(<span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;alb&quot;</span>, <span class="st">&quot;hum&quot;</span>))</span></code></pre></div>
 <p>The found parameters data.frame content is presented in the above
 paged table.</p>
 <div data-pagedtable="false">
@@ -2134,11 +2134,11 @@ paged table.</p>
 <p>The <code>keyword</code> argument (one or several possible strings)
 may be used to search in all textual columns as <code>name</code> or
 <code>description</code>.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_info</span>(<span class="at">keyword =</span> <span class="st">&quot;hum&quot;</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>param_names <span class="ot">&lt;-</span> <span class="fu">get_param_info</span>(<span class="at">keyword =</span> <span class="fu">c</span>(<span class="st">&quot;alb&quot;</span>, <span class="st">&quot;hum&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a></span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a><span class="fu">get_param_info</span>(<span class="at">keyword =</span> <span class="st">&quot;hum&quot;</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a>param_names <span class="ot">&lt;-</span> <span class="fu">get_param_info</span>(<span class="at">keyword =</span> <span class="fu">c</span>(<span class="st">&quot;alb&quot;</span>, <span class="st">&quot;hum&quot;</span>))</span></code></pre></div>
 <p>The found parameters data.frame content is presented in the above
 paged table.</p>
 <div data-pagedtable="false">
@@ -2171,68 +2171,68 @@ requires different input arguments combination to do so.</p>
 <ul>
 <li>For one parameter and one occurrence</li>
 </ul>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fixing files paths</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>sols <span class="ot">&lt;-</span> <span class="fu">file.path</span>(xml_loc_dir, <span class="st">&quot;sols.xml&quot;</span>)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>par_gen <span class="ot">&lt;-</span> <span class="fu">file.path</span>(xml_loc_dir, <span class="st">&quot;param_gen.xml&quot;</span>)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># A option parameter</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_xml</span>(par_gen, <span class="at">param =</span> <span class="st">&quot;codeactimulch&quot;</span>)</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $param_gen.xml</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $param_gen.xml$codeactimulch</span></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co"># A simple parameter</span></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_xml</span>(par_gen, <span class="at">param =</span> <span class="st">&quot;tnitopt&quot;</span>)</span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $param_gen.xml</span></span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $param_gen.xml$tnitopt</span></span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 30</span></span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Using a conditional selection</span></span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="st">&quot;argi&quot;</span>, <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>, <span class="at">select_value =</span> <span class="st">&quot;solcanne&quot;</span>)</span>
-<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
-<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml$argi</span></span>
-<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 30.2</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="co"># Fixing files paths</span></span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>sols <span class="ot">&lt;-</span> <span class="fu">file.path</span>(xml_loc_dir, <span class="st">&quot;sols.xml&quot;</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a>par_gen <span class="ot">&lt;-</span> <span class="fu">file.path</span>(xml_loc_dir, <span class="st">&quot;param_gen.xml&quot;</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a><span class="co"># A option parameter</span></span>
+<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a><span class="fu">get_param_xml</span>(par_gen, <span class="at">param =</span> <span class="st">&quot;codeactimulch&quot;</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a><span class="co">#&gt; $param_gen.xml</span></span>
+<span id="cb15-8"><a href="#cb15-8" tabindex="-1"></a><span class="co">#&gt; $param_gen.xml$codeactimulch</span></span>
+<span id="cb15-9"><a href="#cb15-9" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span>
+<span id="cb15-10"><a href="#cb15-10" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="#cb15-11" tabindex="-1"></a><span class="co"># A simple parameter</span></span>
+<span id="cb15-12"><a href="#cb15-12" tabindex="-1"></a><span class="fu">get_param_xml</span>(par_gen, <span class="at">param =</span> <span class="st">&quot;tnitopt&quot;</span>)</span>
+<span id="cb15-13"><a href="#cb15-13" tabindex="-1"></a><span class="co">#&gt; $param_gen.xml</span></span>
+<span id="cb15-14"><a href="#cb15-14" tabindex="-1"></a><span class="co">#&gt; $param_gen.xml$tnitopt</span></span>
+<span id="cb15-15"><a href="#cb15-15" tabindex="-1"></a><span class="co">#&gt; [1] 30</span></span>
+<span id="cb15-16"><a href="#cb15-16" tabindex="-1"></a></span>
+<span id="cb15-17"><a href="#cb15-17" tabindex="-1"></a><span class="co"># Using a conditional selection</span></span>
+<span id="cb15-18"><a href="#cb15-18" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="st">&quot;argi&quot;</span>, <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>, <span class="at">select_value =</span> <span class="st">&quot;solcanne&quot;</span>)</span>
+<span id="cb15-19"><a href="#cb15-19" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
+<span id="cb15-20"><a href="#cb15-20" tabindex="-1"></a><span class="co">#&gt; $sols.xml$argi</span></span>
+<span id="cb15-21"><a href="#cb15-21" tabindex="-1"></a><span class="co">#&gt; [1] 30.2</span></span></code></pre></div>
 <ul>
 <li>For one parameter and several occurences</li>
 </ul>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># For all soils</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="st">&quot;argi&quot;</span>)</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml$argi</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] 30.2 21.0 27.0 39.0  1.0 12.2 70.0 22.0  9.9 10.2 10.2 17.0 23.1 22.0 27.0</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [16] 30.7  0.1 27.3 25.0 10.2 25.0 28.6 36.0 29.0 10.2 21.2 22.2 13.0 17.0 15.0</span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [31] 26.0 28.2 20.0</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a></span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a><span class="co"># For all soils</span></span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="st">&quot;argi&quot;</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
+<span id="cb16-6"><a href="#cb16-6" tabindex="-1"></a><span class="co">#&gt; $sols.xml$argi</span></span>
+<span id="cb16-7"><a href="#cb16-7" tabindex="-1"></a><span class="co">#&gt;  [1] 30.2 21.0 27.0 39.0  1.0 12.2 70.0 22.0  9.9 10.2 10.2 17.0 23.1 22.0 27.0</span></span>
+<span id="cb16-8"><a href="#cb16-8" tabindex="-1"></a><span class="co">#&gt; [16] 30.7  0.1 27.3 25.0 10.2 25.0 28.6 36.0 29.0 10.2 21.2 22.2 13.0 17.0 15.0</span></span>
+<span id="cb16-9"><a href="#cb16-9" tabindex="-1"></a><span class="co">#&gt; [31] 26.0 28.2 20.0</span></span></code></pre></div>
 <ul>
 <li>For several parameters and several occurrences</li>
 </ul>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># For all soils</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;argi&quot;</span>, <span class="st">&quot;pH&quot;</span>))</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml$argi</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] 30.2 21.0 27.0 39.0  1.0 12.2 70.0 22.0  9.9 10.2 10.2 17.0 23.1 22.0 27.0</span></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [16] 30.7  0.1 27.3 25.0 10.2 25.0 28.6 36.0 29.0 10.2 21.2 22.2 13.0 17.0 15.0</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [31] 26.0 28.2 20.0</span></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml$pH</span></span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] 7.00 7.00 7.00 7.00 5.36 8.10 7.00 7.00 6.10 8.40 8.30 7.00 7.00 7.00 7.00</span></span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [16] 7.00 7.00 7.00 7.00 8.30 7.00 7.00 7.00 7.00 7.00 7.95 7.00 7.00 6.50 7.00</span></span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [31] 7.86 7.84 5.00</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a></span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a><span class="co"># For all soils</span></span>
+<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;argi&quot;</span>, <span class="st">&quot;pH&quot;</span>))</span>
+<span id="cb17-4"><a href="#cb17-4" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
+<span id="cb17-5"><a href="#cb17-5" tabindex="-1"></a><span class="co">#&gt; $sols.xml$argi</span></span>
+<span id="cb17-6"><a href="#cb17-6" tabindex="-1"></a><span class="co">#&gt;  [1] 30.2 21.0 27.0 39.0  1.0 12.2 70.0 22.0  9.9 10.2 10.2 17.0 23.1 22.0 27.0</span></span>
+<span id="cb17-7"><a href="#cb17-7" tabindex="-1"></a><span class="co">#&gt; [16] 30.7  0.1 27.3 25.0 10.2 25.0 28.6 36.0 29.0 10.2 21.2 22.2 13.0 17.0 15.0</span></span>
+<span id="cb17-8"><a href="#cb17-8" tabindex="-1"></a><span class="co">#&gt; [31] 26.0 28.2 20.0</span></span>
+<span id="cb17-9"><a href="#cb17-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb17-10"><a href="#cb17-10" tabindex="-1"></a><span class="co">#&gt; $sols.xml$pH</span></span>
+<span id="cb17-11"><a href="#cb17-11" tabindex="-1"></a><span class="co">#&gt;  [1] 7.00 7.00 7.00 7.00 5.36 8.10 7.00 7.00 6.10 8.40 8.30 7.00 7.00 7.00 7.00</span></span>
+<span id="cb17-12"><a href="#cb17-12" tabindex="-1"></a><span class="co">#&gt; [16] 7.00 7.00 7.00 7.00 8.30 7.00 7.00 7.00 7.00 7.00 7.95 7.00 7.00 6.50 7.00</span></span>
+<span id="cb17-13"><a href="#cb17-13" tabindex="-1"></a><span class="co">#&gt; [31] 7.86 7.84 5.00</span></span></code></pre></div>
 <ul>
 <li>For several parameters and one occurrence (conditional
 selection)</li>
 </ul>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># For one soil</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;argi&quot;</span>, <span class="st">&quot;pH&quot;</span>), <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>, <span class="at">select_value =</span> <span class="st">&quot;solcanne&quot;</span>)</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml$argi</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 30.2</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml$pH</span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 7</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a></span>
+<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a><span class="co"># For one soil</span></span>
+<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;argi&quot;</span>, <span class="st">&quot;pH&quot;</span>), <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>, <span class="at">select_value =</span> <span class="st">&quot;solcanne&quot;</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
+<span id="cb18-5"><a href="#cb18-5" tabindex="-1"></a><span class="co">#&gt; $sols.xml$argi</span></span>
+<span id="cb18-6"><a href="#cb18-6" tabindex="-1"></a><span class="co">#&gt; [1] 30.2</span></span>
+<span id="cb18-7"><a href="#cb18-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb18-8"><a href="#cb18-8" tabindex="-1"></a><span class="co">#&gt; $sols.xml$pH</span></span>
+<span id="cb18-9"><a href="#cb18-9" tabindex="-1"></a><span class="co">#&gt; [1] 7</span></span></code></pre></div>
 </div>
 <div id="vector-parameters-extraction" class="section level2">
 <h2>Vector parameters extraction</h2>
@@ -2241,172 +2241,172 @@ management files.</p>
 <ul>
 <li>Getting all values for given parameters and all soils</li>
 </ul>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For all soil layers</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;epc&quot;</span>, <span class="st">&quot;infil&quot;</span>))</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml$epc</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   [1]  20  20  20  20  20  30  30  30  30  30  30  30  30  30   0  20  20  20</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [19]   0   0   5  10  15  15  15  30  30  30  30  30  10  10  10  10  40  25</span></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [37]  30  35  30   0  10  20  20  20   0  30  30  30  30   0  30  30  30  30</span></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [55]   0  10  30  20  40  80  15  15  30  30  30  25  30  35  30   0   5  15</span></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [73]  20  50  80  20  20  20   0   0  50   0   0   0   0  22  33   7   0   0</span></span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [91]  25  20  40  35   0  30  30  30  30   0  25  20  40  35   0  30  20  20</span></span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [109]  20 110  10  20  40  60  70  10  50  50   0   0  30  30  30  30   0  10</span></span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [127]  30  30  30  15  25  25  25  45   0  10  40  70  40  40  20  20  60   0</span></span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [145]   0  20  30  30  20  20  10  20  30  30  30  10  20  30  30  30  20   5</span></span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [163]   0   0   0</span></span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml$infil</span></span>
-<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   [1] 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00</span></span>
-<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [13] 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00  0.00  0.00  0.00  0.00</span></span>
-<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [25]  0.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00</span></span>
-<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [37] 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00</span></span>
-<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [49] 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00</span></span>
-<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [61] 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 10.00 20.00</span></span>
-<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [73]  2.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00  0.00  0.00  0.00  0.00</span></span>
-<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [85]  0.00  0.00  0.00  0.00  0.00  0.00 50.00 50.00 50.00 50.00 50.00 50.00</span></span>
-<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [97] 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00  0.00  0.00  0.00</span></span>
-<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [109]  0.00  0.00 50.00 50.00 50.00 50.00 20.00 50.00 50.00 50.00 50.00 50.00</span></span>
-<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [121] 50.00 50.00 50.00 50.00 50.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00</span></span>
-<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [133]  0.00  0.00  0.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00</span></span>
-<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [145] 50.00  0.00  0.00  0.00  0.00  0.00 30.00 30.00 30.00 30.00 30.00 15.00</span></span>
-<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [157] 15.00 15.00 15.00 15.00 10.00  0.01 50.00 50.00 50.00</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="co"># For all soil layers</span></span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;epc&quot;</span>, <span class="st">&quot;infil&quot;</span>))</span>
+<span id="cb19-3"><a href="#cb19-3" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
+<span id="cb19-4"><a href="#cb19-4" tabindex="-1"></a><span class="co">#&gt; $sols.xml$epc</span></span>
+<span id="cb19-5"><a href="#cb19-5" tabindex="-1"></a><span class="co">#&gt;   [1]  20  20  20  20  20  30  30  30  30  30  30  30  30  30   0  20  20  20</span></span>
+<span id="cb19-6"><a href="#cb19-6" tabindex="-1"></a><span class="co">#&gt;  [19]   0   0   5  10  15  15  15  30  30  30  30  30  10  10  10  10  40  25</span></span>
+<span id="cb19-7"><a href="#cb19-7" tabindex="-1"></a><span class="co">#&gt;  [37]  30  35  30   0  10  20  20  20   0  30  30  30  30   0  30  30  30  30</span></span>
+<span id="cb19-8"><a href="#cb19-8" tabindex="-1"></a><span class="co">#&gt;  [55]   0  10  30  20  40  80  15  15  30  30  30  25  30  35  30   0   5  15</span></span>
+<span id="cb19-9"><a href="#cb19-9" tabindex="-1"></a><span class="co">#&gt;  [73]  20  50  80  20  20  20   0   0  50   0   0   0   0  22  33   7   0   0</span></span>
+<span id="cb19-10"><a href="#cb19-10" tabindex="-1"></a><span class="co">#&gt;  [91]  25  20  40  35   0  30  30  30  30   0  25  20  40  35   0  30  20  20</span></span>
+<span id="cb19-11"><a href="#cb19-11" tabindex="-1"></a><span class="co">#&gt; [109]  20 110  10  20  40  60  70  10  50  50   0   0  30  30  30  30   0  10</span></span>
+<span id="cb19-12"><a href="#cb19-12" tabindex="-1"></a><span class="co">#&gt; [127]  30  30  30  15  25  25  25  45   0  10  40  70  40  40  20  20  60   0</span></span>
+<span id="cb19-13"><a href="#cb19-13" tabindex="-1"></a><span class="co">#&gt; [145]   0  20  30  30  20  20  10  20  30  30  30  10  20  30  30  30  20   5</span></span>
+<span id="cb19-14"><a href="#cb19-14" tabindex="-1"></a><span class="co">#&gt; [163]   0   0   0</span></span>
+<span id="cb19-15"><a href="#cb19-15" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb19-16"><a href="#cb19-16" tabindex="-1"></a><span class="co">#&gt; $sols.xml$infil</span></span>
+<span id="cb19-17"><a href="#cb19-17" tabindex="-1"></a><span class="co">#&gt;   [1] 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00</span></span>
+<span id="cb19-18"><a href="#cb19-18" tabindex="-1"></a><span class="co">#&gt;  [13] 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00  0.00  0.00  0.00  0.00</span></span>
+<span id="cb19-19"><a href="#cb19-19" tabindex="-1"></a><span class="co">#&gt;  [25]  0.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00</span></span>
+<span id="cb19-20"><a href="#cb19-20" tabindex="-1"></a><span class="co">#&gt;  [37] 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00</span></span>
+<span id="cb19-21"><a href="#cb19-21" tabindex="-1"></a><span class="co">#&gt;  [49] 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00</span></span>
+<span id="cb19-22"><a href="#cb19-22" tabindex="-1"></a><span class="co">#&gt;  [61] 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 10.00 20.00</span></span>
+<span id="cb19-23"><a href="#cb19-23" tabindex="-1"></a><span class="co">#&gt;  [73]  2.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00  0.00  0.00  0.00  0.00</span></span>
+<span id="cb19-24"><a href="#cb19-24" tabindex="-1"></a><span class="co">#&gt;  [85]  0.00  0.00  0.00  0.00  0.00  0.00 50.00 50.00 50.00 50.00 50.00 50.00</span></span>
+<span id="cb19-25"><a href="#cb19-25" tabindex="-1"></a><span class="co">#&gt;  [97] 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00  0.00  0.00  0.00</span></span>
+<span id="cb19-26"><a href="#cb19-26" tabindex="-1"></a><span class="co">#&gt; [109]  0.00  0.00 50.00 50.00 50.00 50.00 20.00 50.00 50.00 50.00 50.00 50.00</span></span>
+<span id="cb19-27"><a href="#cb19-27" tabindex="-1"></a><span class="co">#&gt; [121] 50.00 50.00 50.00 50.00 50.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00</span></span>
+<span id="cb19-28"><a href="#cb19-28" tabindex="-1"></a><span class="co">#&gt; [133]  0.00  0.00  0.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00</span></span>
+<span id="cb19-29"><a href="#cb19-29" tabindex="-1"></a><span class="co">#&gt; [145] 50.00  0.00  0.00  0.00  0.00  0.00 30.00 30.00 30.00 30.00 30.00 15.00</span></span>
+<span id="cb19-30"><a href="#cb19-30" tabindex="-1"></a><span class="co">#&gt; [157] 15.00 15.00 15.00 15.00 10.00  0.01 50.00 50.00 50.00</span></span></code></pre></div>
 <ul>
 <li>Getting all values for given parameters (for a given soil, or crop
 management operation)</li>
 </ul>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For all soil layers</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;epc&quot;</span>, <span class="st">&quot;infil&quot;</span>), <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>, <span class="at">value =</span> <span class="st">&quot;solcanne&quot;</span>)</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning: The `value` argument of `get_param_xml()` is deprecated as of SticsRFiles</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1.0.0.</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ℹ Please use the `select_value` argument instead.</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; This warning is displayed once every 8 hours.</span></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Call `lifecycle::last_lifecycle_warnings()` to see where this warning was</span></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; generated.</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml$epc</span></span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 20 20 20 20 20</span></span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml$infil</span></span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 50 50 50 50 50</span></span></code></pre></div>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For all irrigation supplies</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>tec <span class="ot">&lt;-</span> <span class="fu">file.path</span>(xml_loc_dir, <span class="st">&quot;file_tec.xml&quot;</span>)</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_xml</span>(tec, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;julapI_or_sum_upvt&quot;</span>, <span class="st">&quot;amount&quot;</span>))</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml$julapI_or_sum_upvt</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] 178 185 193 198 200 204 207 211 214 218 221 232 239 249 257 264</span></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml$amount</span></span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] 20 24 29 29 28 31 21 21 23 18 22 16 16 30 29 20</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="co"># For all soil layers</span></span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;epc&quot;</span>, <span class="st">&quot;infil&quot;</span>), <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>, <span class="at">value =</span> <span class="st">&quot;solcanne&quot;</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" tabindex="-1"></a><span class="co">#&gt; Warning: The `value` argument of `get_param_xml()` is deprecated as of SticsRFiles</span></span>
+<span id="cb20-4"><a href="#cb20-4" tabindex="-1"></a><span class="co">#&gt; 1.0.0.</span></span>
+<span id="cb20-5"><a href="#cb20-5" tabindex="-1"></a><span class="co">#&gt; ℹ Please use the `select_value` argument instead.</span></span>
+<span id="cb20-6"><a href="#cb20-6" tabindex="-1"></a><span class="co">#&gt; This warning is displayed once every 8 hours.</span></span>
+<span id="cb20-7"><a href="#cb20-7" tabindex="-1"></a><span class="co">#&gt; Call `lifecycle::last_lifecycle_warnings()` to see where this warning was</span></span>
+<span id="cb20-8"><a href="#cb20-8" tabindex="-1"></a><span class="co">#&gt; generated.</span></span>
+<span id="cb20-9"><a href="#cb20-9" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
+<span id="cb20-10"><a href="#cb20-10" tabindex="-1"></a><span class="co">#&gt; $sols.xml$epc</span></span>
+<span id="cb20-11"><a href="#cb20-11" tabindex="-1"></a><span class="co">#&gt; [1] 20 20 20 20 20</span></span>
+<span id="cb20-12"><a href="#cb20-12" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb20-13"><a href="#cb20-13" tabindex="-1"></a><span class="co">#&gt; $sols.xml$infil</span></span>
+<span id="cb20-14"><a href="#cb20-14" tabindex="-1"></a><span class="co">#&gt; [1] 50 50 50 50 50</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="co"># For all irrigation supplies</span></span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a>tec <span class="ot">&lt;-</span> <span class="fu">file.path</span>(xml_loc_dir, <span class="st">&quot;file_tec.xml&quot;</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a><span class="fu">get_param_xml</span>(tec, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;julapI_or_sum_upvt&quot;</span>, <span class="st">&quot;amount&quot;</span>))</span>
+<span id="cb21-4"><a href="#cb21-4" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml</span></span>
+<span id="cb21-5"><a href="#cb21-5" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml$julapI_or_sum_upvt</span></span>
+<span id="cb21-6"><a href="#cb21-6" tabindex="-1"></a><span class="co">#&gt;  [1] 178 185 193 198 200 204 207 211 214 218 221 232 239 249 257 264</span></span>
+<span id="cb21-7"><a href="#cb21-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb21-8"><a href="#cb21-8" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml$amount</span></span>
+<span id="cb21-9"><a href="#cb21-9" tabindex="-1"></a><span class="co">#&gt;  [1] 20 24 29 29 28 31 21 21 23 18 22 16 16 30 29 20</span></span></code></pre></div>
 <ul>
 <li>Selecting with values index (among 5 soil layers, several
 irrigations supply)</li>
 </ul>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For soil layers 1 to 3</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;epc&quot;</span>, <span class="st">&quot;infil&quot;</span>), <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>, <span class="at">select_value =</span> <span class="st">&quot;solcanne&quot;</span>,</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">ids =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml$epc</span></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 20 20 20</span></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml$infil</span></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 50 50 50</span></span></code></pre></div>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># For irrigation operations 1 to 5</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_xml</span>(tec, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;julapI_or_sum_upvt&quot;</span>, <span class="st">&quot;amount&quot;</span>), <span class="at">ids =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml$julapI_or_sum_upvt</span></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 178 185 193 198 200</span></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml$amount</span></span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 20 24 29 29 28</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="co"># For soil layers 1 to 3</span></span>
+<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;epc&quot;</span>, <span class="st">&quot;infil&quot;</span>), <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>, <span class="at">select_value =</span> <span class="st">&quot;solcanne&quot;</span>,</span>
+<span id="cb22-3"><a href="#cb22-3" tabindex="-1"></a>    <span class="at">ids =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb22-4"><a href="#cb22-4" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
+<span id="cb22-5"><a href="#cb22-5" tabindex="-1"></a><span class="co">#&gt; $sols.xml$epc</span></span>
+<span id="cb22-6"><a href="#cb22-6" tabindex="-1"></a><span class="co">#&gt; [1] 20 20 20</span></span>
+<span id="cb22-7"><a href="#cb22-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb22-8"><a href="#cb22-8" tabindex="-1"></a><span class="co">#&gt; $sols.xml$infil</span></span>
+<span id="cb22-9"><a href="#cb22-9" tabindex="-1"></a><span class="co">#&gt; [1] 50 50 50</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a></span>
+<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a><span class="co"># For irrigation operations 1 to 5</span></span>
+<span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a><span class="fu">get_param_xml</span>(tec, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;julapI_or_sum_upvt&quot;</span>, <span class="st">&quot;amount&quot;</span>), <span class="at">ids =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml</span></span>
+<span id="cb23-5"><a href="#cb23-5" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml$julapI_or_sum_upvt</span></span>
+<span id="cb23-6"><a href="#cb23-6" tabindex="-1"></a><span class="co">#&gt; [1] 178 185 193 198 200</span></span>
+<span id="cb23-7"><a href="#cb23-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb23-8"><a href="#cb23-8" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml$amount</span></span>
+<span id="cb23-9"><a href="#cb23-9" tabindex="-1"></a><span class="co">#&gt; [1] 20 24 29 29 28</span></span></code></pre></div>
 </div>
 <div id="getting-all-parameters-values-from-files" class="section level2">
 <h2>Getting all parameters values from files</h2>
 <p>Using the function without any argument produces a list of all
 parameters values of a file.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>tec_param_values <span class="ot">&lt;-</span> <span class="fu">get_param_xml</span>(tec)[[<span class="dv">1</span>]]</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Displaying only a subset of the list</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(tec_param_values, <span class="at">n =</span> <span class="dv">10</span>)</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $julres</span></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 112</span></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $coderes</span></span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $qres</span></span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $Crespc</span></span>
-<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 42</span></span>
-<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CsurNres</span></span>
-<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 60</span></span>
-<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $Nminres</span></span>
-<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0</span></span>
-<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $eaures</span></span>
-<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0</span></span>
-<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $code_auto_profres</span></span>
-<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span>
-<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $resk</span></span>
-<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.14</span></span>
-<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $resz</span></span>
-<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 5</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a>tec_param_values <span class="ot">&lt;-</span> <span class="fu">get_param_xml</span>(tec)[[<span class="dv">1</span>]]</span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a><span class="co"># Displaying only a subset of the list</span></span>
+<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a><span class="fu">head</span>(tec_param_values, <span class="at">n =</span> <span class="dv">10</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" tabindex="-1"></a><span class="co">#&gt; $julres</span></span>
+<span id="cb24-5"><a href="#cb24-5" tabindex="-1"></a><span class="co">#&gt; [1] 112</span></span>
+<span id="cb24-6"><a href="#cb24-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb24-7"><a href="#cb24-7" tabindex="-1"></a><span class="co">#&gt; $coderes</span></span>
+<span id="cb24-8"><a href="#cb24-8" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span>
+<span id="cb24-9"><a href="#cb24-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb24-10"><a href="#cb24-10" tabindex="-1"></a><span class="co">#&gt; $qres</span></span>
+<span id="cb24-11"><a href="#cb24-11" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span>
+<span id="cb24-12"><a href="#cb24-12" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb24-13"><a href="#cb24-13" tabindex="-1"></a><span class="co">#&gt; $Crespc</span></span>
+<span id="cb24-14"><a href="#cb24-14" tabindex="-1"></a><span class="co">#&gt; [1] 42</span></span>
+<span id="cb24-15"><a href="#cb24-15" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb24-16"><a href="#cb24-16" tabindex="-1"></a><span class="co">#&gt; $CsurNres</span></span>
+<span id="cb24-17"><a href="#cb24-17" tabindex="-1"></a><span class="co">#&gt; [1] 60</span></span>
+<span id="cb24-18"><a href="#cb24-18" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb24-19"><a href="#cb24-19" tabindex="-1"></a><span class="co">#&gt; $Nminres</span></span>
+<span id="cb24-20"><a href="#cb24-20" tabindex="-1"></a><span class="co">#&gt; [1] 0</span></span>
+<span id="cb24-21"><a href="#cb24-21" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb24-22"><a href="#cb24-22" tabindex="-1"></a><span class="co">#&gt; $eaures</span></span>
+<span id="cb24-23"><a href="#cb24-23" tabindex="-1"></a><span class="co">#&gt; [1] 0</span></span>
+<span id="cb24-24"><a href="#cb24-24" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb24-25"><a href="#cb24-25" tabindex="-1"></a><span class="co">#&gt; $code_auto_profres</span></span>
+<span id="cb24-26"><a href="#cb24-26" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span>
+<span id="cb24-27"><a href="#cb24-27" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb24-28"><a href="#cb24-28" tabindex="-1"></a><span class="co">#&gt; $resk</span></span>
+<span id="cb24-29"><a href="#cb24-29" tabindex="-1"></a><span class="co">#&gt; [1] 0.14</span></span>
+<span id="cb24-30"><a href="#cb24-30" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb24-31"><a href="#cb24-31" tabindex="-1"></a><span class="co">#&gt; $resz</span></span>
+<span id="cb24-32"><a href="#cb24-32" tabindex="-1"></a><span class="co">#&gt; [1] 5</span></span></code></pre></div>
 <p>A files list may be used also to get all parameters as follows in the
 same list</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>param_values <span class="ot">&lt;-</span> <span class="fu">get_param_xml</span>(<span class="fu">c</span>(tec, sols))</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Files list names</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(param_values)</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;file_tec.xml&quot; &quot;sols.xml&quot;</span></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="co"># param_values extract of 5 elements from each file sub-list</span></span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(param_values<span class="sc">$</span>file_tec.xml, <span class="at">n =</span> <span class="dv">5</span>)</span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $julres</span></span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 112</span></span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $coderes</span></span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span>
-<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $qres</span></span>
-<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span>
-<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $Crespc</span></span>
-<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 42</span></span>
-<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CsurNres</span></span>
-<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 60</span></span>
-<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(param_values<span class="sc">$</span>sols.xml, <span class="at">n =</span> <span class="dv">5</span>)</span>
-<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $argi</span></span>
-<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] 30.2 21.0 27.0 39.0  1.0 12.2 70.0 22.0  9.9 10.2 10.2 17.0 23.1 22.0 27.0</span></span>
-<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [16] 30.7  0.1 27.3 25.0 10.2 25.0 28.6 36.0 29.0 10.2 21.2 22.2 13.0 17.0 15.0</span></span>
-<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [31] 26.0 28.2 20.0</span></span>
-<span id="cb25-29"><a href="#cb25-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb25-30"><a href="#cb25-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $norg</span></span>
-<span id="cb25-31"><a href="#cb25-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] 0.270 0.100 0.210 0.150 0.700 0.110 0.200 0.120 0.070 0.160 0.180 0.210</span></span>
-<span id="cb25-32"><a href="#cb25-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [13] 0.140 0.120 0.140 0.140 0.070 0.080 0.200 0.180 0.100 0.120 0.150 0.120</span></span>
-<span id="cb25-33"><a href="#cb25-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [25] 0.140 0.070 0.110 0.100 0.150 0.080 0.088 0.088 0.100</span></span>
-<span id="cb25-34"><a href="#cb25-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb25-35"><a href="#cb25-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $profhum</span></span>
-<span id="cb25-36"><a href="#cb25-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] 40.0 31.0 27.0 27.0 40.0 30.0 50.0 35.0 50.0 30.0 30.0 27.0 22.0 35.0 30.0</span></span>
-<span id="cb25-37"><a href="#cb25-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [16] 30.0 30.0 30.0 30.0 28.0 30.0 40.0 40.0 30.0 31.5 30.0 30.0 30.0 15.0 35.0</span></span>
-<span id="cb25-38"><a href="#cb25-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [31] 25.0 25.0 20.0</span></span>
-<span id="cb25-39"><a href="#cb25-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb25-40"><a href="#cb25-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $calc</span></span>
-<span id="cb25-41"><a href="#cb25-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1]  0.00  0.70  3.70  0.00  0.82  0.60  0.00  1.00  9.00 65.30 64.10  3.00</span></span>
-<span id="cb25-42"><a href="#cb25-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [13]  0.60  1.00  5.50  0.00  0.00  0.10  6.50 64.10  6.50  0.00  0.95  1.00</span></span>
-<span id="cb25-43"><a href="#cb25-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [25] 64.10 13.00  0.10  7.60  1.00  0.00  1.67 11.10 32.50</span></span>
-<span id="cb25-44"><a href="#cb25-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb25-45"><a href="#cb25-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $pH</span></span>
-<span id="cb25-46"><a href="#cb25-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] 7.00 7.00 7.00 7.00 5.36 8.10 7.00 7.00 6.10 8.40 8.30 7.00 7.00 7.00 7.00</span></span>
-<span id="cb25-47"><a href="#cb25-47" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [16] 7.00 7.00 7.00 7.00 8.30 7.00 7.00 7.00 7.00 7.00 7.95 7.00 7.00 6.50 7.00</span></span>
-<span id="cb25-48"><a href="#cb25-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [31] 7.86 7.84 5.00</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a>param_values <span class="ot">&lt;-</span> <span class="fu">get_param_xml</span>(<span class="fu">c</span>(tec, sols))</span>
+<span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" tabindex="-1"></a><span class="co"># Files list names</span></span>
+<span id="cb25-4"><a href="#cb25-4" tabindex="-1"></a><span class="fu">names</span>(param_values)</span>
+<span id="cb25-5"><a href="#cb25-5" tabindex="-1"></a><span class="co">#&gt; [1] &quot;file_tec.xml&quot; &quot;sols.xml&quot;</span></span>
+<span id="cb25-6"><a href="#cb25-6" tabindex="-1"></a></span>
+<span id="cb25-7"><a href="#cb25-7" tabindex="-1"></a><span class="co"># param_values extract of 5 elements from each file sub-list</span></span>
+<span id="cb25-8"><a href="#cb25-8" tabindex="-1"></a><span class="fu">head</span>(param_values<span class="sc">$</span>file_tec.xml, <span class="at">n =</span> <span class="dv">5</span>)</span>
+<span id="cb25-9"><a href="#cb25-9" tabindex="-1"></a><span class="co">#&gt; $julres</span></span>
+<span id="cb25-10"><a href="#cb25-10" tabindex="-1"></a><span class="co">#&gt; [1] 112</span></span>
+<span id="cb25-11"><a href="#cb25-11" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-12"><a href="#cb25-12" tabindex="-1"></a><span class="co">#&gt; $coderes</span></span>
+<span id="cb25-13"><a href="#cb25-13" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span>
+<span id="cb25-14"><a href="#cb25-14" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-15"><a href="#cb25-15" tabindex="-1"></a><span class="co">#&gt; $qres</span></span>
+<span id="cb25-16"><a href="#cb25-16" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span>
+<span id="cb25-17"><a href="#cb25-17" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-18"><a href="#cb25-18" tabindex="-1"></a><span class="co">#&gt; $Crespc</span></span>
+<span id="cb25-19"><a href="#cb25-19" tabindex="-1"></a><span class="co">#&gt; [1] 42</span></span>
+<span id="cb25-20"><a href="#cb25-20" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-21"><a href="#cb25-21" tabindex="-1"></a><span class="co">#&gt; $CsurNres</span></span>
+<span id="cb25-22"><a href="#cb25-22" tabindex="-1"></a><span class="co">#&gt; [1] 60</span></span>
+<span id="cb25-23"><a href="#cb25-23" tabindex="-1"></a></span>
+<span id="cb25-24"><a href="#cb25-24" tabindex="-1"></a><span class="fu">head</span>(param_values<span class="sc">$</span>sols.xml, <span class="at">n =</span> <span class="dv">5</span>)</span>
+<span id="cb25-25"><a href="#cb25-25" tabindex="-1"></a><span class="co">#&gt; $argi</span></span>
+<span id="cb25-26"><a href="#cb25-26" tabindex="-1"></a><span class="co">#&gt;  [1] 30.2 21.0 27.0 39.0  1.0 12.2 70.0 22.0  9.9 10.2 10.2 17.0 23.1 22.0 27.0</span></span>
+<span id="cb25-27"><a href="#cb25-27" tabindex="-1"></a><span class="co">#&gt; [16] 30.7  0.1 27.3 25.0 10.2 25.0 28.6 36.0 29.0 10.2 21.2 22.2 13.0 17.0 15.0</span></span>
+<span id="cb25-28"><a href="#cb25-28" tabindex="-1"></a><span class="co">#&gt; [31] 26.0 28.2 20.0</span></span>
+<span id="cb25-29"><a href="#cb25-29" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-30"><a href="#cb25-30" tabindex="-1"></a><span class="co">#&gt; $norg</span></span>
+<span id="cb25-31"><a href="#cb25-31" tabindex="-1"></a><span class="co">#&gt;  [1] 0.270 0.100 0.210 0.150 0.700 0.110 0.200 0.120 0.070 0.160 0.180 0.210</span></span>
+<span id="cb25-32"><a href="#cb25-32" tabindex="-1"></a><span class="co">#&gt; [13] 0.140 0.120 0.140 0.140 0.070 0.080 0.200 0.180 0.100 0.120 0.150 0.120</span></span>
+<span id="cb25-33"><a href="#cb25-33" tabindex="-1"></a><span class="co">#&gt; [25] 0.140 0.070 0.110 0.100 0.150 0.080 0.088 0.088 0.100</span></span>
+<span id="cb25-34"><a href="#cb25-34" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-35"><a href="#cb25-35" tabindex="-1"></a><span class="co">#&gt; $profhum</span></span>
+<span id="cb25-36"><a href="#cb25-36" tabindex="-1"></a><span class="co">#&gt;  [1] 40.0 31.0 27.0 27.0 40.0 30.0 50.0 35.0 50.0 30.0 30.0 27.0 22.0 35.0 30.0</span></span>
+<span id="cb25-37"><a href="#cb25-37" tabindex="-1"></a><span class="co">#&gt; [16] 30.0 30.0 30.0 30.0 28.0 30.0 40.0 40.0 30.0 31.5 30.0 30.0 30.0 15.0 35.0</span></span>
+<span id="cb25-38"><a href="#cb25-38" tabindex="-1"></a><span class="co">#&gt; [31] 25.0 25.0 20.0</span></span>
+<span id="cb25-39"><a href="#cb25-39" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-40"><a href="#cb25-40" tabindex="-1"></a><span class="co">#&gt; $calc</span></span>
+<span id="cb25-41"><a href="#cb25-41" tabindex="-1"></a><span class="co">#&gt;  [1]  0.00  0.70  3.70  0.00  0.82  0.60  0.00  1.00  9.00 65.30 64.10  3.00</span></span>
+<span id="cb25-42"><a href="#cb25-42" tabindex="-1"></a><span class="co">#&gt; [13]  0.60  1.00  5.50  0.00  0.00  0.10  6.50 64.10  6.50  0.00  0.95  1.00</span></span>
+<span id="cb25-43"><a href="#cb25-43" tabindex="-1"></a><span class="co">#&gt; [25] 64.10 13.00  0.10  7.60  1.00  0.00  1.67 11.10 32.50</span></span>
+<span id="cb25-44"><a href="#cb25-44" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-45"><a href="#cb25-45" tabindex="-1"></a><span class="co">#&gt; $pH</span></span>
+<span id="cb25-46"><a href="#cb25-46" tabindex="-1"></a><span class="co">#&gt;  [1] 7.00 7.00 7.00 7.00 5.36 8.10 7.00 7.00 6.10 8.40 8.30 7.00 7.00 7.00 7.00</span></span>
+<span id="cb25-47"><a href="#cb25-47" tabindex="-1"></a><span class="co">#&gt; [16] 7.00 7.00 7.00 7.00 8.30 7.00 7.00 7.00 7.00 7.00 7.95 7.00 7.00 6.50 7.00</span></span>
+<span id="cb25-48"><a href="#cb25-48" tabindex="-1"></a><span class="co">#&gt; [31] 7.86 7.84 5.00</span></span></code></pre></div>
 </div>
 </div>
 <div id="replacing-parameters-values-in-xml-files" class="section level1">
@@ -2432,62 +2432,62 @@ call.</p>
 <ul>
 <li>For one parameter and one occurrence</li>
 </ul>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="do">## An option parameter</span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Initial value</span></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_xml</span>(par_gen, <span class="at">param =</span> <span class="st">&quot;codeactimulch&quot;</span>)</span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $param_gen.xml</span></span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $param_gen.xml$codeactimulch</span></span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Setting a new one</span></span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="fu">set_param_xml</span>(par_gen, <span class="at">param =</span> <span class="st">&quot;codeactimulch&quot;</span>, <span class="at">values =</span> <span class="dv">2</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Controlling the written value</span></span>
-<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_xml</span>(par_gen, <span class="at">param =</span> <span class="st">&quot;codeactimulch&quot;</span>)</span>
-<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $param_gen.xml</span></span>
-<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $param_gen.xml$codeactimulch</span></span>
-<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 2</span></span>
-<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a><span class="do">## A simple parameter</span></span>
-<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Initial value</span></span>
-<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_xml</span>(par_gen, <span class="at">param =</span> <span class="st">&quot;tnitopt&quot;</span>)</span>
-<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $param_gen.xml</span></span>
-<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $param_gen.xml$tnitopt</span></span>
-<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 30</span></span>
-<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-30"><a href="#cb26-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Setting a new one</span></span>
-<span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a><span class="fu">set_param_xml</span>(par_gen, <span class="at">param =</span> <span class="st">&quot;tnitopt&quot;</span>, <span class="at">values =</span> <span class="fl">29.5</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb26-32"><a href="#cb26-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-33"><a href="#cb26-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Controlling written value</span></span>
-<span id="cb26-34"><a href="#cb26-34" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_xml</span>(par_gen, <span class="at">param =</span> <span class="st">&quot;tnitopt&quot;</span>)</span>
-<span id="cb26-35"><a href="#cb26-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $param_gen.xml</span></span>
-<span id="cb26-36"><a href="#cb26-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $param_gen.xml$tnitopt</span></span>
-<span id="cb26-37"><a href="#cb26-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 29.5</span></span>
-<span id="cb26-38"><a href="#cb26-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-39"><a href="#cb26-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-40"><a href="#cb26-40" aria-hidden="true" tabindex="-1"></a><span class="do">## Using a conditional selection</span></span>
-<span id="cb26-41"><a href="#cb26-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-42"><a href="#cb26-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Initial value</span></span>
-<span id="cb26-43"><a href="#cb26-43" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="st">&quot;argi&quot;</span>, <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>, <span class="at">select_value =</span> <span class="st">&quot;solcanne&quot;</span>)</span>
-<span id="cb26-44"><a href="#cb26-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
-<span id="cb26-45"><a href="#cb26-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml$argi</span></span>
-<span id="cb26-46"><a href="#cb26-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 30.2</span></span>
-<span id="cb26-47"><a href="#cb26-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-48"><a href="#cb26-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Setting a new one</span></span>
-<span id="cb26-49"><a href="#cb26-49" aria-hidden="true" tabindex="-1"></a><span class="fu">set_param_xml</span>(sols, <span class="at">param =</span> <span class="st">&quot;argi&quot;</span>, <span class="at">values =</span> <span class="dv">33</span>, <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>, <span class="at">select_value =</span> <span class="st">&quot;solcanne&quot;</span>,</span>
-<span id="cb26-50"><a href="#cb26-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb26-51"><a href="#cb26-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-52"><a href="#cb26-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Controlling written value</span></span>
-<span id="cb26-53"><a href="#cb26-53" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="st">&quot;argi&quot;</span>, <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>, <span class="at">select_value =</span> <span class="st">&quot;solcanne&quot;</span>)</span>
-<span id="cb26-54"><a href="#cb26-54" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
-<span id="cb26-55"><a href="#cb26-55" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml$argi</span></span>
-<span id="cb26-56"><a href="#cb26-56" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 33</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a></span>
+<span id="cb26-2"><a href="#cb26-2" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" tabindex="-1"></a><span class="do">## An option parameter</span></span>
+<span id="cb26-4"><a href="#cb26-4" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" tabindex="-1"></a><span class="co"># Initial value</span></span>
+<span id="cb26-6"><a href="#cb26-6" tabindex="-1"></a><span class="fu">get_param_xml</span>(par_gen, <span class="at">param =</span> <span class="st">&quot;codeactimulch&quot;</span>)</span>
+<span id="cb26-7"><a href="#cb26-7" tabindex="-1"></a><span class="co">#&gt; $param_gen.xml</span></span>
+<span id="cb26-8"><a href="#cb26-8" tabindex="-1"></a><span class="co">#&gt; $param_gen.xml$codeactimulch</span></span>
+<span id="cb26-9"><a href="#cb26-9" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span>
+<span id="cb26-10"><a href="#cb26-10" tabindex="-1"></a></span>
+<span id="cb26-11"><a href="#cb26-11" tabindex="-1"></a><span class="co"># Setting a new one</span></span>
+<span id="cb26-12"><a href="#cb26-12" tabindex="-1"></a><span class="fu">set_param_xml</span>(par_gen, <span class="at">param =</span> <span class="st">&quot;codeactimulch&quot;</span>, <span class="at">values =</span> <span class="dv">2</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb26-13"><a href="#cb26-13" tabindex="-1"></a></span>
+<span id="cb26-14"><a href="#cb26-14" tabindex="-1"></a><span class="co"># Controlling the written value</span></span>
+<span id="cb26-15"><a href="#cb26-15" tabindex="-1"></a><span class="fu">get_param_xml</span>(par_gen, <span class="at">param =</span> <span class="st">&quot;codeactimulch&quot;</span>)</span>
+<span id="cb26-16"><a href="#cb26-16" tabindex="-1"></a><span class="co">#&gt; $param_gen.xml</span></span>
+<span id="cb26-17"><a href="#cb26-17" tabindex="-1"></a><span class="co">#&gt; $param_gen.xml$codeactimulch</span></span>
+<span id="cb26-18"><a href="#cb26-18" tabindex="-1"></a><span class="co">#&gt; [1] 2</span></span>
+<span id="cb26-19"><a href="#cb26-19" tabindex="-1"></a></span>
+<span id="cb26-20"><a href="#cb26-20" tabindex="-1"></a></span>
+<span id="cb26-21"><a href="#cb26-21" tabindex="-1"></a></span>
+<span id="cb26-22"><a href="#cb26-22" tabindex="-1"></a><span class="do">## A simple parameter</span></span>
+<span id="cb26-23"><a href="#cb26-23" tabindex="-1"></a></span>
+<span id="cb26-24"><a href="#cb26-24" tabindex="-1"></a><span class="co"># Initial value</span></span>
+<span id="cb26-25"><a href="#cb26-25" tabindex="-1"></a><span class="fu">get_param_xml</span>(par_gen, <span class="at">param =</span> <span class="st">&quot;tnitopt&quot;</span>)</span>
+<span id="cb26-26"><a href="#cb26-26" tabindex="-1"></a><span class="co">#&gt; $param_gen.xml</span></span>
+<span id="cb26-27"><a href="#cb26-27" tabindex="-1"></a><span class="co">#&gt; $param_gen.xml$tnitopt</span></span>
+<span id="cb26-28"><a href="#cb26-28" tabindex="-1"></a><span class="co">#&gt; [1] 30</span></span>
+<span id="cb26-29"><a href="#cb26-29" tabindex="-1"></a></span>
+<span id="cb26-30"><a href="#cb26-30" tabindex="-1"></a><span class="co"># Setting a new one</span></span>
+<span id="cb26-31"><a href="#cb26-31" tabindex="-1"></a><span class="fu">set_param_xml</span>(par_gen, <span class="at">param =</span> <span class="st">&quot;tnitopt&quot;</span>, <span class="at">values =</span> <span class="fl">29.5</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb26-32"><a href="#cb26-32" tabindex="-1"></a></span>
+<span id="cb26-33"><a href="#cb26-33" tabindex="-1"></a><span class="co"># Controlling written value</span></span>
+<span id="cb26-34"><a href="#cb26-34" tabindex="-1"></a><span class="fu">get_param_xml</span>(par_gen, <span class="at">param =</span> <span class="st">&quot;tnitopt&quot;</span>)</span>
+<span id="cb26-35"><a href="#cb26-35" tabindex="-1"></a><span class="co">#&gt; $param_gen.xml</span></span>
+<span id="cb26-36"><a href="#cb26-36" tabindex="-1"></a><span class="co">#&gt; $param_gen.xml$tnitopt</span></span>
+<span id="cb26-37"><a href="#cb26-37" tabindex="-1"></a><span class="co">#&gt; [1] 29.5</span></span>
+<span id="cb26-38"><a href="#cb26-38" tabindex="-1"></a></span>
+<span id="cb26-39"><a href="#cb26-39" tabindex="-1"></a></span>
+<span id="cb26-40"><a href="#cb26-40" tabindex="-1"></a><span class="do">## Using a conditional selection</span></span>
+<span id="cb26-41"><a href="#cb26-41" tabindex="-1"></a></span>
+<span id="cb26-42"><a href="#cb26-42" tabindex="-1"></a><span class="co"># Initial value</span></span>
+<span id="cb26-43"><a href="#cb26-43" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="st">&quot;argi&quot;</span>, <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>, <span class="at">select_value =</span> <span class="st">&quot;solcanne&quot;</span>)</span>
+<span id="cb26-44"><a href="#cb26-44" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
+<span id="cb26-45"><a href="#cb26-45" tabindex="-1"></a><span class="co">#&gt; $sols.xml$argi</span></span>
+<span id="cb26-46"><a href="#cb26-46" tabindex="-1"></a><span class="co">#&gt; [1] 30.2</span></span>
+<span id="cb26-47"><a href="#cb26-47" tabindex="-1"></a></span>
+<span id="cb26-48"><a href="#cb26-48" tabindex="-1"></a><span class="co"># Setting a new one</span></span>
+<span id="cb26-49"><a href="#cb26-49" tabindex="-1"></a><span class="fu">set_param_xml</span>(sols, <span class="at">param =</span> <span class="st">&quot;argi&quot;</span>, <span class="at">values =</span> <span class="dv">33</span>, <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>, <span class="at">select_value =</span> <span class="st">&quot;solcanne&quot;</span>,</span>
+<span id="cb26-50"><a href="#cb26-50" tabindex="-1"></a>    <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb26-51"><a href="#cb26-51" tabindex="-1"></a></span>
+<span id="cb26-52"><a href="#cb26-52" tabindex="-1"></a><span class="co"># Controlling written value</span></span>
+<span id="cb26-53"><a href="#cb26-53" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="st">&quot;argi&quot;</span>, <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>, <span class="at">select_value =</span> <span class="st">&quot;solcanne&quot;</span>)</span>
+<span id="cb26-54"><a href="#cb26-54" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
+<span id="cb26-55"><a href="#cb26-55" tabindex="-1"></a><span class="co">#&gt; $sols.xml$argi</span></span>
+<span id="cb26-56"><a href="#cb26-56" tabindex="-1"></a><span class="co">#&gt; [1] 33</span></span></code></pre></div>
 <ul>
 <li>For one parameter and several occurences</li>
 </ul>
@@ -2495,154 +2495,154 @@ call.</p>
 single values for several parameters, the <code>param_value</code>
 argument must contain a list of vectors of values with the same length
 as <code>param</code> vector.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="do">## For all soils</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>soils_number <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">get_soils_list</span>(sols))</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Initial values</span></span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="st">&quot;argi&quot;</span>)</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml$argi</span></span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] 33.0 21.0 27.0 39.0  1.0 12.2 70.0 22.0  9.9 10.2 10.2 17.0 23.1 22.0 27.0</span></span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [16] 30.7  0.1 27.3 25.0 10.2 25.0 28.6 36.0 29.0 10.2 21.2 22.2 13.0 17.0 15.0</span></span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [31] 26.0 28.2 20.0</span></span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="co"># One value per occurence</span></span>
-<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="fu">set_param_xml</span>(sols, <span class="at">param =</span> <span class="st">&quot;argi&quot;</span>, <span class="at">values =</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span>soils_number), <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Controlling written values</span></span>
-<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="st">&quot;argi&quot;</span>)</span>
-<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
-<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml$argi</span></span>
-<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25</span></span>
-<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [26] 26 27 28 29 30 31 32 33</span></span>
-<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Setting the same value for all occurences</span></span>
-<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a><span class="fu">set_param_xml</span>(sols, <span class="at">param =</span> <span class="st">&quot;argi&quot;</span>, <span class="at">values =</span> <span class="dv">40</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Controlling written values</span></span>
-<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="st">&quot;argi&quot;</span>)</span>
-<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
-<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml$argi</span></span>
-<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] 40 40 40 40 40 40 40 40 40 40 40 40 40 40 40 40 40 40 40 40 40 40 40 40 40</span></span>
-<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [26] 40 40 40 40 40 40 40 40</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a></span>
+<span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a><span class="do">## For all soils</span></span>
+<span id="cb27-3"><a href="#cb27-3" tabindex="-1"></a>soils_number <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">get_soils_list</span>(sols))</span>
+<span id="cb27-4"><a href="#cb27-4" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" tabindex="-1"></a><span class="co"># Initial values</span></span>
+<span id="cb27-6"><a href="#cb27-6" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="st">&quot;argi&quot;</span>)</span>
+<span id="cb27-7"><a href="#cb27-7" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
+<span id="cb27-8"><a href="#cb27-8" tabindex="-1"></a><span class="co">#&gt; $sols.xml$argi</span></span>
+<span id="cb27-9"><a href="#cb27-9" tabindex="-1"></a><span class="co">#&gt;  [1] 33.0 21.0 27.0 39.0  1.0 12.2 70.0 22.0  9.9 10.2 10.2 17.0 23.1 22.0 27.0</span></span>
+<span id="cb27-10"><a href="#cb27-10" tabindex="-1"></a><span class="co">#&gt; [16] 30.7  0.1 27.3 25.0 10.2 25.0 28.6 36.0 29.0 10.2 21.2 22.2 13.0 17.0 15.0</span></span>
+<span id="cb27-11"><a href="#cb27-11" tabindex="-1"></a><span class="co">#&gt; [31] 26.0 28.2 20.0</span></span>
+<span id="cb27-12"><a href="#cb27-12" tabindex="-1"></a></span>
+<span id="cb27-13"><a href="#cb27-13" tabindex="-1"></a><span class="co"># One value per occurence</span></span>
+<span id="cb27-14"><a href="#cb27-14" tabindex="-1"></a><span class="fu">set_param_xml</span>(sols, <span class="at">param =</span> <span class="st">&quot;argi&quot;</span>, <span class="at">values =</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span>soils_number), <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb27-15"><a href="#cb27-15" tabindex="-1"></a></span>
+<span id="cb27-16"><a href="#cb27-16" tabindex="-1"></a><span class="co"># Controlling written values</span></span>
+<span id="cb27-17"><a href="#cb27-17" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="st">&quot;argi&quot;</span>)</span>
+<span id="cb27-18"><a href="#cb27-18" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
+<span id="cb27-19"><a href="#cb27-19" tabindex="-1"></a><span class="co">#&gt; $sols.xml$argi</span></span>
+<span id="cb27-20"><a href="#cb27-20" tabindex="-1"></a><span class="co">#&gt;  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25</span></span>
+<span id="cb27-21"><a href="#cb27-21" tabindex="-1"></a><span class="co">#&gt; [26] 26 27 28 29 30 31 32 33</span></span>
+<span id="cb27-22"><a href="#cb27-22" tabindex="-1"></a></span>
+<span id="cb27-23"><a href="#cb27-23" tabindex="-1"></a><span class="co"># Setting the same value for all occurences</span></span>
+<span id="cb27-24"><a href="#cb27-24" tabindex="-1"></a><span class="fu">set_param_xml</span>(sols, <span class="at">param =</span> <span class="st">&quot;argi&quot;</span>, <span class="at">values =</span> <span class="dv">40</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb27-25"><a href="#cb27-25" tabindex="-1"></a></span>
+<span id="cb27-26"><a href="#cb27-26" tabindex="-1"></a><span class="co"># Controlling written values</span></span>
+<span id="cb27-27"><a href="#cb27-27" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="st">&quot;argi&quot;</span>)</span>
+<span id="cb27-28"><a href="#cb27-28" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
+<span id="cb27-29"><a href="#cb27-29" tabindex="-1"></a><span class="co">#&gt; $sols.xml$argi</span></span>
+<span id="cb27-30"><a href="#cb27-30" tabindex="-1"></a><span class="co">#&gt;  [1] 40 40 40 40 40 40 40 40 40 40 40 40 40 40 40 40 40 40 40 40 40 40 40 40 40</span></span>
+<span id="cb27-31"><a href="#cb27-31" tabindex="-1"></a><span class="co">#&gt; [26] 40 40 40 40 40 40 40 40</span></span></code></pre></div>
 <ul>
 <li>For several parameters and several occurrences</li>
 </ul>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="do">## For all soils</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>soils_number <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">get_soils_list</span>(sols))</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Initial values</span></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Setting one value per parameters occurence</span></span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="fu">set_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">list</span>(<span class="st">&quot;argi&quot;</span>, <span class="st">&quot;pH&quot;</span>), <span class="at">values =</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span>soils_number, soils_number<span class="sc">:</span><span class="dv">1</span>),</span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Controlling written values</span></span>
-<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;argi&quot;</span>, <span class="st">&quot;pH&quot;</span>))</span>
-<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
-<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml$argi</span></span>
-<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25</span></span>
-<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [26] 26 27 28 29 30 31 32 33</span></span>
-<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml$pH</span></span>
-<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] 33 32 31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10  9</span></span>
-<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [26]  8  7  6  5  4  3  2  1</span></span>
-<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Setting the same value for all occurences</span></span>
-<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a><span class="fu">set_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;argi&quot;</span>, <span class="st">&quot;pH&quot;</span>), <span class="at">values =</span> <span class="fu">list</span>(<span class="dv">50</span>, <span class="dv">8</span>), <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Controlling written values</span></span>
-<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;argi&quot;</span>, <span class="st">&quot;pH&quot;</span>))</span>
-<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
-<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml$argi</span></span>
-<span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] 50 50 50 50 50 50 50 50 50 50 50 50 50 50 50 50 50 50 50 50 50 50 50 50 50</span></span>
-<span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [26] 50 50 50 50 50 50 50 50</span></span>
-<span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml$pH</span></span>
-<span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a></span>
+<span id="cb28-2"><a href="#cb28-2" tabindex="-1"></a><span class="do">## For all soils</span></span>
+<span id="cb28-3"><a href="#cb28-3" tabindex="-1"></a>soils_number <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">get_soils_list</span>(sols))</span>
+<span id="cb28-4"><a href="#cb28-4" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="#cb28-5" tabindex="-1"></a><span class="co"># Initial values</span></span>
+<span id="cb28-6"><a href="#cb28-6" tabindex="-1"></a></span>
+<span id="cb28-7"><a href="#cb28-7" tabindex="-1"></a><span class="co"># Setting one value per parameters occurence</span></span>
+<span id="cb28-8"><a href="#cb28-8" tabindex="-1"></a><span class="fu">set_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">list</span>(<span class="st">&quot;argi&quot;</span>, <span class="st">&quot;pH&quot;</span>), <span class="at">values =</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span>soils_number, soils_number<span class="sc">:</span><span class="dv">1</span>),</span>
+<span id="cb28-9"><a href="#cb28-9" tabindex="-1"></a>    <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb28-10"><a href="#cb28-10" tabindex="-1"></a></span>
+<span id="cb28-11"><a href="#cb28-11" tabindex="-1"></a><span class="co"># Controlling written values</span></span>
+<span id="cb28-12"><a href="#cb28-12" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;argi&quot;</span>, <span class="st">&quot;pH&quot;</span>))</span>
+<span id="cb28-13"><a href="#cb28-13" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
+<span id="cb28-14"><a href="#cb28-14" tabindex="-1"></a><span class="co">#&gt; $sols.xml$argi</span></span>
+<span id="cb28-15"><a href="#cb28-15" tabindex="-1"></a><span class="co">#&gt;  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25</span></span>
+<span id="cb28-16"><a href="#cb28-16" tabindex="-1"></a><span class="co">#&gt; [26] 26 27 28 29 30 31 32 33</span></span>
+<span id="cb28-17"><a href="#cb28-17" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb28-18"><a href="#cb28-18" tabindex="-1"></a><span class="co">#&gt; $sols.xml$pH</span></span>
+<span id="cb28-19"><a href="#cb28-19" tabindex="-1"></a><span class="co">#&gt;  [1] 33 32 31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10  9</span></span>
+<span id="cb28-20"><a href="#cb28-20" tabindex="-1"></a><span class="co">#&gt; [26]  8  7  6  5  4  3  2  1</span></span>
+<span id="cb28-21"><a href="#cb28-21" tabindex="-1"></a></span>
+<span id="cb28-22"><a href="#cb28-22" tabindex="-1"></a><span class="co"># Setting the same value for all occurences</span></span>
+<span id="cb28-23"><a href="#cb28-23" tabindex="-1"></a><span class="fu">set_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;argi&quot;</span>, <span class="st">&quot;pH&quot;</span>), <span class="at">values =</span> <span class="fu">list</span>(<span class="dv">50</span>, <span class="dv">8</span>), <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb28-24"><a href="#cb28-24" tabindex="-1"></a></span>
+<span id="cb28-25"><a href="#cb28-25" tabindex="-1"></a><span class="co"># Controlling written values</span></span>
+<span id="cb28-26"><a href="#cb28-26" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;argi&quot;</span>, <span class="st">&quot;pH&quot;</span>))</span>
+<span id="cb28-27"><a href="#cb28-27" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
+<span id="cb28-28"><a href="#cb28-28" tabindex="-1"></a><span class="co">#&gt; $sols.xml$argi</span></span>
+<span id="cb28-29"><a href="#cb28-29" tabindex="-1"></a><span class="co">#&gt;  [1] 50 50 50 50 50 50 50 50 50 50 50 50 50 50 50 50 50 50 50 50 50 50 50 50 50</span></span>
+<span id="cb28-30"><a href="#cb28-30" tabindex="-1"></a><span class="co">#&gt; [26] 50 50 50 50 50 50 50 50</span></span>
+<span id="cb28-31"><a href="#cb28-31" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb28-32"><a href="#cb28-32" tabindex="-1"></a><span class="co">#&gt; $sols.xml$pH</span></span>
+<span id="cb28-33"><a href="#cb28-33" tabindex="-1"></a><span class="co">#&gt;  [1] 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8</span></span></code></pre></div>
 <ul>
 <li>For several parameters and one occurrence (conditional
 selection)</li>
 </ul>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="do">## For one soil</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Initial values</span></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;argi&quot;</span>, <span class="st">&quot;pH&quot;</span>), <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>, <span class="at">select_value =</span> <span class="st">&quot;solcanne&quot;</span>)</span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml$argi</span></span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 50</span></span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml$pH</span></span>
-<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 8</span></span>
-<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Setting new values</span></span>
-<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a><span class="fu">set_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;argi&quot;</span>, <span class="st">&quot;pH&quot;</span>), <span class="at">values =</span> <span class="fu">list</span>(<span class="dv">50</span>, <span class="dv">8</span>), <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>,</span>
-<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">select_value =</span> <span class="st">&quot;solcanne&quot;</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Controlling written values</span></span>
-<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;argi&quot;</span>, <span class="st">&quot;pH&quot;</span>), <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>, <span class="at">select_value =</span> <span class="st">&quot;solcanne&quot;</span>)</span>
-<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
-<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml$argi</span></span>
-<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 50</span></span>
-<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml$pH</span></span>
-<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 8</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a></span>
+<span id="cb29-2"><a href="#cb29-2" tabindex="-1"></a><span class="do">## For one soil</span></span>
+<span id="cb29-3"><a href="#cb29-3" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" tabindex="-1"></a><span class="co"># Initial values</span></span>
+<span id="cb29-5"><a href="#cb29-5" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;argi&quot;</span>, <span class="st">&quot;pH&quot;</span>), <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>, <span class="at">select_value =</span> <span class="st">&quot;solcanne&quot;</span>)</span>
+<span id="cb29-6"><a href="#cb29-6" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
+<span id="cb29-7"><a href="#cb29-7" tabindex="-1"></a><span class="co">#&gt; $sols.xml$argi</span></span>
+<span id="cb29-8"><a href="#cb29-8" tabindex="-1"></a><span class="co">#&gt; [1] 50</span></span>
+<span id="cb29-9"><a href="#cb29-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb29-10"><a href="#cb29-10" tabindex="-1"></a><span class="co">#&gt; $sols.xml$pH</span></span>
+<span id="cb29-11"><a href="#cb29-11" tabindex="-1"></a><span class="co">#&gt; [1] 8</span></span>
+<span id="cb29-12"><a href="#cb29-12" tabindex="-1"></a></span>
+<span id="cb29-13"><a href="#cb29-13" tabindex="-1"></a><span class="co"># Setting new values</span></span>
+<span id="cb29-14"><a href="#cb29-14" tabindex="-1"></a><span class="fu">set_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;argi&quot;</span>, <span class="st">&quot;pH&quot;</span>), <span class="at">values =</span> <span class="fu">list</span>(<span class="dv">50</span>, <span class="dv">8</span>), <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>,</span>
+<span id="cb29-15"><a href="#cb29-15" tabindex="-1"></a>    <span class="at">select_value =</span> <span class="st">&quot;solcanne&quot;</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb29-16"><a href="#cb29-16" tabindex="-1"></a></span>
+<span id="cb29-17"><a href="#cb29-17" tabindex="-1"></a><span class="co"># Controlling written values</span></span>
+<span id="cb29-18"><a href="#cb29-18" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;argi&quot;</span>, <span class="st">&quot;pH&quot;</span>), <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>, <span class="at">select_value =</span> <span class="st">&quot;solcanne&quot;</span>)</span>
+<span id="cb29-19"><a href="#cb29-19" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
+<span id="cb29-20"><a href="#cb29-20" tabindex="-1"></a><span class="co">#&gt; $sols.xml$argi</span></span>
+<span id="cb29-21"><a href="#cb29-21" tabindex="-1"></a><span class="co">#&gt; [1] 50</span></span>
+<span id="cb29-22"><a href="#cb29-22" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb29-23"><a href="#cb29-23" tabindex="-1"></a><span class="co">#&gt; $sols.xml$pH</span></span>
+<span id="cb29-24"><a href="#cb29-24" tabindex="-1"></a><span class="co">#&gt; [1] 8</span></span></code></pre></div>
 </div>
 <div id="vector-parameters" class="section level2">
 <h2>Vector parameters</h2>
 <ul>
 <li>All values (for all soil layers, or crop management operations)</li>
 </ul>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="do">## For all soil layers</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Initial values</span></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;epc&quot;</span>, <span class="st">&quot;infil&quot;</span>), <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>, <span class="at">select_value =</span> <span class="st">&quot;solcanne&quot;</span>)</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml$epc</span></span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 20 20 20 20 20</span></span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml$infil</span></span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 50 50 50 50 50</span></span>
-<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Setting new values</span></span>
-<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="fu">set_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;epc&quot;</span>, <span class="st">&quot;infil&quot;</span>), <span class="at">values =</span> <span class="fu">list</span>(<span class="dv">18</span><span class="sc">:</span><span class="dv">22</span>, <span class="dv">48</span><span class="sc">:</span><span class="dv">52</span>), <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>,</span>
-<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">select_value =</span> <span class="st">&quot;solcanne&quot;</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Controlling written values</span></span>
-<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;epc&quot;</span>, <span class="st">&quot;infil&quot;</span>), <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>, <span class="at">select_value =</span> <span class="st">&quot;solcanne&quot;</span>)</span>
-<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
-<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml$epc</span></span>
-<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 18 19 20 21 22</span></span>
-<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml$infil</span></span>
-<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 48 49 50 51 52</span></span></code></pre></div>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="do">## For all irrigation operations</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>tec <span class="ot">&lt;-</span> <span class="fu">file.path</span>(xml_loc_dir, <span class="st">&quot;file_tec.xml&quot;</span>)</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Initial values</span></span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_xml</span>(tec, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;julapI_or_sum_upvt&quot;</span>, <span class="st">&quot;amount&quot;</span>))</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml</span></span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml$julapI_or_sum_upvt</span></span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] 178 185 193 198 200 204 207 211 214 218 221 232 239 249 257 264</span></span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml$amount</span></span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] 20 24 29 29 28 31 21 21 23 18 22 16 16 30 29 20</span></span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Setting new values</span></span>
-<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a><span class="fu">set_param_xml</span>(tec, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;julapI_or_sum_upvt&quot;</span>, <span class="st">&quot;amount&quot;</span>), <span class="at">values =</span> <span class="fu">list</span>(<span class="dv">200</span><span class="sc">:</span><span class="dv">215</span>,</span>
-<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>    <span class="dv">20</span><span class="sc">:</span><span class="dv">35</span>), <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Controlling written values</span></span>
-<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_xml</span>(tec, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;julapI_or_sum_upvt&quot;</span>, <span class="st">&quot;amount&quot;</span>))</span>
-<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml</span></span>
-<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml$julapI_or_sum_upvt</span></span>
-<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] 200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215</span></span>
-<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml$amount</span></span>
-<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" tabindex="-1"></a><span class="do">## For all soil layers</span></span>
+<span id="cb30-2"><a href="#cb30-2" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" tabindex="-1"></a><span class="co"># Initial values</span></span>
+<span id="cb30-4"><a href="#cb30-4" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;epc&quot;</span>, <span class="st">&quot;infil&quot;</span>), <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>, <span class="at">select_value =</span> <span class="st">&quot;solcanne&quot;</span>)</span>
+<span id="cb30-5"><a href="#cb30-5" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
+<span id="cb30-6"><a href="#cb30-6" tabindex="-1"></a><span class="co">#&gt; $sols.xml$epc</span></span>
+<span id="cb30-7"><a href="#cb30-7" tabindex="-1"></a><span class="co">#&gt; [1] 20 20 20 20 20</span></span>
+<span id="cb30-8"><a href="#cb30-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-9"><a href="#cb30-9" tabindex="-1"></a><span class="co">#&gt; $sols.xml$infil</span></span>
+<span id="cb30-10"><a href="#cb30-10" tabindex="-1"></a><span class="co">#&gt; [1] 50 50 50 50 50</span></span>
+<span id="cb30-11"><a href="#cb30-11" tabindex="-1"></a></span>
+<span id="cb30-12"><a href="#cb30-12" tabindex="-1"></a><span class="co"># Setting new values</span></span>
+<span id="cb30-13"><a href="#cb30-13" tabindex="-1"></a><span class="fu">set_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;epc&quot;</span>, <span class="st">&quot;infil&quot;</span>), <span class="at">values =</span> <span class="fu">list</span>(<span class="dv">18</span><span class="sc">:</span><span class="dv">22</span>, <span class="dv">48</span><span class="sc">:</span><span class="dv">52</span>), <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>,</span>
+<span id="cb30-14"><a href="#cb30-14" tabindex="-1"></a>    <span class="at">select_value =</span> <span class="st">&quot;solcanne&quot;</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb30-15"><a href="#cb30-15" tabindex="-1"></a></span>
+<span id="cb30-16"><a href="#cb30-16" tabindex="-1"></a><span class="co"># Controlling written values</span></span>
+<span id="cb30-17"><a href="#cb30-17" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;epc&quot;</span>, <span class="st">&quot;infil&quot;</span>), <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>, <span class="at">select_value =</span> <span class="st">&quot;solcanne&quot;</span>)</span>
+<span id="cb30-18"><a href="#cb30-18" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
+<span id="cb30-19"><a href="#cb30-19" tabindex="-1"></a><span class="co">#&gt; $sols.xml$epc</span></span>
+<span id="cb30-20"><a href="#cb30-20" tabindex="-1"></a><span class="co">#&gt; [1] 18 19 20 21 22</span></span>
+<span id="cb30-21"><a href="#cb30-21" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-22"><a href="#cb30-22" tabindex="-1"></a><span class="co">#&gt; $sols.xml$infil</span></span>
+<span id="cb30-23"><a href="#cb30-23" tabindex="-1"></a><span class="co">#&gt; [1] 48 49 50 51 52</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a><span class="do">## For all irrigation operations</span></span>
+<span id="cb31-2"><a href="#cb31-2" tabindex="-1"></a>tec <span class="ot">&lt;-</span> <span class="fu">file.path</span>(xml_loc_dir, <span class="st">&quot;file_tec.xml&quot;</span>)</span>
+<span id="cb31-3"><a href="#cb31-3" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" tabindex="-1"></a><span class="co"># Initial values</span></span>
+<span id="cb31-5"><a href="#cb31-5" tabindex="-1"></a><span class="fu">get_param_xml</span>(tec, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;julapI_or_sum_upvt&quot;</span>, <span class="st">&quot;amount&quot;</span>))</span>
+<span id="cb31-6"><a href="#cb31-6" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml</span></span>
+<span id="cb31-7"><a href="#cb31-7" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml$julapI_or_sum_upvt</span></span>
+<span id="cb31-8"><a href="#cb31-8" tabindex="-1"></a><span class="co">#&gt;  [1] 178 185 193 198 200 204 207 211 214 218 221 232 239 249 257 264</span></span>
+<span id="cb31-9"><a href="#cb31-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb31-10"><a href="#cb31-10" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml$amount</span></span>
+<span id="cb31-11"><a href="#cb31-11" tabindex="-1"></a><span class="co">#&gt;  [1] 20 24 29 29 28 31 21 21 23 18 22 16 16 30 29 20</span></span>
+<span id="cb31-12"><a href="#cb31-12" tabindex="-1"></a></span>
+<span id="cb31-13"><a href="#cb31-13" tabindex="-1"></a><span class="co"># Setting new values</span></span>
+<span id="cb31-14"><a href="#cb31-14" tabindex="-1"></a><span class="fu">set_param_xml</span>(tec, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;julapI_or_sum_upvt&quot;</span>, <span class="st">&quot;amount&quot;</span>), <span class="at">values =</span> <span class="fu">list</span>(<span class="dv">200</span><span class="sc">:</span><span class="dv">215</span>,</span>
+<span id="cb31-15"><a href="#cb31-15" tabindex="-1"></a>    <span class="dv">20</span><span class="sc">:</span><span class="dv">35</span>), <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb31-16"><a href="#cb31-16" tabindex="-1"></a></span>
+<span id="cb31-17"><a href="#cb31-17" tabindex="-1"></a><span class="co"># Controlling written values</span></span>
+<span id="cb31-18"><a href="#cb31-18" tabindex="-1"></a><span class="fu">get_param_xml</span>(tec, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;julapI_or_sum_upvt&quot;</span>, <span class="st">&quot;amount&quot;</span>))</span>
+<span id="cb31-19"><a href="#cb31-19" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml</span></span>
+<span id="cb31-20"><a href="#cb31-20" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml$julapI_or_sum_upvt</span></span>
+<span id="cb31-21"><a href="#cb31-21" tabindex="-1"></a><span class="co">#&gt;  [1] 200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215</span></span>
+<span id="cb31-22"><a href="#cb31-22" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb31-23"><a href="#cb31-23" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml$amount</span></span>
+<span id="cb31-24"><a href="#cb31-24" tabindex="-1"></a><span class="co">#&gt;  [1] 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35</span></span></code></pre></div>
 <ul>
 <li>Some values</li>
 </ul>
@@ -2652,56 +2652,56 @@ irrigation supplies operations amounts. In that case, used values in
 <code>ids</code> are contiguous, but they do not need to be.</p>
 <p>A vector of logical values may be used instead of position values for
 queries or replacement.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="do">## For soil layers 1 to 3</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Initial values</span></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;epc&quot;</span>, <span class="st">&quot;infil&quot;</span>), <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>, <span class="at">select_value =</span> <span class="st">&quot;solcanne&quot;</span>,</span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">ids =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml$epc</span></span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 18 19 20</span></span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml$infil</span></span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 48 49 50</span></span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Setting new values</span></span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a><span class="fu">set_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;epc&quot;</span>, <span class="st">&quot;infil&quot;</span>), <span class="at">values =</span> <span class="fu">list</span>(<span class="dv">20</span><span class="sc">:</span><span class="dv">18</span>, <span class="dv">50</span><span class="sc">:</span><span class="dv">48</span>), <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>,</span>
-<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">select_value =</span> <span class="st">&quot;solcanne&quot;</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>, <span class="at">ids =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
-<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Controlling written values</span></span>
-<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;epc&quot;</span>, <span class="st">&quot;infil&quot;</span>), <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>, <span class="at">select_value =</span> <span class="st">&quot;solcanne&quot;</span>,</span>
-<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">ids =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
-<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
-<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml$epc</span></span>
-<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 20 19 18</span></span>
-<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sols.xml$infil</span></span>
-<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 50 49 48</span></span></code></pre></div>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="do">## For irrigation operations 1 to 5 (same indices for all parameters)</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Initial values</span></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_xml</span>(tec, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;julapI_or_sum_upvt&quot;</span>, <span class="st">&quot;amount&quot;</span>))</span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml</span></span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml$julapI_or_sum_upvt</span></span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] 200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215</span></span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml$amount</span></span>
-<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35</span></span>
-<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Setting new values</span></span>
-<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a><span class="fu">set_param_xml</span>(tec, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;julapI_or_sum_upvt&quot;</span>, <span class="st">&quot;amount&quot;</span>), <span class="at">values =</span> <span class="fu">list</span>(<span class="dv">204</span><span class="sc">:</span><span class="dv">200</span>,</span>
-<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>    <span class="dv">24</span><span class="sc">:</span><span class="dv">20</span>), <span class="at">overwrite =</span> <span class="cn">TRUE</span>, <span class="at">ids =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
-<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Controlling written values</span></span>
-<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a><span class="fu">get_param_xml</span>(tec, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;julapI_or_sum_upvt&quot;</span>, <span class="st">&quot;amount&quot;</span>))</span>
-<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml</span></span>
-<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml$julapI_or_sum_upvt</span></span>
-<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] 204 203 202 201 200 205 206 207 208 209 210 211 212 213 214 215</span></span>
-<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml$amount</span></span>
-<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] 24 23 22 21 20 25 26 27 28 29 30 31 32 33 34 35</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" tabindex="-1"></a><span class="do">## For soil layers 1 to 3</span></span>
+<span id="cb32-2"><a href="#cb32-2" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" tabindex="-1"></a><span class="co"># Initial values</span></span>
+<span id="cb32-4"><a href="#cb32-4" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;epc&quot;</span>, <span class="st">&quot;infil&quot;</span>), <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>, <span class="at">select_value =</span> <span class="st">&quot;solcanne&quot;</span>,</span>
+<span id="cb32-5"><a href="#cb32-5" tabindex="-1"></a>    <span class="at">ids =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb32-6"><a href="#cb32-6" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
+<span id="cb32-7"><a href="#cb32-7" tabindex="-1"></a><span class="co">#&gt; $sols.xml$epc</span></span>
+<span id="cb32-8"><a href="#cb32-8" tabindex="-1"></a><span class="co">#&gt; [1] 18 19 20</span></span>
+<span id="cb32-9"><a href="#cb32-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb32-10"><a href="#cb32-10" tabindex="-1"></a><span class="co">#&gt; $sols.xml$infil</span></span>
+<span id="cb32-11"><a href="#cb32-11" tabindex="-1"></a><span class="co">#&gt; [1] 48 49 50</span></span>
+<span id="cb32-12"><a href="#cb32-12" tabindex="-1"></a></span>
+<span id="cb32-13"><a href="#cb32-13" tabindex="-1"></a><span class="co"># Setting new values</span></span>
+<span id="cb32-14"><a href="#cb32-14" tabindex="-1"></a><span class="fu">set_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;epc&quot;</span>, <span class="st">&quot;infil&quot;</span>), <span class="at">values =</span> <span class="fu">list</span>(<span class="dv">20</span><span class="sc">:</span><span class="dv">18</span>, <span class="dv">50</span><span class="sc">:</span><span class="dv">48</span>), <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>,</span>
+<span id="cb32-15"><a href="#cb32-15" tabindex="-1"></a>    <span class="at">select_value =</span> <span class="st">&quot;solcanne&quot;</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>, <span class="at">ids =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb32-16"><a href="#cb32-16" tabindex="-1"></a></span>
+<span id="cb32-17"><a href="#cb32-17" tabindex="-1"></a><span class="co"># Controlling written values</span></span>
+<span id="cb32-18"><a href="#cb32-18" tabindex="-1"></a></span>
+<span id="cb32-19"><a href="#cb32-19" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;epc&quot;</span>, <span class="st">&quot;infil&quot;</span>), <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>, <span class="at">select_value =</span> <span class="st">&quot;solcanne&quot;</span>,</span>
+<span id="cb32-20"><a href="#cb32-20" tabindex="-1"></a>    <span class="at">ids =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb32-21"><a href="#cb32-21" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
+<span id="cb32-22"><a href="#cb32-22" tabindex="-1"></a><span class="co">#&gt; $sols.xml$epc</span></span>
+<span id="cb32-23"><a href="#cb32-23" tabindex="-1"></a><span class="co">#&gt; [1] 20 19 18</span></span>
+<span id="cb32-24"><a href="#cb32-24" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb32-25"><a href="#cb32-25" tabindex="-1"></a><span class="co">#&gt; $sols.xml$infil</span></span>
+<span id="cb32-26"><a href="#cb32-26" tabindex="-1"></a><span class="co">#&gt; [1] 50 49 48</span></span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a></span>
+<span id="cb33-2"><a href="#cb33-2" tabindex="-1"></a><span class="do">## For irrigation operations 1 to 5 (same indices for all parameters)</span></span>
+<span id="cb33-3"><a href="#cb33-3" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="#cb33-4" tabindex="-1"></a><span class="co"># Initial values</span></span>
+<span id="cb33-5"><a href="#cb33-5" tabindex="-1"></a><span class="fu">get_param_xml</span>(tec, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;julapI_or_sum_upvt&quot;</span>, <span class="st">&quot;amount&quot;</span>))</span>
+<span id="cb33-6"><a href="#cb33-6" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml</span></span>
+<span id="cb33-7"><a href="#cb33-7" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml$julapI_or_sum_upvt</span></span>
+<span id="cb33-8"><a href="#cb33-8" tabindex="-1"></a><span class="co">#&gt;  [1] 200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215</span></span>
+<span id="cb33-9"><a href="#cb33-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb33-10"><a href="#cb33-10" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml$amount</span></span>
+<span id="cb33-11"><a href="#cb33-11" tabindex="-1"></a><span class="co">#&gt;  [1] 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35</span></span>
+<span id="cb33-12"><a href="#cb33-12" tabindex="-1"></a></span>
+<span id="cb33-13"><a href="#cb33-13" tabindex="-1"></a><span class="co"># Setting new values</span></span>
+<span id="cb33-14"><a href="#cb33-14" tabindex="-1"></a><span class="fu">set_param_xml</span>(tec, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;julapI_or_sum_upvt&quot;</span>, <span class="st">&quot;amount&quot;</span>), <span class="at">values =</span> <span class="fu">list</span>(<span class="dv">204</span><span class="sc">:</span><span class="dv">200</span>,</span>
+<span id="cb33-15"><a href="#cb33-15" tabindex="-1"></a>    <span class="dv">24</span><span class="sc">:</span><span class="dv">20</span>), <span class="at">overwrite =</span> <span class="cn">TRUE</span>, <span class="at">ids =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb33-16"><a href="#cb33-16" tabindex="-1"></a></span>
+<span id="cb33-17"><a href="#cb33-17" tabindex="-1"></a><span class="co"># Controlling written values</span></span>
+<span id="cb33-18"><a href="#cb33-18" tabindex="-1"></a><span class="fu">get_param_xml</span>(tec, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;julapI_or_sum_upvt&quot;</span>, <span class="st">&quot;amount&quot;</span>))</span>
+<span id="cb33-19"><a href="#cb33-19" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml</span></span>
+<span id="cb33-20"><a href="#cb33-20" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml$julapI_or_sum_upvt</span></span>
+<span id="cb33-21"><a href="#cb33-21" tabindex="-1"></a><span class="co">#&gt;  [1] 204 203 202 201 200 205 206 207 208 209 210 211 212 213 214 215</span></span>
+<span id="cb33-22"><a href="#cb33-22" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb33-23"><a href="#cb33-23" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml$amount</span></span>
+<span id="cb33-24"><a href="#cb33-24" tabindex="-1"></a><span class="co">#&gt;  [1] 24 23 22 21 20 25 26 27 28 29 30 31 32 33 34 35</span></span></code></pre></div>
 </div>
 </div>
 

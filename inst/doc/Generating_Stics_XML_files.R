@@ -1,5 +1,6 @@
 ## ----eval=FALSE---------------------------------------------------------------
 #  library(SticsRFiles)
+#  library(dplyr)
 
 ## ----include=FALSE------------------------------------------------------------
 suppressWarnings(library(SticsRFiles))

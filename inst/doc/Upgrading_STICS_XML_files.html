@@ -340,7 +340,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SticsRFiles)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(SticsRFiles)</span></code></pre></div>
 <p>The XML files structure has changed between STICS version
 <strong>9.2</strong> and versions <strong>10.X.Y</strong> and a
 transformation is mandatory.</p>
@@ -356,10 +356,10 @@ recreated.</p>
 <p>So, apart from the XML files, some other files as outputs definition
 files (*.mod), weather files attached to USMs and also observation files
 (named with the USM name, *.obs) are copied to the new workspace.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>workspace <span class="ot">&lt;-</span> <span class="st">&quot;/path/to/workspace/dir/V9.2&quot;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>out_dir <span class="ot">&lt;-</span> <span class="st">&quot;/path/to/out/dir/V10.0&quot;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>javastics <span class="ot">&lt;-</span> <span class="st">&quot;/path/to/JavaSTICS-1.41-stics-9.2&quot;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">upgrade_workspace_xml</span>(<span class="at">workspace =</span> workspace, <span class="at">javastics =</span> javastics, <span class="at">out_dir =</span> out_dir)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>workspace <span class="ot">&lt;-</span> <span class="st">&quot;/path/to/workspace/dir/V9.2&quot;</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>out_dir <span class="ot">&lt;-</span> <span class="st">&quot;/path/to/out/dir/V10.0&quot;</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>javastics <span class="ot">&lt;-</span> <span class="st">&quot;/path/to/JavaSTICS-1.41-stics-9.2&quot;</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="fu">upgrade_workspace_xml</span>(<span class="at">workspace =</span> workspace, <span class="at">javastics =</span> javastics, <span class="at">out_dir =</span> out_dir)</span></code></pre></div>
 <p>Here is the output display indicating the treated files:</p>
 <pre style="font-size:11px;">
 Upgrading files from version V9.2 to V10.0    
@@ -403,10 +403,10 @@ function help for details about its use.</p>
 because of parameters or options codes movement to specific files.</p>
 <p>For example, the <strong><code>usms.xml</code></strong> file is to be
 upgraded as follows:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>usms_path <span class="ot">&lt;-</span> <span class="st">&quot;/path/to/workspace/dir/V9.2/usms.xml&quot;</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>out_dir <span class="ot">&lt;-</span> <span class="st">&quot;/path/to/workspace/dir/V10.0&quot;</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>param_gen_path <span class="ot">&lt;-</span> <span class="st">&quot;/path/to/JavaSTICS-1.41-stics-9.2/config/param_gen.xml&quot;</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">upgrade_usms_xml</span>(<span class="at">file =</span> usms_path, <span class="at">param_gen_file =</span> param_gen_path, <span class="at">out_dir =</span> out_dir)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>usms_path <span class="ot">&lt;-</span> <span class="st">&quot;/path/to/workspace/dir/V9.2/usms.xml&quot;</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>out_dir <span class="ot">&lt;-</span> <span class="st">&quot;/path/to/workspace/dir/V10.0&quot;</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>param_gen_path <span class="ot">&lt;-</span> <span class="st">&quot;/path/to/JavaSTICS-1.41-stics-9.2/config/param_gen.xml&quot;</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="fu">upgrade_usms_xml</span>(<span class="at">file =</span> usms_path, <span class="at">param_gen_file =</span> param_gen_path, <span class="at">out_dir =</span> out_dir)</span></code></pre></div>
 </div>
 
 

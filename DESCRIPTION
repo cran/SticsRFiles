@@ -1,7 +1,7 @@
 Package: SticsRFiles
 Title: Read and Modify 'STICS' Input/Output Files
-Version: 1.2.0
-Date: 2024-02-23
+Version: 1.3.0
+Date: 2024-04-10
 Authors@R: c(
     person("Patrice", "Lecharpentier", , "patrice.lecharpentier@inrae.fr", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-4044-4322")),
@@ -11,6 +11,7 @@ Authors@R: c(
            comment = c(ORCID = "0000-0002-8676-5447")),
     person("Michel", "Giner", , "michel.giner@cirad.fr", role = "aut",
            comment = c(ORCID = "0000-0002-9310-2377")),
+    person("Timothee", "Flutre", ,"timothee.flutre@inrae.fr", role = "ctb"),
     person("Thomas", "Robine", role = "ctb"),
     person("Amine", "Barkaoui", role = "ctb"),
     person("Patrick", "Chabrier", role = "ctb"),
@@ -35,7 +36,7 @@ BugReports: https://github.com/SticsRPacks/SticsRFiles/issues
 Depends: R (>= 3.6.0)
 Imports: cli, crayon, curl, data.table, dplyr (>= 1.0.0), lifecycle,
         lubridate, methods, rlang, rstudioapi, stringr, tibble, tidyr,
-        tools, utils, XML, xml2, xslt
+        tidyselect, tools, utils, XML, xml2, xslt
 Suggests: covr, formatR, knitr, learnr, readxl, rmarkdown, spelling,
         testthat
 VignetteBuilder: knitr
@@ -48,9 +49,10 @@ Collate: 'add_node_to_doc.R' 'add_stics_nodes.R' 'all_in_par.R'
         'check_choice_param.R' 'check_java_path.R'
         'check_java_workspace.R' 'check_output_files.R'
         'check_param_names.R' 'col_names_to_var.R'
-        'compute_doy_cumul.R' 'convert_xml2txt.R'
-        'convert_xml2txt_int.R' 'download_data.R' 'download_usm_xl.R'
-        'exist_param_xml.R' 'exists_javastics_pref.R' 'exists_param.R'
+        'compute_day_number.R' 'compute_doy_cumul.R'
+        'convert_xml2txt.R' 'convert_xml2txt_int.R' 'download_data.R'
+        'download_usm_xl.R' 'exist_param_xml.R'
+        'exists_javastics_pref.R' 'exists_param.R'
         'expand_stics_names.R' 'extract.R' 'global.R' 'file_document.R'
         'find_names.R' 'force_param_values.R' 'gen_climate.R'
         'gen_ini_doc.R' 'gen_ini_xml.R' 'gen_new_travail.R' 'gen_obs.R'
@@ -92,12 +94,13 @@ Collate: 'add_node_to_doc.R' 'add_stics_nodes.R' 'all_in_par.R'
         'var_to_col_names.R' 'xml_document.R' 'xml_files_functions.R'
         'zzz.R'
 NeedsCompilation: no
-Packaged: 2024-02-23 14:28:19 UTC; plecharpent
+Packaged: 2024-04-11 07:56:38 UTC; plecharpent
 Author: Patrice Lecharpentier [aut, cre]
     (<https://orcid.org/0000-0002-4044-4322>),
   Remi Vezy [aut] (<https://orcid.org/0000-0002-0808-1461>),
   Samuel Buis [aut] (<https://orcid.org/0000-0002-8676-5447>),
   Michel Giner [aut] (<https://orcid.org/0000-0002-9310-2377>),
+  Timothee Flutre [ctb],
   Thomas Robine [ctb],
   Amine Barkaoui [ctb],
   Patrick Chabrier [ctb],
@@ -109,4 +112,4 @@ Author: Patrice Lecharpentier [aut, cre]
   Joel Leonard [rev]
 Maintainer: Patrice Lecharpentier <patrice.lecharpentier@inrae.fr>
 Repository: CRAN
-Date/Publication: 2024-02-23 14:40:02 UTC
+Date/Publication: 2024-04-11 08:20:02 UTC
