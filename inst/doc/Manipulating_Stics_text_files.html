@@ -1320,7 +1320,7 @@ overflow: visible;
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -1331,7 +1331,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -1643,7 +1643,7 @@ using the following function call for the STICS version V10.1.0:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>example_txt_dir <span class="ot">&lt;-</span></span>
 <span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>  <span class="fu">get_examples_path</span>(<span class="at">file_type =</span> <span class="st">&quot;txt&quot;</span>, <span class="at">stics_version =</span> stics_version)</span></code></pre></div>
 <p>The <code>example_txt_dir</code> directory is:
-/tmp/RtmpDb5Les/txt/V10.0. By default, the latest STICS version is taken
+/tmp/RtmpzHQUrF/txt/V10.0. By default, the latest STICS version is taken
 into account. For getting an example directory for another version, an
 additional argument must be given <code>stics_version</code> according
 to an existing version included in the package. The version list can be
@@ -1881,7 +1881,13 @@ follows:</li>
 <span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a>              <span class="at">param =</span> <span class="st">&quot;densinitial&quot;</span>,</span>
 <span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a>              <span class="at">plant_id =</span> <span class="dv">1</span>,</span>
 <span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a>              <span class="at">layer =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>),</span>
-<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a>              <span class="at">value =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.1</span>))</span></code></pre></div>
+<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a>              <span class="at">value =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.1</span>))</span>
+<span id="cb16-6"><a href="#cb16-6" tabindex="-1"></a><span class="co">#&gt; Warning: The `plant` argument of `set_param_txt()` is deprecated as of SticsRFiles</span></span>
+<span id="cb16-7"><a href="#cb16-7" tabindex="-1"></a><span class="co">#&gt; 1.4.0.</span></span>
+<span id="cb16-8"><a href="#cb16-8" tabindex="-1"></a><span class="co">#&gt; ℹ Please use the `plant_id` argument instead.</span></span>
+<span id="cb16-9"><a href="#cb16-9" tabindex="-1"></a><span class="co">#&gt; This warning is displayed once every 8 hours.</span></span>
+<span id="cb16-10"><a href="#cb16-10" tabindex="-1"></a><span class="co">#&gt; Call `lifecycle::last_lifecycle_warnings()` to see where this warning was</span></span>
+<span id="cb16-11"><a href="#cb16-11" tabindex="-1"></a><span class="co">#&gt; generated.</span></span></code></pre></div>
 <ul>
 <li>The final values in the file are:</li>
 </ul>

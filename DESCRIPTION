@@ -1,7 +1,7 @@
 Package: SticsRFiles
 Title: Read and Modify 'STICS' Input/Output Files
-Version: 1.3.0
-Date: 2024-04-10
+Version: 1.4.0
+Date: 2024-07-16
 Authors@R: c(
     person("Patrice", "Lecharpentier", , "patrice.lecharpentier@inrae.fr", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-4044-4322")),
@@ -33,7 +33,7 @@ License: LGPL (>= 3)
 URL: https://github.com/SticsRPacks/SticsRFiles,
         https://doi.org/10.5281/zenodo.4443206
 BugReports: https://github.com/SticsRPacks/SticsRFiles/issues
-Depends: R (>= 3.6.0)
+Depends: R (>= 4.0.0)
 Imports: cli, crayon, curl, data.table, dplyr (>= 1.0.0), lifecycle,
         lubridate, methods, rlang, rstudioapi, stringr, tibble, tidyr,
         tidyselect, tools, utils, XML, xml2, xslt
@@ -49,7 +49,7 @@ Collate: 'add_node_to_doc.R' 'add_stics_nodes.R' 'all_in_par.R'
         'check_choice_param.R' 'check_java_path.R'
         'check_java_workspace.R' 'check_output_files.R'
         'check_param_names.R' 'col_names_to_var.R'
-        'compute_day_number.R' 'compute_doy_cumul.R'
+        'compute_date_from_day.R' 'compute_day_number.R'
         'convert_xml2txt.R' 'convert_xml2txt_int.R' 'download_data.R'
         'download_usm_xl.R' 'exist_param_xml.R'
         'exists_javastics_pref.R' 'exists_param.R'
@@ -59,8 +59,9 @@ Collate: 'add_node_to_doc.R' 'add_stics_nodes.R' 'all_in_par.R'
         'gen_paramsti.R' 'gen_sol_xsl_file.R' 'gen_sols_xml.R'
         'gen_sta_doc.R' 'gen_sta_xml.R' 'gen_tec_doc.R' 'gen_tec_xml.R'
         'gen_usms_sols_doc.R' 'gen_usms_xml.R' 'gen_usms_xml2txt.R'
-        'gen_varmod.R' 'get_climate_txt.R' 'get_file.R'
-        'get_file_int.R' 'get_formalisms_xml.R' 'get_java_workspace.R'
+        'gen_varmod.R' 'get_climate_txt.R' 'get_cultivars_list.R'
+        'get_cultivars_param.R' 'get_file.R' 'get_file_int.R'
+        'get_formalisms_xml.R' 'get_java_workspace.R'
         'get_lai_forcing.R' 'get_name_value_file_value.R' 'get_obs.R'
         'get_option_choice_param_values.R' 'get_options_choices.R'
         'get_options_names.R' 'get_param_bounds.R'
@@ -94,7 +95,7 @@ Collate: 'add_node_to_doc.R' 'add_stics_nodes.R' 'all_in_par.R'
         'var_to_col_names.R' 'xml_document.R' 'xml_files_functions.R'
         'zzz.R'
 NeedsCompilation: no
-Packaged: 2024-04-11 07:56:38 UTC; plecharpent
+Packaged: 2024-07-17 12:00:53 UTC; plecharpent
 Author: Patrice Lecharpentier [aut, cre]
     (<https://orcid.org/0000-0002-4044-4322>),
   Remi Vezy [aut] (<https://orcid.org/0000-0002-0808-1461>),
@@ -112,4 +113,4 @@ Author: Patrice Lecharpentier [aut, cre]
   Joel Leonard [rev]
 Maintainer: Patrice Lecharpentier <patrice.lecharpentier@inrae.fr>
 Repository: CRAN
-Date/Publication: 2024-04-11 08:20:02 UTC
+Date/Publication: 2024-07-17 12:20:02 UTC

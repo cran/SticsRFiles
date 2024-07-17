@@ -1320,7 +1320,7 @@ overflow: visible;
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -1331,7 +1331,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -2307,19 +2307,19 @@ irrigations supply)</li>
 <span id="cb22-3"><a href="#cb22-3" tabindex="-1"></a>    <span class="at">ids =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
 <span id="cb22-4"><a href="#cb22-4" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
 <span id="cb22-5"><a href="#cb22-5" tabindex="-1"></a><span class="co">#&gt; $sols.xml$epc</span></span>
-<span id="cb22-6"><a href="#cb22-6" tabindex="-1"></a><span class="co">#&gt; [1] 20 20 20</span></span>
+<span id="cb22-6"><a href="#cb22-6" tabindex="-1"></a><span class="co">#&gt; [1] 20 20 20 20 20</span></span>
 <span id="cb22-7"><a href="#cb22-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb22-8"><a href="#cb22-8" tabindex="-1"></a><span class="co">#&gt; $sols.xml$infil</span></span>
-<span id="cb22-9"><a href="#cb22-9" tabindex="-1"></a><span class="co">#&gt; [1] 50 50 50</span></span></code></pre></div>
+<span id="cb22-9"><a href="#cb22-9" tabindex="-1"></a><span class="co">#&gt; [1] 50 50 50 50 50</span></span></code></pre></div>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a></span>
 <span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a><span class="co"># For irrigation operations 1 to 5</span></span>
 <span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a><span class="fu">get_param_xml</span>(tec, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;julapI_or_sum_upvt&quot;</span>, <span class="st">&quot;amount&quot;</span>), <span class="at">ids =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
 <span id="cb23-4"><a href="#cb23-4" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml</span></span>
 <span id="cb23-5"><a href="#cb23-5" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml$julapI_or_sum_upvt</span></span>
-<span id="cb23-6"><a href="#cb23-6" tabindex="-1"></a><span class="co">#&gt; [1] 178 185 193 198 200</span></span>
+<span id="cb23-6"><a href="#cb23-6" tabindex="-1"></a><span class="co">#&gt;  [1] 178 185 193 198 200 204 207 211 214 218 221 232 239 249 257 264</span></span>
 <span id="cb23-7"><a href="#cb23-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb23-8"><a href="#cb23-8" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml$amount</span></span>
-<span id="cb23-9"><a href="#cb23-9" tabindex="-1"></a><span class="co">#&gt; [1] 20 24 29 29 28</span></span></code></pre></div>
+<span id="cb23-9"><a href="#cb23-9" tabindex="-1"></a><span class="co">#&gt;  [1] 20 24 29 29 28 31 21 21 23 18 22 16 16 30 29 20</span></span></code></pre></div>
 </div>
 <div id="getting-all-parameters-values-from-files" class="section level2">
 <h2>Getting all parameters values from files</h2>
@@ -2659,25 +2659,31 @@ queries or replacement.</p>
 <span id="cb32-5"><a href="#cb32-5" tabindex="-1"></a>    <span class="at">ids =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
 <span id="cb32-6"><a href="#cb32-6" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
 <span id="cb32-7"><a href="#cb32-7" tabindex="-1"></a><span class="co">#&gt; $sols.xml$epc</span></span>
-<span id="cb32-8"><a href="#cb32-8" tabindex="-1"></a><span class="co">#&gt; [1] 18 19 20</span></span>
+<span id="cb32-8"><a href="#cb32-8" tabindex="-1"></a><span class="co">#&gt; [1] 18 19 20 21 22</span></span>
 <span id="cb32-9"><a href="#cb32-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb32-10"><a href="#cb32-10" tabindex="-1"></a><span class="co">#&gt; $sols.xml$infil</span></span>
-<span id="cb32-11"><a href="#cb32-11" tabindex="-1"></a><span class="co">#&gt; [1] 48 49 50</span></span>
+<span id="cb32-11"><a href="#cb32-11" tabindex="-1"></a><span class="co">#&gt; [1] 48 49 50 51 52</span></span>
 <span id="cb32-12"><a href="#cb32-12" tabindex="-1"></a></span>
 <span id="cb32-13"><a href="#cb32-13" tabindex="-1"></a><span class="co"># Setting new values</span></span>
 <span id="cb32-14"><a href="#cb32-14" tabindex="-1"></a><span class="fu">set_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;epc&quot;</span>, <span class="st">&quot;infil&quot;</span>), <span class="at">values =</span> <span class="fu">list</span>(<span class="dv">20</span><span class="sc">:</span><span class="dv">18</span>, <span class="dv">50</span><span class="sc">:</span><span class="dv">48</span>), <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>,</span>
 <span id="cb32-15"><a href="#cb32-15" tabindex="-1"></a>    <span class="at">select_value =</span> <span class="st">&quot;solcanne&quot;</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>, <span class="at">ids =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
-<span id="cb32-16"><a href="#cb32-16" tabindex="-1"></a></span>
-<span id="cb32-17"><a href="#cb32-17" tabindex="-1"></a><span class="co"># Controlling written values</span></span>
-<span id="cb32-18"><a href="#cb32-18" tabindex="-1"></a></span>
-<span id="cb32-19"><a href="#cb32-19" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;epc&quot;</span>, <span class="st">&quot;infil&quot;</span>), <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>, <span class="at">select_value =</span> <span class="st">&quot;solcanne&quot;</span>,</span>
-<span id="cb32-20"><a href="#cb32-20" tabindex="-1"></a>    <span class="at">ids =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
-<span id="cb32-21"><a href="#cb32-21" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
-<span id="cb32-22"><a href="#cb32-22" tabindex="-1"></a><span class="co">#&gt; $sols.xml$epc</span></span>
-<span id="cb32-23"><a href="#cb32-23" tabindex="-1"></a><span class="co">#&gt; [1] 20 19 18</span></span>
-<span id="cb32-24"><a href="#cb32-24" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb32-25"><a href="#cb32-25" tabindex="-1"></a><span class="co">#&gt; $sols.xml$infil</span></span>
-<span id="cb32-26"><a href="#cb32-26" tabindex="-1"></a><span class="co">#&gt; [1] 50 49 48</span></span></code></pre></div>
+<span id="cb32-16"><a href="#cb32-16" tabindex="-1"></a><span class="co">#&gt; Warning in set_param_value(xml_doc, param_name = param_name[p], param_value =</span></span>
+<span id="cb32-17"><a href="#cb32-17" tabindex="-1"></a><span class="co">#&gt; param_value[[p]], : epcreplacement values are not consistent with parameters</span></span>
+<span id="cb32-18"><a href="#cb32-18" tabindex="-1"></a><span class="co">#&gt; number !</span></span>
+<span id="cb32-19"><a href="#cb32-19" tabindex="-1"></a><span class="co">#&gt; Warning in set_param_value(xml_doc, param_name = param_name[p], param_value =</span></span>
+<span id="cb32-20"><a href="#cb32-20" tabindex="-1"></a><span class="co">#&gt; param_value[[p]], : infilreplacement values are not consistent with parameters</span></span>
+<span id="cb32-21"><a href="#cb32-21" tabindex="-1"></a><span class="co">#&gt; number !</span></span>
+<span id="cb32-22"><a href="#cb32-22" tabindex="-1"></a></span>
+<span id="cb32-23"><a href="#cb32-23" tabindex="-1"></a><span class="co"># Controlling written values</span></span>
+<span id="cb32-24"><a href="#cb32-24" tabindex="-1"></a></span>
+<span id="cb32-25"><a href="#cb32-25" tabindex="-1"></a><span class="fu">get_param_xml</span>(sols, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;epc&quot;</span>, <span class="st">&quot;infil&quot;</span>), <span class="at">select =</span> <span class="st">&quot;sol&quot;</span>, <span class="at">select_value =</span> <span class="st">&quot;solcanne&quot;</span>,</span>
+<span id="cb32-26"><a href="#cb32-26" tabindex="-1"></a>    <span class="at">ids =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb32-27"><a href="#cb32-27" tabindex="-1"></a><span class="co">#&gt; $sols.xml</span></span>
+<span id="cb32-28"><a href="#cb32-28" tabindex="-1"></a><span class="co">#&gt; $sols.xml$epc</span></span>
+<span id="cb32-29"><a href="#cb32-29" tabindex="-1"></a><span class="co">#&gt; [1] 18 19 20 21 22</span></span>
+<span id="cb32-30"><a href="#cb32-30" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb32-31"><a href="#cb32-31" tabindex="-1"></a><span class="co">#&gt; $sols.xml$infil</span></span>
+<span id="cb32-32"><a href="#cb32-32" tabindex="-1"></a><span class="co">#&gt; [1] 48 49 50 51 52</span></span></code></pre></div>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a></span>
 <span id="cb33-2"><a href="#cb33-2" tabindex="-1"></a><span class="do">## For irrigation operations 1 to 5 (same indices for all parameters)</span></span>
 <span id="cb33-3"><a href="#cb33-3" tabindex="-1"></a></span>
@@ -2693,15 +2699,21 @@ queries or replacement.</p>
 <span id="cb33-13"><a href="#cb33-13" tabindex="-1"></a><span class="co"># Setting new values</span></span>
 <span id="cb33-14"><a href="#cb33-14" tabindex="-1"></a><span class="fu">set_param_xml</span>(tec, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;julapI_or_sum_upvt&quot;</span>, <span class="st">&quot;amount&quot;</span>), <span class="at">values =</span> <span class="fu">list</span>(<span class="dv">204</span><span class="sc">:</span><span class="dv">200</span>,</span>
 <span id="cb33-15"><a href="#cb33-15" tabindex="-1"></a>    <span class="dv">24</span><span class="sc">:</span><span class="dv">20</span>), <span class="at">overwrite =</span> <span class="cn">TRUE</span>, <span class="at">ids =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
-<span id="cb33-16"><a href="#cb33-16" tabindex="-1"></a></span>
-<span id="cb33-17"><a href="#cb33-17" tabindex="-1"></a><span class="co"># Controlling written values</span></span>
-<span id="cb33-18"><a href="#cb33-18" tabindex="-1"></a><span class="fu">get_param_xml</span>(tec, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;julapI_or_sum_upvt&quot;</span>, <span class="st">&quot;amount&quot;</span>))</span>
-<span id="cb33-19"><a href="#cb33-19" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml</span></span>
-<span id="cb33-20"><a href="#cb33-20" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml$julapI_or_sum_upvt</span></span>
-<span id="cb33-21"><a href="#cb33-21" tabindex="-1"></a><span class="co">#&gt;  [1] 204 203 202 201 200 205 206 207 208 209 210 211 212 213 214 215</span></span>
-<span id="cb33-22"><a href="#cb33-22" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb33-23"><a href="#cb33-23" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml$amount</span></span>
-<span id="cb33-24"><a href="#cb33-24" tabindex="-1"></a><span class="co">#&gt;  [1] 24 23 22 21 20 25 26 27 28 29 30 31 32 33 34 35</span></span></code></pre></div>
+<span id="cb33-16"><a href="#cb33-16" tabindex="-1"></a><span class="co">#&gt; Warning in set_param_value(xml_doc, param_name = param_name[p], param_value =</span></span>
+<span id="cb33-17"><a href="#cb33-17" tabindex="-1"></a><span class="co">#&gt; param_value[[p]], : julapI_or_sum_upvtreplacement values are not consistent</span></span>
+<span id="cb33-18"><a href="#cb33-18" tabindex="-1"></a><span class="co">#&gt; with parameters number !</span></span>
+<span id="cb33-19"><a href="#cb33-19" tabindex="-1"></a><span class="co">#&gt; Warning in set_param_value(xml_doc, param_name = param_name[p], param_value =</span></span>
+<span id="cb33-20"><a href="#cb33-20" tabindex="-1"></a><span class="co">#&gt; param_value[[p]], : amountreplacement values are not consistent with parameters</span></span>
+<span id="cb33-21"><a href="#cb33-21" tabindex="-1"></a><span class="co">#&gt; number !</span></span>
+<span id="cb33-22"><a href="#cb33-22" tabindex="-1"></a></span>
+<span id="cb33-23"><a href="#cb33-23" tabindex="-1"></a><span class="co"># Controlling written values</span></span>
+<span id="cb33-24"><a href="#cb33-24" tabindex="-1"></a><span class="fu">get_param_xml</span>(tec, <span class="at">param =</span> <span class="fu">c</span>(<span class="st">&quot;julapI_or_sum_upvt&quot;</span>, <span class="st">&quot;amount&quot;</span>))</span>
+<span id="cb33-25"><a href="#cb33-25" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml</span></span>
+<span id="cb33-26"><a href="#cb33-26" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml$julapI_or_sum_upvt</span></span>
+<span id="cb33-27"><a href="#cb33-27" tabindex="-1"></a><span class="co">#&gt;  [1] 200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215</span></span>
+<span id="cb33-28"><a href="#cb33-28" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb33-29"><a href="#cb33-29" tabindex="-1"></a><span class="co">#&gt; $file_tec.xml$amount</span></span>
+<span id="cb33-30"><a href="#cb33-30" tabindex="-1"></a><span class="co">#&gt;  [1] 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35</span></span></code></pre></div>
 </div>
 </div>
 
