@@ -202,3 +202,11 @@ gen_sta_xml(param_df = sta_param, out_dir = workspace_path)
 l <- readLines(con = file.path(workspace_path, "climatex_sta.xml"))
 cat(paste(c(l[1:41], "...", l[length(l) - 1]), collapse = "\n"))
 
+## ----gen_gen_param, eval = FALSE----------------------------------------------
+#  # with the latest version
+#  gen_general_param_xml(out_dir = workspace_path)
+#  
+#  # or with a specific version
+#  gen_general_param_xml(out_dir = workspace_path, stics_version = "V10.2.0")
+#  
+

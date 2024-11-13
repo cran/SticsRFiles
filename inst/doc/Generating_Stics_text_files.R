@@ -1,5 +1,5 @@
 params <-
-list(javastics_path = "/tmp/JavaSTICS-1.5.2-STICS-10.1.0", workspace_path = "/tmp/JavaSTICS-1.5.2-STICS-10.1.0/example", 
+list(javastics_path = "/tmp/JavaSTICS-1.5.2-STICS-10.2.0", workspace_path = "/tmp/JavaSTICS-1.5.2-STICS-10.2.0/example", 
     output_path = "/tmp/example", eval = FALSE)
 
 ## ----include = FALSE----------------------------------------------------------
@@ -25,7 +25,7 @@ gen_usms_xml2txt <- SticsRFiles::gen_usms_xml2txt
 
 ## ----paths_def, eval = FALSE--------------------------------------------------
 #  # Specifying the JavaSTICS folder
-#  javastics_path <- "/path/to/JavaSTICS-1.5.2-STICS-10.1.0"
+#  javastics_path <- "/path/to/JavaSTICS-1.5.2-STICS-10.2.0"
 #  
 #  # Specifying a workspace as a subfolder of JavaSTICS
 #  workspace_path <- "example"
@@ -59,19 +59,19 @@ gen_usms_xml2txt <- SticsRFiles::gen_usms_xml2txt
 #  #> ℹ USM 'grass' successfully created
 #  #> ℹ USM 'BareSoil' successfully created
 #  #> ! Obs file not found for USM
-#  #> "demo_Wheat1": '/tmp/JavaSTICS-1.5.2-STICS-10.1.0/example/demo_Wheat1.obs'
+#  #> "demo_Wheat1": '/tmp/JavaSTICS-1.5.2-STICS-10.2.0/example/demo_Wheat1.obs'
 #  #> ℹ USM 'demo_Wheat1' successfully created
 #  #> ! Obs file not found for USM
-#  #> "demo_BareSoil2": '/tmp/JavaSTICS-1.5.2-STICS-10.1.0/example/demo_BareSoil2.obs'
+#  #> "demo_BareSoil2": '/tmp/JavaSTICS-1.5.2-STICS-10.2.0/example/demo_BareSoil2.obs'
 #  #> ℹ USM 'demo_BareSoil2' successfully created
 #  #> ! Obs file not found for USM
-#  #> "demo_maize3": '/tmp/JavaSTICS-1.5.2-STICS-10.1.0/example/demo_maize3.obs'
+#  #> "demo_maize3": '/tmp/JavaSTICS-1.5.2-STICS-10.2.0/example/demo_maize3.obs'
 #  #> ℹ USM 'demo_maize3' successfully created
 #  #> ! Obs file not found for USM
-#  #> "DurumWheat_4years": '/tmp/JavaSTICS-1.5.2-STICS-10.1.0/example/DurumWheat_4years.obs'
+#  #> "DurumWheat_4years": '/tmp/JavaSTICS-1.5.2-STICS-10.2.0/example/DurumWheat_4years.obs'
 #  #> ℹ USM 'DurumWheat_4years' successfully created
 #  #> ! Obs file not found for USM
-#  #> "maize_4years": '/tmp/JavaSTICS-1.5.2-STICS-10.1.0/example/maize_4years.obs'
+#  #> "maize_4years": '/tmp/JavaSTICS-1.5.2-STICS-10.2.0/example/maize_4years.obs'
 #  #> ℹ USM 'maize_4years' successfully created
 #  #> ℹ USM 'strawberry' successfully created
 #  #> ℹ USM 'pea' successfully created
@@ -79,7 +79,7 @@ gen_usms_xml2txt <- SticsRFiles::gen_usms_xml2txt
 #  #> ℹ USM 'fescue' successfully created
 #  #> ℹ USM 'flax' successfully created
 #  #> ! Obs file not found for USM
-#  #> "intercrop_pea_barley": '/tmp/JavaSTICS-1.5.2-STICS-10.1.0/example/intercrop_pea_barley.obs'
+#  #> "intercrop_pea_barley": '/tmp/JavaSTICS-1.5.2-STICS-10.2.0/example/intercrop_pea_barley.obs'
 #  #> ℹ USM 'intercrop_pea_barley' successfully created
 #  #> ℹ USM 'timothy' successfully created
 #  #> ℹ USM 'DurumWheat_snow' successfully created

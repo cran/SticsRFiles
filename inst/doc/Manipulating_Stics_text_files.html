@@ -1639,17 +1639,17 @@ STICS text files</a> vignette;</li>
 <a href="https://sticsrpacks.github.io/SticsOnR/reference/run_stics.html"><code>run_stics()</code></a>
 function from <a href="https://sticsrpacks.github.io/SticsOnR/index.html">SticsOnR</a>.</p>
 <p>Some example data are available from the package and can be retrieved
-using the following function call for the STICS version V10.1.0:</p>
+using the following function call for the STICS version V10.2.0:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>example_txt_dir <span class="ot">&lt;-</span></span>
 <span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>  <span class="fu">get_examples_path</span>(<span class="at">file_type =</span> <span class="st">&quot;txt&quot;</span>, <span class="at">stics_version =</span> stics_version)</span></code></pre></div>
 <p>The <code>example_txt_dir</code> directory is:
-/tmp/RtmpzHQUrF/txt/V10.0. By default, the latest STICS version is taken
+/tmp/RtmpxX0vxz/txt/V10.0. By default, the latest STICS version is taken
 into account. For getting an example directory for another version, an
 additional argument must be given <code>stics_version</code> according
 to an existing version included in the package. The version list can be
 retrieved using:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">get_stics_versions_compat</span>()<span class="sc">$</span>versions_list</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="co">#&gt; [1] &quot;V8.5&quot;    &quot;V9.0&quot;    &quot;V9.1&quot;    &quot;V9.2&quot;    &quot;V10.0&quot;   &quot;V10.1.0&quot;</span></span></code></pre></div>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="co">#&gt; [1] &quot;V8.5&quot;    &quot;V9.0&quot;    &quot;V9.1&quot;    &quot;V9.2&quot;    &quot;V10.0&quot;   &quot;V10.1.0&quot; &quot;V10.2.0&quot;</span></span></code></pre></div>
 </div>
 <div id="getting-parameter-value" class="section level2">
 <h2>Getting parameter value</h2>

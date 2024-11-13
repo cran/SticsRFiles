@@ -1636,7 +1636,7 @@ package, but will be included in a future version. One can use the tool
 provided by JavaSTICS GUI to perform these files generation.</p></li>
 </ul>
 <p>This document has been generated using the latest STICS version
-<strong>V10.1.0</strong>.</p>
+<strong>V10.2.0</strong>.</p>
 </div>
 <div id="pkg-funs" class="section level1">
 <h1>Package functions to be used</h1>
@@ -1654,6 +1654,8 @@ in next parts below.</p>
 (<code>*_tec.xml</code>)</li>
 <li>gen_sta_xml: for generating weather stations files
 (<code>*_sta.xml</code>)</li>
+<li>gen_general_param_xml: for generating general parameters files
+(<code>param_gen.xml and param_newform.xml</code>)</li>
 </ul>
 </div>
 <div id="download-excel-example" class="section level1">
@@ -2402,6 +2404,19 @@ generation section.</p>
 #&gt; ...
 #&gt; &lt;/fichiersta&gt;</code></pre>
 </div>
+</div>
+<div id="generating-general-parameters-xml-files-param_gen.xml-and-param_newform.xml" class="section level1">
+<h1>Generating general parameters XML files (param_gen.xml and
+param_newform.xml)</h1>
+<p>Nothing is to be done for specifying parameters values, the function
+is to be called with an optional argument for setting the desired
+version as follows.</p>
+<!-- Only for the show -->
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="co"># with the latest version</span></span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a><span class="fu">gen_general_param_xml</span>(<span class="at">out_dir =</span> workspace_path)</span>
+<span id="cb19-3"><a href="#cb19-3" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" tabindex="-1"></a><span class="co"># or with a specific version</span></span>
+<span id="cb19-5"><a href="#cb19-5" tabindex="-1"></a><span class="fu">gen_general_param_xml</span>(<span class="at">out_dir =</span> workspace_path, <span class="at">stics_version =</span> <span class="st">&quot;V10.2.0&quot;</span>)</span></code></pre></div>
 </div>
 
 
