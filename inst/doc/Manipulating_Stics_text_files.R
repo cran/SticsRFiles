@@ -6,7 +6,7 @@ knitr::opts_chunk$set(
 options(tibble.print_min = 5, tibble.print_max = 5)
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  library(SticsRFiles)
+# library(SticsRFiles)
 
 ## ----include=FALSE------------------------------------------------------------
 suppressWarnings(library(SticsRFiles))
@@ -34,15 +34,19 @@ get_param_txt(workspace = example_txt_dir, param = "a")$soil
 get_param_txt(workspace = example_txt_dir, param = "interrang")
 
 ## -----------------------------------------------------------------------------
-get_param_txt(workspace = example_txt_dir, param = "stlevamf",
-              variety = c("Pactol", "Cecilia", "clarica"))
+get_param_txt(
+  workspace = example_txt_dir, param = "stlevamf",
+  variety = c("Pactol", "Cecilia", "clarica")
+)
 
 ## -----------------------------------------------------------------------------
-get_param_txt(workspace = example_txt_dir, param = "stlevamf",
-              variety = c(1, 2, 5))
+get_param_txt(
+  workspace = example_txt_dir, param = "stlevamf",
+  variety = c(1, 2, 5)
+)
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  get_climate_txt(workspace = example_txt_dir)
+# get_climate_txt(workspace = example_txt_dir)
 
 ## ----echo=FALSE---------------------------------------------------------------
 library(dplyr)
@@ -66,11 +70,13 @@ set_param_txt(workspace = example_txt_dir, param = "patm", value = 1000)
 get_param_txt(workspace = example_txt_dir, param = "densinitial")
 
 ## -----------------------------------------------------------------------------
-set_param_txt(workspace = example_txt_dir,
-              param = "densinitial",
-              plant_id = 1,
-              layer = c(1, 4),
-              value = c(0.5, 0.1))
+set_param_txt(
+  workspace = example_txt_dir,
+  param = "densinitial",
+  plant_id = 1,
+  layer = c(1, 4),
+  value = c(0.5, 0.1)
+)
 
 ## -----------------------------------------------------------------------------
 get_param_txt(workspace = example_txt_dir, param = "densinitial")

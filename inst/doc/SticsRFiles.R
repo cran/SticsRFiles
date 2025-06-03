@@ -5,22 +5,30 @@ knitr::opts_chunk$set(
 )
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  library(SticsRFiles)
+# library(SticsRFiles)
 
 ## ----include=FALSE------------------------------------------------------------
-suppressWarnings(library(SticsRFiles))
+suppressPackageStartupMessages(library(SticsRFiles))
 # just in case for unzipping examples files in tempdir
 get_examples_path(c("xml", "csv"))
 
 ## ----include=FALSE------------------------------------------------------------
-example_data <- SticsRFiles::download_data(out_dir = tempdir(),
-                                           example_dirs = "study_case_1",
-                                           "V10.0")
+example_data <- SticsRFiles::download_data(
+  example_dirs = "study_case_1",
+  stics_version = "V10.0"
+)
+# In case of a download problem, the function will return NULL
+# stopping the vignette building
+if (is.null(example_data)) {
+  stop("The example data could not be downloaded. The internet resource is not available.")
+}
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  library(SticsRFiles)
-#  example_data <- SticsRFiles::download_data(example_dirs = "study_case_1",
-#                                             "V10.0")
+# library(SticsRFiles)
+# example_data <- SticsRFiles::download_data(
+#   example_dirs = "study_case_1",
+#   stics_version = "V10.0"
+# )
 
 ## -----------------------------------------------------------------------------
 workspace <- file.path(example_data, "XmlFiles")
@@ -33,41 +41,46 @@ SticsRFiles::get_var_info("lai")
 SticsRFiles::get_var_info(keyword = "lai")
 
 ## -----------------------------------------------------------------------------
-get_param_info(param = "lai")
+head(get_param_info(param = "lai"))
 
 ## -----------------------------------------------------------------------------
-get_param_info(keyword = "plant")
+head(get_param_info(keyword = "plant"))
 
 ## -----------------------------------------------------------------------------
 dlaimax <- get_param_xml(plant_file, "dlaimax")
 dlaimax
 
 ## -----------------------------------------------------------------------------
-values <- get_param_xml(plant_file, select = "formalisme",
-                        select_value = "radiation interception")
+values <- get_param_xml(plant_file,
+  select = "formalisme",
+  select_value = "radiation interception"
+)
 unlist(values) # For pretty-printing
 
 ## -----------------------------------------------------------------------------
-set_param_xml(plant_file, "dlaimax", unlist(dlaimax) * 1.3, overwrite = TRUE)
+new_values <- unlist(dlaimax) * 1.3
+set_param_xml(file = plant_file, param = "dlaimax", values = new_values, overwrite = TRUE)
 
 ## -----------------------------------------------------------------------------
 dlaimax <- get_param_xml(plant_file, "dlaimax")
 dlaimax
 
 ## -----------------------------------------------------------------------------
-obs_df <- data.frame(usm_name = "Test", ian = 2021, mo = 3:10, jo = 1,
-                     `masec(n)` = 0.1 * 3:10)
+obs_df <- data.frame(
+  usm_name = "Test", ian = 2021, mo = 3:10, jo = 1,
+  `masec(n)` = 0.1 * 3:10
+)
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  gen_obs(df = obs_df, out_dir = "/path/to/dest/dir")
+# gen_obs(df = obs_df, out_dir = "/path/to/dest/dir")
 
 ## -----------------------------------------------------------------------------
 obs <- get_obs(workspace)
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  sim <- get_sim(workspace)
-#  #> Warning in get_file_(workspace = x, usm_name = usm_name, usms_filepath =
-#  #> usms_path, : Not any sim file detected in
-#  #> workspace/tmp/RtmpjkDYAq/data-master/
-#  #> study_case_1/V10.0/XmlFiles
+# sim <- get_sim(workspace)
+# #> Warning in get_file_(workspace = x, usm_name = usm_name, usms_filepath =
+# #> usms_path, : Not any sim file detected in
+# #> workspace/tmp/RtmpjkDYAq/data-master/
+# #> study_case_1/V10.0/XmlFiles
 
