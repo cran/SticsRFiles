@@ -5,22 +5,31 @@
 \title{Download example USMs}
 \usage{
 download_data(
+  branch = NULL,
   out_dir = tempdir(),
   example_dirs = NULL,
-  stics_version = "latest"
+  stics_version = "latest",
+  raise_error = FALSE
 )
 }
 \arguments{
-\item{out_dir}{Path of the directory where to download the data}
+\item{branch}{Git branch name (optional)}
+
+\item{out_dir}{Path of the directory where to download the data
+(optional, default: tempdir())}
 
 \item{example_dirs}{List of use case directories names (optional)}
 
 \item{stics_version}{Name of the STICS version (optional)
 The default value is the latest version returned by
 get_stics_versions_compat().}
+
+\item{raise_error}{Logical, if TRUE, an error is raised instead
+of message when FALSE (default)}
 }
 \value{
-The path of the folder data have been downloaded into
+The path of the folder data have been downloaded into or NULL
+if the download fails and raise_error is FALSE.
 }
 \description{
 Download locally the example data from the
@@ -31,5 +40,9 @@ organization.
 
 # Getting data for a given example : study_case_1 and a given STICS version
 download_data(example_dirs = "study_case_1", stics_version = "V9.0")
-
+# raising an error instead of a message
+download_data(
+  example_dirs = "study_case_1", stics_version = "V9.0",
+  raise_error = TRUE
+)
 }

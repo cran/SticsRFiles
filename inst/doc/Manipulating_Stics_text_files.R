@@ -74,7 +74,7 @@ set_param_txt(
   workspace = example_txt_dir,
   param = "densinitial",
   plant_id = 1,
-  layer = c(1, 4),
+  value_id = c(1, 4),
   value = c(0.5, 0.1)
 )
 

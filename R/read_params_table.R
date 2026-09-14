@@ -1,11 +1,9 @@
 #' Getting parameters data from tables files (Excel sheet, csv)
 #'
-#' @param file Excel or csv file path (including name of the file)
+#' @param file_path Excel or csv file path (including name of the file)
 #' @param sheet_name Name of an Excel sheet (useless for csv files)
 #' @param num_na Replacement value for numerical NA values (default: NA)
 #' @param char_na Replacement value for character NA values (default: "")
-#' @param file_path `r lifecycle::badge("deprecated")` `file_path` is no
-#'   longer supported, use `file` instead.
 #'
 #' @details After data are loaded, numerical and string NA values are
 #' replaced respectively with num_na or char_na
@@ -16,32 +14,22 @@
 #' @examples
 #'
 #' usm_xl_file <- download_usm_xl(
-#'   file = "inputs_stics_example.xlsx",
+#'   file_name = "inputs_stics_example.xlsx",
 #'   verbose = FALSE
 #' )
 #' read_params_table(usm_xl_file, sheet = "USMs")
 #' usm_csv_file <- download_usm_csv(
 #'   file = "inputs_stics_example_USMs.csv",
-#'   verbose = FALSE,
 #'   stics_version = "V9.2"
 #' )
-#' read_params_table(file = usm_csv_file)
+#' read_params_table(file_path = usm_csv_file)
+#'
 read_params_table <- function(
-    file,
-    sheet_name = NULL,
-    num_na = "NA",
-    char_na = "NA",
-    file_path = lifecycle::deprecated()) {
-  if (lifecycle::is_present(file_path)) {
-    lifecycle::deprecate_warn(
-      "1.0.0",
-      "read_params_table(file_path)",
-      "read_params_table(file)"
-    )
-  } else {
-    file_path <- file # to remove when we update inside the function
-  }
-
+  file_path,
+  sheet_name = NULL,
+  num_na = "NA",
+  char_na = "NA"
+) {
   # files extension list
   files_ext_lst <- c("csv", "xls", "xlsx")
 
@@ -72,28 +60,24 @@ read_params_table <- function(
     return()
   }
 
-  # Reading file according to its format
-  switch(file_ext,
-    csv = {
-      out_table <- utils::read.csv2(
-        file = file_path,
-        header = TRUE,
-        sep = ";",
-        stringsAsFactors = FALSE,
-        na.strings = "",
-        strip.white = TRUE,
-        colClasses = "character"
-      )
-    },
-    {
-      out_table <- readxl::read_excel(
-        file_path,
-        sheet = sheet_name,
-        trim_ws = TRUE,
-        col_types = "text"
-      )
-    }
-  )
+  if (file_ext == "csv") {
+    out_table <- utils::read.csv2(
+      file = file_path,
+      header = TRUE,
+      sep = ";",
+      stringsAsFactors = FALSE,
+      na.strings = "",
+      strip.white = TRUE,
+      colClasses = "character"
+    )
+  } else {
+    out_table <- readxl::read_excel(
+      file_path,
+      sheet = sheet_name,
+      trim_ws = TRUE,
+      col_types = "text"
+    )
+  }
 
   # Converting if necessary to tibble object
   out_table <- tibble::as_tibble(out_table)
@@ -144,7 +128,7 @@ replace_na <- function(in_df, replacement) {
 
   idx_col_has_na <- unlist(
     lapply(in_df, function(x) {
-      any(is.na(x))
+      anyNA(x)
     }),
     use.names = FALSE
   )

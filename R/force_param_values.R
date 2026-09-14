@@ -7,8 +7,9 @@
 #' @param values named vector of parameter values to force.
 #' See Details for more information.
 #' @param javastics Path of JavaSTICS
-#' @param param_values `r lifecycle::badge("deprecated")` `param_values`
-#' is no longer supported, use `values` instead.
+#' @param force Logical, if `TRUE`, unknown parameter names only trigger a
+#' warning and are still written to `param.sti`. If `FALSE` (default),
+#' unknown parameter names trigger an error.
 #'
 #' @details This function operates on STICS text input files.
 #' Do not use it before calling `gen_usms_xml2txt()`, otherwise
@@ -39,21 +40,12 @@
 #' @export
 #'
 force_param_values <- function(
-    workspace,
-    values,
-    javastics,
-    param_values = lifecycle::deprecated()) {
-  if (lifecycle::is_present(param_values)) {
-    lifecycle::deprecate_warn(
-      "1.0.0",
-      "force_param_values(param_values)",
-      "force_param_values(values)"
-    )
-  } else {
-    param_values <- values # to remove when we update inside the function
-  }
-
-  if (is.null(param_values) || all(is.na(param_values))) {
+  workspace,
+  values,
+  javastics,
+  force = FALSE
+) {
+  if (is.null(values) || all(is.na(values))) {
     # remove param.sti in case of previous run using it ...
     if (
       suppressWarnings(file.remove(file.path(
@@ -67,36 +59,51 @@ force_param_values <- function(
     }
   } else {
     # convert into vector in case a tibble is given instead of a vector
-    param_values <-
-      stats::setNames(as.numeric(param_values), names(param_values))
+    values <-
+      stats::setNames(as.numeric(values), names(values))
 
     # Checking parameters names
-    param_names <- names(param_values)
+    param_names <- names(values)
     param_exist <- exist_param_csv(param_names, javastics)
     if (!all(param_exist)) {
-      stop(
-        "Unknown parameters detected for STICS version ",
-        ":\n", # stics_version, ": \n",
-        paste(param_names[!param_exist], collapse = ", ")
-      )
+      unknown_param_names <- paste(param_names[!param_exist], collapse = ", ")
+
+      if (force) {
+        warning(
+          "Unknown parameters detected and kept because force=TRUE:\n",
+          unknown_param_names
+        )
+      } else {
+        stop(
+          "Unknown parameters detected for STICS version ",
+          ":\n", # stics_version, ": \n",
+          unknown_param_names
+        )
+      }
     }
 
-    ind_non_na <- !is.na(param_values)
+    if (force && !all(param_exist)) {
+      # Keep user-provided names for unknown parameters when forcing values.
+      names(param_exist)[!param_exist] <- param_names[!param_exist]
+      param_exist[!param_exist] <- TRUE
+    }
+
+    ind_non_na <- !is.na(values)
     if (!all(ind_non_na)) {
-      warning(paste(
+      warning(
         "Parameter(s)",
-        paste(names(param_values[!ind_non_na]), collapse = ","),
+        paste(names(values[!ind_non_na]), collapse = ","),
         "will not be forced (maybe their values are not numeric?",
         " In that case please use set_param_*** functions)."
-      ))
+      )
     }
-    param_values <- param_values[ind_non_na]
+    values <- values[ind_non_na]
 
     # converting par names to STICS names
     # names conversion done in exist_param_csv()
     stics_names <- names(param_exist[ind_non_na])
 
-    ret <- gen_paramsti(workspace, stics_names, param_values)
+    ret <- gen_paramsti(workspace, stics_names, values)
     if (!ret) {
       return(invisible(FALSE))
     }

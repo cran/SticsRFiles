@@ -1,8 +1,6 @@
 options(warn = -1)
 
 stics_version <- get_stics_versions_compat()$latest_version
-version_num <- get_version_num()
-host <- "github.com"
 
 context("get model outputs")
 
@@ -136,12 +134,11 @@ unlink(file.path(path, "wheat"))
 # Testing intercropping usms  ------------------------------------
 example_ic <- download_data(
   example_dirs = "study_case_intercrop",
-  stics_version = stics_version
+  stics_version = stics_version,
+  raise_error = TRUE
 )
 
 test_that("get simulations with intercrops", {
-  testthat::skip_if_offline(host = host)
-
   outputs <- get_sim(workspace = example_ic)
   # There are two USMs in the usms.xml file, but only one output file (banana):
   expect_true(is.list(outputs) && !is.data.frame(outputs))
@@ -167,8 +164,6 @@ test_that("get simulations with intercrops", {
 })
 
 test_that("get simulations with intercrops, giving usms.xml file", {
-  testthat::skip_if_offline(host = host)
-
   outputs <- get_obs(
     workspace = example_ic,
     usms_file = file.path(example_ic, "usms.xml")

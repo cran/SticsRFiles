@@ -109,9 +109,10 @@ sticsenv_create <- function(name, env_name = ".GlobalEnv") {
 #' @noRd
 #'
 sticsenv_set_name <- function(
-    name,
-    env_name = sticsenv_name(),
-    fix_name = NULL) {
+  name,
+  env_name = sticsenv_name(),
+  fix_name = NULL
+) {
   envir <- suppressWarnings(stics_get(name = name, env_name = env_name))
 
   if (base::is.null(envir)) {
@@ -161,9 +162,10 @@ sticsenv_get_name <- function(name = NULL, env_name = sticsenv_name()) {
 #' @keywords internal
 #' @noRd
 sticsenv_ls <- function(
-    name = NULL,
-    env_name = sticsenv_name(),
-    detail = FALSE) {
+  name = NULL,
+  env_name = sticsenv_name(),
+  detail = FALSE
+) {
   envir <- stics_get(name, env_name = env_name)
 
   if (base::is.null(envir)) {
@@ -390,7 +392,7 @@ stics_remove <- function(name = NULL, env_name = sticsenv_name()) {
 
   if (any(list_idx)) list_var_names <- name[list_idx]
 
-  if (any(!list_idx)) var_names <- name[!list_idx]
+  if (!all(list_idx)) var_names <- name[!list_idx]
 
   ret <- FALSE
   if (length(list_var_names)) {

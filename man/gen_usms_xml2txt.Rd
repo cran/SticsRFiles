@@ -9,16 +9,14 @@ gen_usms_xml2txt(
   javastics = NULL,
   workspace = NULL,
   out_dir = NULL,
-  usm = c(),
+  usm = NULL,
   stics_version = "latest",
   verbose = TRUE,
   dir_per_usm_flag = TRUE,
   java_cmd = "java",
   java_converter = FALSE,
-  javastics_path = lifecycle::deprecated(),
-  workspace_path = lifecycle::deprecated(),
-  target_path = lifecycle::deprecated(),
-  usms_list = lifecycle::deprecated()
+  parallel = FALSE,
+  cores = NA
 )
 }
 \arguments{
@@ -38,11 +36,12 @@ usms contained in workspace/usms.xml file will be generated.}
 \item{stics_version}{the STICS files version to use (optional,
 default to latest).}
 
-\item{verbose}{Logical value for displaying information while running}
+\item{verbose}{Logical value TRUE (default) for displaying information
+while running, FALSE otherwise}
 
-\item{dir_per_usm_flag}{logical, TRUE if one want to create one directory
-per USM, FALSE if USM files are generated in the target_path
-(only useful for usms_list of size one)}
+\item{dir_per_usm_flag}{logical, optional; TRUE (default)
+if one want to create one directory per USM, FALSE if USM files
+are generated in the out_dir (only useful for usm of size one)}
 
 \item{java_cmd}{For unix like systems, the java virtual machine command
 name or executable path. Useful only if the JavaSTICS command line
@@ -50,20 +49,13 @@ is used for generating files. "java" is the default system command,
 but a full path to a java executable (other than the default one)
 may be given}
 
-\item{java_converter}{logical TRUE for using JavaSTICS command
-(a JavaSTICS path must be set in the function inputs), FALSE otherwise}
+\item{java_converter}{logical, optional; TRUE for using the JavaSTICS command
+(a JavaSTICS path must be set in the function inputs),
+FALSE otherwise (default)}
 
-\item{javastics_path}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} \code{javastics_path}
-is no longer supported, use \code{javastics} instead.}
+\item{parallel}{Boolean. Is the computation to be done in parallel ?}
 
-\item{workspace_path}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} \code{workspace_path}
-is no longer supported, use \code{workspace} instead.}
-
-\item{target_path}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} \code{target_path} is no
-longer supported, use \code{out_dir} instead.}
-
-\item{usms_list}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} \code{usms_list} is no
-longer supported, use \code{usm} instead.}
+\item{cores}{Number of cores to use for parallel computation.}
 }
 \value{
 A list with named elements:
@@ -91,8 +83,8 @@ workspace <- "/path/to/workspace"
 gen_usms_xml2txt(javastics, workspace)
 
 # For an usms list
-usm <- c("usm1", "usm2")
-gen_usms_xml2txt(javastics, workspace, usm)
+usm_list <- c("usm1", "usm2")
+gen_usms_xml2txt(javastics, workspace, usms = usm_list)
 }
 
 }

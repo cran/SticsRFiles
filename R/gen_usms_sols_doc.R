@@ -30,11 +30,12 @@
 #' @noRd
 #'
 gen_usms_sols_doc <- function(
-    doc_type,
-    xml_doc = NULL,
-    nodes_nb = NULL,
-    nodes_param = NULL,
-    stics_version = "latest") {
+  doc_type,
+  xml_doc = NULL,
+  nodes_nb = NULL,
+  nodes_param = NULL,
+  stics_version = "latest"
+) {
   # for usms and sols files
 
   doc_types <- list()
@@ -81,7 +82,7 @@ gen_usms_sols_doc <- function(
     elts_nb <- nodes_nb
   }
 
-  if ("data.frame" %in% class(nodes_param)) {
+  if (inherits(nodes_param, "data.frame")) {
     elts_nb <- dim(nodes_param)[1]
   }
 

@@ -12,11 +12,8 @@ get_sim(
   usms_file = NULL,
   javastics = NULL,
   verbose = TRUE,
-  usm_name = lifecycle::deprecated(),
-  var_list = lifecycle::deprecated(),
-  dates_list = lifecycle::deprecated(),
-  usms_filepath = lifecycle::deprecated(),
-  javastics_path = lifecycle::deprecated()
+  parallel = FALSE,
+  cores = NA
 )
 }
 \arguments{
@@ -44,20 +41,9 @@ in the workspace but in the JavaSTICS distribution (see Details).}
 
 \item{verbose}{Logical value for displaying or not information while running}
 
-\item{usm_name}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} \code{usm_name} is no
-longer supported, use \code{usm} instead.}
+\item{parallel}{Boolean. Is the computation to be done in parallel ?}
 
-\item{var_list}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} \code{var_list} is no
-longer supported, use \code{var} instead.}
-
-\item{dates_list}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} \code{dates_list} is no
-longer supported, use \code{dates} instead.}
-
-\item{usms_filepath}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} \code{usms_filepath}
-is no longer supported, use \code{usms_file} instead.}
-
-\item{javastics_path}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} \code{javastics_path}
-is no longer supported, use \code{javastics} instead.}
+\item{cores}{Number of cores to use for parallel computation.}
 }
 \value{
 A list, where each element is a \code{data.frame} of simulation results

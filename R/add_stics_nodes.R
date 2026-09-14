@@ -23,10 +23,11 @@
 #' @noRd
 #'
 add_stics_nodes <- function(
-    xml_doc,
-    formalism_name = NULL,
-    nodes_nb = 1,
-    stics_version = "latest") {
+  xml_doc,
+  formalism_name = NULL,
+  nodes_nb = 1,
+  stics_version = "latest"
+) {
   # Getting nodes types that may be added to xml_doc
   node_types <- get_xml_base_node()
 
@@ -53,7 +54,7 @@ add_stics_nodes <- function(
     form_idx <- which(node_types$form_names[[file_tag]] == formalism_name)
 
     if (!length(form_idx)) {
-      stop(paste("Unkown formalism name", formalism_name))
+      stop("Unkown formalism name", formalism_name)
     }
 
     if (formalism_name == "special techniques") {

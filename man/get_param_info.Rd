@@ -20,7 +20,7 @@ is used.}
 }
 \value{
 A data.frame with information about parameter(s) with columns
-\code{name},\code{file},\code{min},\code{max}, \code{definition}
+\code{name}, \code{file}, \code{min}, \code{max}, \code{definition}, \code{unit} and \code{cultivar}
 }
 \description{
 Helper function that returns names and descriptions of
@@ -40,5 +40,7 @@ SticsRFiles::get_param_info(keyword = "bdil")
 
 # Find for a particular version:
 SticsRFiles::get_param_info("alb", stics_version = "V9.0")
+
+get_param_info()
 
 }

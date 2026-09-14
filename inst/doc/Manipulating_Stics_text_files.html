@@ -1319,8 +1319,9 @@ overflow: visible;
 }
 </style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -1331,7 +1332,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -1639,17 +1640,18 @@ STICS text files</a> vignette;</li>
 <a href="https://sticsrpacks.github.io/SticsOnR/reference/run_stics.html"><code>run_stics()</code></a>
 function from <a href="https://sticsrpacks.github.io/SticsOnR/index.html">SticsOnR</a>.</p>
 <p>Some example data are available from the package and can be retrieved
-using the following function call for the STICS version V10.2.0:</p>
+using the following function call for the STICS version V11.0.0:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>example_txt_dir <span class="ot">&lt;-</span></span>
 <span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>  <span class="fu">get_examples_path</span>(<span class="at">file_type =</span> <span class="st">&quot;txt&quot;</span>, <span class="at">stics_version =</span> stics_version)</span></code></pre></div>
 <p>The <code>example_txt_dir</code> directory is:
-/tmp/RtmpT9471u/txt/V10.0. By default, the latest STICS version is taken
+/tmp/RtmpBhP43I/txt/V10.0. By default, the latest STICS version is taken
 into account. For getting an example directory for another version, an
 additional argument must be given <code>stics_version</code> according
 to an existing version included in the package. The version list can be
 retrieved using:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">get_stics_versions_compat</span>()<span class="sc">$</span>versions_list</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="co">#&gt; [1] &quot;V8.5&quot;    &quot;V9.0&quot;    &quot;V9.1&quot;    &quot;V9.2&quot;    &quot;V10.0&quot;   &quot;V10.1.0&quot; &quot;V10.2.0&quot;</span></span></code></pre></div>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="co">#&gt; [1] &quot;V8.5.0&quot;  &quot;V9.0.0&quot;  &quot;V9.1.0&quot;  &quot;V9.2.0&quot;  &quot;V10.0.0&quot; &quot;V10.1.0&quot; &quot;V10.2.0&quot;</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#&gt; [8] &quot;V10.5.0&quot; &quot;V11.0.0&quot;</span></span></code></pre></div>
 </div>
 <div id="getting-parameter-value" class="section level2">
 <h2>Getting parameter value</h2>
@@ -1852,11 +1854,11 @@ value will be changed.</p></li>
 replacing varietal parameter values either giving a name
 (<code>codevar</code> in the plant file) or an index of the variety
 specified in the technical file (<code>variete</code>)</p></li>
-<li><p><code>layer</code>: This may be used for replacing specific
+<li><p><code>value_id</code>: This may be used for replacing specific
 parameters values, for specific soil layers either for the soil
 characteristics (soil file: <code>param.sol</code>), or roots density
 and mineral elements concentration at the simulation start
-(initialisztion file: <code>ficini.txt</code>).</p></li>
+(initialization file: <code>ficini.txt</code>).</p></li>
 <li><p><code>stics_version</code>: At last, the model version can be
 specified through that argument, because files content may vary
 according to the version.</p></li>
@@ -1871,12 +1873,7 @@ as <code>plant_id</code>, <code>layer</code>:</p>
 <span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a><span class="co">#&gt; $ini$plant</span></span>
 <span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a><span class="co">#&gt; $ini$plant$plant1</span></span>
 <span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a><span class="co">#&gt; $ini$plant$plant1$densinitial</span></span>
-<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a><span class="co">#&gt; [1] 0 0 0 0 0</span></span>
-<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb15-8"><a href="#cb15-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb15-9"><a href="#cb15-9" tabindex="-1"></a><span class="co">#&gt; $ini$plant$plant2</span></span>
-<span id="cb15-10"><a href="#cb15-10" tabindex="-1"></a><span class="co">#&gt; $ini$plant$plant2$densinitial</span></span>
-<span id="cb15-11"><a href="#cb15-11" tabindex="-1"></a><span class="co">#&gt; [1] &quot;     &quot;</span></span></code></pre></div>
+<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a><span class="co">#&gt; [1] 0 0 0 0 0</span></span></code></pre></div>
 <ul>
 <li>The values for the plant 1 and layers 1 and 4 are replaced as
 follows:</li>
@@ -1885,15 +1882,9 @@ follows:</li>
 <span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a>  <span class="at">workspace =</span> example_txt_dir,</span>
 <span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a>  <span class="at">param =</span> <span class="st">&quot;densinitial&quot;</span>,</span>
 <span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a>  <span class="at">plant_id =</span> <span class="dv">1</span>,</span>
-<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a>  <span class="at">layer =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>),</span>
+<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a>  <span class="at">value_id =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>),</span>
 <span id="cb16-6"><a href="#cb16-6" tabindex="-1"></a>  <span class="at">value =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.1</span>)</span>
-<span id="cb16-7"><a href="#cb16-7" tabindex="-1"></a>)</span>
-<span id="cb16-8"><a href="#cb16-8" tabindex="-1"></a><span class="co">#&gt; Warning: The `plant` argument of `set_param_txt()` is deprecated as of SticsRFiles</span></span>
-<span id="cb16-9"><a href="#cb16-9" tabindex="-1"></a><span class="co">#&gt; 1.4.0.</span></span>
-<span id="cb16-10"><a href="#cb16-10" tabindex="-1"></a><span class="co">#&gt; ℹ Please use the `plant_id` argument instead.</span></span>
-<span id="cb16-11"><a href="#cb16-11" tabindex="-1"></a><span class="co">#&gt; This warning is displayed once every 8 hours.</span></span>
-<span id="cb16-12"><a href="#cb16-12" tabindex="-1"></a><span class="co">#&gt; Call `lifecycle::last_lifecycle_warnings()` to see where this warning was</span></span>
-<span id="cb16-13"><a href="#cb16-13" tabindex="-1"></a><span class="co">#&gt; generated.</span></span></code></pre></div>
+<span id="cb16-7"><a href="#cb16-7" tabindex="-1"></a>)</span></code></pre></div>
 <ul>
 <li>The final values in the file are:</li>
 </ul>
@@ -1902,12 +1893,7 @@ follows:</li>
 <span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a><span class="co">#&gt; $ini$plant</span></span>
 <span id="cb17-4"><a href="#cb17-4" tabindex="-1"></a><span class="co">#&gt; $ini$plant$plant1</span></span>
 <span id="cb17-5"><a href="#cb17-5" tabindex="-1"></a><span class="co">#&gt; $ini$plant$plant1$densinitial</span></span>
-<span id="cb17-6"><a href="#cb17-6" tabindex="-1"></a><span class="co">#&gt; [1] 0.5 0.0 0.0 0.1 0.0</span></span>
-<span id="cb17-7"><a href="#cb17-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb17-8"><a href="#cb17-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb17-9"><a href="#cb17-9" tabindex="-1"></a><span class="co">#&gt; $ini$plant$plant2</span></span>
-<span id="cb17-10"><a href="#cb17-10" tabindex="-1"></a><span class="co">#&gt; $ini$plant$plant2$densinitial</span></span>
-<span id="cb17-11"><a href="#cb17-11" tabindex="-1"></a><span class="co">#&gt; [1] &quot;                     &quot;</span></span></code></pre></div>
+<span id="cb17-6"><a href="#cb17-6" tabindex="-1"></a><span class="co">#&gt; [1] 0.5 0.0 0.0 0.1 0.0</span></span></code></pre></div>
 <p>Note that as for <code>get_param_txt()</code>,
 <code>set_param_txt()</code> finds automatically the file where the
 parameter is. It is also a wrapper around lower-level functions that set
@@ -1948,34 +1934,34 @@ search:</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="fu">get_var_info</span>(<span class="st">&quot;lai&quot;</span>)</span>
 <span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a><span class="co">#&gt;              name</span></span>
 <span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a><span class="co">#&gt; 5       albedolai</span></span>
-<span id="cb21-4"><a href="#cb21-4" tabindex="-1"></a><span class="co">#&gt; 242        exolai</span></span>
-<span id="cb21-5"><a href="#cb21-5" tabindex="-1"></a><span class="co">#&gt; 338        innlai</span></span>
-<span id="cb21-6"><a href="#cb21-6" tabindex="-1"></a><span class="co">#&gt; 353        lai(n)</span></span>
-<span id="cb21-7"><a href="#cb21-7" tabindex="-1"></a><span class="co">#&gt; 354 lai_mx_av_cut</span></span>
-<span id="cb21-8"><a href="#cb21-8" tabindex="-1"></a><span class="co">#&gt; 355        laimax</span></span>
-<span id="cb21-9"><a href="#cb21-9" tabindex="-1"></a><span class="co">#&gt; 356     laisen(n)</span></span>
-<span id="cb21-10"><a href="#cb21-10" tabindex="-1"></a><span class="co">#&gt; 742         splai</span></span>
-<span id="cb21-11"><a href="#cb21-11" tabindex="-1"></a><span class="co">#&gt; 805       ulai(n)</span></span>
+<span id="cb21-4"><a href="#cb21-4" tabindex="-1"></a><span class="co">#&gt; 243        exolai</span></span>
+<span id="cb21-5"><a href="#cb21-5" tabindex="-1"></a><span class="co">#&gt; 349        innlai</span></span>
+<span id="cb21-6"><a href="#cb21-6" tabindex="-1"></a><span class="co">#&gt; 365        lai(n)</span></span>
+<span id="cb21-7"><a href="#cb21-7" tabindex="-1"></a><span class="co">#&gt; 366 lai_mx_av_cut</span></span>
+<span id="cb21-8"><a href="#cb21-8" tabindex="-1"></a><span class="co">#&gt; 367        laimax</span></span>
+<span id="cb21-9"><a href="#cb21-9" tabindex="-1"></a><span class="co">#&gt; 368     laisen(n)</span></span>
+<span id="cb21-10"><a href="#cb21-10" tabindex="-1"></a><span class="co">#&gt; 757         splai</span></span>
+<span id="cb21-11"><a href="#cb21-11" tabindex="-1"></a><span class="co">#&gt; 820       ulai(n)</span></span>
 <span id="cb21-12"><a href="#cb21-12" tabindex="-1"></a><span class="co">#&gt;                                                           definition</span></span>
 <span id="cb21-13"><a href="#cb21-13" tabindex="-1"></a><span class="co">#&gt; 5                   albedo of the crop including soil and vegetation</span></span>
-<span id="cb21-14"><a href="#cb21-14" tabindex="-1"></a><span class="co">#&gt; 242              reduction factor on leaf growth due to water excess</span></span>
-<span id="cb21-15"><a href="#cb21-15" tabindex="-1"></a><span class="co">#&gt; 338 reduction factor on leaf growth due to NNI (nitrogen deficiency)</span></span>
-<span id="cb21-16"><a href="#cb21-16" tabindex="-1"></a><span class="co">#&gt; 353                                          leaf area index (table)</span></span>
-<span id="cb21-17"><a href="#cb21-17" tabindex="-1"></a><span class="co">#&gt; 354            LAI before cut (for cut crops , for others = lai(n) )</span></span>
-<span id="cb21-18"><a href="#cb21-18" tabindex="-1"></a><span class="co">#&gt; 355                                          maximum leaf area index</span></span>
-<span id="cb21-19"><a href="#cb21-19" tabindex="-1"></a><span class="co">#&gt; 356                      leaf area index of senescent leaves (table)</span></span>
-<span id="cb21-20"><a href="#cb21-20" tabindex="-1"></a><span class="co">#&gt; 742                source to sink ratio of assimilates in the leaves</span></span>
-<span id="cb21-21"><a href="#cb21-21" tabindex="-1"></a><span class="co">#&gt; 805                                relative development unit for LAI</span></span>
+<span id="cb21-14"><a href="#cb21-14" tabindex="-1"></a><span class="co">#&gt; 243              reduction factor on leaf growth due to water excess</span></span>
+<span id="cb21-15"><a href="#cb21-15" tabindex="-1"></a><span class="co">#&gt; 349 reduction factor on leaf growth due to NNI (nitrogen deficiency)</span></span>
+<span id="cb21-16"><a href="#cb21-16" tabindex="-1"></a><span class="co">#&gt; 365                                          leaf area index (table)</span></span>
+<span id="cb21-17"><a href="#cb21-17" tabindex="-1"></a><span class="co">#&gt; 366            LAI before cut (for cut crops , for others = lai(n) )</span></span>
+<span id="cb21-18"><a href="#cb21-18" tabindex="-1"></a><span class="co">#&gt; 367                                          maximum leaf area index</span></span>
+<span id="cb21-19"><a href="#cb21-19" tabindex="-1"></a><span class="co">#&gt; 368                      leaf area index of senescent leaves (table)</span></span>
+<span id="cb21-20"><a href="#cb21-20" tabindex="-1"></a><span class="co">#&gt; 757                source to sink ratio of assimilates in the leaves</span></span>
+<span id="cb21-21"><a href="#cb21-21" tabindex="-1"></a><span class="co">#&gt; 820                                relative development unit for LAI</span></span>
 <span id="cb21-22"><a href="#cb21-22" tabindex="-1"></a><span class="co">#&gt;            unit type</span></span>
 <span id="cb21-23"><a href="#cb21-23" tabindex="-1"></a><span class="co">#&gt; 5            SD real</span></span>
-<span id="cb21-24"><a href="#cb21-24" tabindex="-1"></a><span class="co">#&gt; 242         0-1 real</span></span>
-<span id="cb21-25"><a href="#cb21-25" tabindex="-1"></a><span class="co">#&gt; 338 innmin to 1 real</span></span>
-<span id="cb21-26"><a href="#cb21-26" tabindex="-1"></a><span class="co">#&gt; 353      m2.m-2 real</span></span>
-<span id="cb21-27"><a href="#cb21-27" tabindex="-1"></a><span class="co">#&gt; 354          SD real</span></span>
-<span id="cb21-28"><a href="#cb21-28" tabindex="-1"></a><span class="co">#&gt; 355      m2.m-2 real</span></span>
-<span id="cb21-29"><a href="#cb21-29" tabindex="-1"></a><span class="co">#&gt; 356      m2.m-2 real</span></span>
-<span id="cb21-30"><a href="#cb21-30" tabindex="-1"></a><span class="co">#&gt; 742          SD real</span></span>
-<span id="cb21-31"><a href="#cb21-31" tabindex="-1"></a><span class="co">#&gt; 805         0-3 real</span></span></code></pre></div>
+<span id="cb21-24"><a href="#cb21-24" tabindex="-1"></a><span class="co">#&gt; 243         0-1 real</span></span>
+<span id="cb21-25"><a href="#cb21-25" tabindex="-1"></a><span class="co">#&gt; 349 innmin to 1 real</span></span>
+<span id="cb21-26"><a href="#cb21-26" tabindex="-1"></a><span class="co">#&gt; 365      m2.m-2 real</span></span>
+<span id="cb21-27"><a href="#cb21-27" tabindex="-1"></a><span class="co">#&gt; 366          SD real</span></span>
+<span id="cb21-28"><a href="#cb21-28" tabindex="-1"></a><span class="co">#&gt; 367      m2.m-2 real</span></span>
+<span id="cb21-29"><a href="#cb21-29" tabindex="-1"></a><span class="co">#&gt; 368      m2.m-2 real</span></span>
+<span id="cb21-30"><a href="#cb21-30" tabindex="-1"></a><span class="co">#&gt; 757          SD real</span></span>
+<span id="cb21-31"><a href="#cb21-31" tabindex="-1"></a><span class="co">#&gt; 820         0-3 real</span></span></code></pre></div>
 </div>
 
 

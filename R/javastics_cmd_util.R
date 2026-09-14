@@ -33,11 +33,12 @@
 #' @noRd
 #'
 get_javastics_cmd <- function(
-    javastics,
-    java_cmd = "java",
-    type = c("generate", "run"),
-    workspace = NULL,
-    verbose = TRUE) {
+  javastics,
+  java_cmd = "java",
+  type = c("generate", "run"),
+  workspace = NULL,
+  verbose = TRUE
+) {
   # detecting JavaSTICS command exe name from javastics path
   javastics_cmd <- file.path(javastics, "JavaSticsCmd.exe")
   cmd <- check_javastics_cmd(
@@ -107,9 +108,10 @@ get_javastics_cmd <- function(
 #' @noRd
 #'
 check_javastics_cmd <- function(
-    javastics_cmd = "JavaSticsCmd.exe",
-    java_cmd = "java",
-    verbose = TRUE) {
+  javastics_cmd = "JavaSticsCmd.exe",
+  java_cmd = "java",
+  verbose = TRUE
+) {
   if (is_windows()) {
     help_test <- system2(
       javastics_cmd,
@@ -200,7 +202,7 @@ get_java_version <- function(java_cmd = "java") {
     java_path <- system2("which", java_cmd, stdout = TRUE, stderr = TRUE)
   } else {
     # for Windows: splitting command if java_cmd is a full path
-    if (!basename(java_cmd) == java_cmd) {
+    if (basename(java_cmd) != java_cmd) {
       java_cmd <- c("/R", dirname(java_cmd), basename(java_cmd))
     }
 

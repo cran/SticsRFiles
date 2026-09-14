@@ -10,111 +10,78 @@
 #' (used to check variable names)
 #' @param force     Force variables writing even if they are not a
 #' STICS variable (default: FALSE).
-#'
-#' @param var_names `r lifecycle::badge("deprecated")` `var_names` is no
-#'   longer supported, use `var` instead.
-#' @param version `r lifecycle::badge("deprecated")` `version` is no
-#'   longer supported, use `stics_version` instead.
+#' @param verbose if TRUE displaying warning, FALSE otherwise (default)
 #'
 #' @details Variable names can be found using `get_var_info()`. They are
 #' checked before writing. If any variable name does not exist,
 #' it will not be written by default, but the function will still write
 #' the variables that exist. `force= TRUE` may however be used to write
-#' variables that do not exist.
+#' variables that do not exist. Variables already present in a var.mod file
+#' can be listed using `get_varmod()`.
 #'
 #' @return None
 #'
 #' @examples
+#' # generate a new file
 #' gen_varmod(tempdir(), c("lai(n)", "hauteur"))
-#' # Add a variable to the others:
+#' # Add a variable to the others
+#' # var.mod will contain now "lai(n)","hauteur" and "masec(n)"
 #' gen_varmod(tempdir(), "masec(n)", append = TRUE)
-#' # NB: var.mod will have "lai(n)","hauteur" and "masec(n)"
 #'
 #' @export
 #'
 gen_varmod <- function(
-    workspace,
-    var,
-    append = FALSE,
-    file_name = "var.mod",
-    stics_version = "latest",
-    force = FALSE,
-    var_names = lifecycle::deprecated(),
-    version = lifecycle::deprecated()) {
-  # var_names
-  if (lifecycle::is_present(var_names)) {
-    lifecycle::deprecate_warn(
-      "1.0.0",
-      "gen_varmod(var_names)",
-      "gen_varmod(var)"
-    )
-  } else {
-    var_names <- var # to remove when we update inside the function
-  }
-  # version
-  # added a second condition because
-  # if version is not given as an arg.
-  # version always exist and giving detailed information
-  # about R version and platform (see ?version)
-  if (lifecycle::is_present(version) && length(version) == 1) {
-    lifecycle::deprecate_warn(
-      "1.0.0",
-      "gen_varmod(version)",
-      "gen_varmod(stics_version)"
-    )
-  } else {
-    version <- stics_version # to remove when we update inside the function
-  }
-
-  # Checking if workspace exists
+  workspace,
+  var,
+  append = FALSE,
+  file_name = "var.mod",
+  stics_version = "latest",
+  force = FALSE,
+  verbose = FALSE
+) {
+  # Checking if the workspace exists
   if (!dir.exists(workspace)) {
-    stop(paste(workspace, ": directory does not exist !"))
+    stop(workspace, ": directory does not exist !")
   }
 
   file_path <- file.path(workspace, file_name)
 
   # Checking if file exists in append use case
-  if (append && isFALSE(file.exists(file_path))) {
-    msg <- ": file does not exist, remove append argument or set it to FALSE) !"
-    stop(paste(file_path, msg))
+  if (append && !file.exists(file_path)) {
+    stop(
+      file_path,
+      ": file does not exist, remove append argument or set it to FALSE) !"
+    )
   }
 
   # Just in case: unique variable names list
-  var_names <- unique(var_names)
+  var <- unique(var)
 
-  # Check if the variable exist:
-  var_exist <- is_stics_var(var_names, version)
+  # Checking if the variable(s) exist
+  var_exist <- is_stics_var(var, stics_version, verbose = verbose)
 
-  if (any(!var_exist) && isFALSE(force)) {
-    var_names <- var_names[var_exist]
+  if (!all(var_exist) && verbose && !force) {
+    message("Not any variable name to add to the var.mod file!")
   }
 
-  if (!length(var_names)) {
-    warning("Not any variable name to add to the var.mod file!")
+  if (!force) {
+    var <- var[var_exist]
   }
 
-  if (isTRUE(force)) {
-    var_names[var_exist] <- var_to_stics_name(var_names[var_exist])
+  if (force) {
+    var[var_exist] <- var_to_stics_name(var[var_exist])
   } else {
-    var_names <- var_to_stics_name(var_names)
+    var <- var_to_stics_name(var)
   }
 
   # Add possibility to append a variable to var.mod.
-  if (isTRUE(append)) {
-    vars <- readLines(file_path)
-    commonvars <- var_names %in% vars
-    if (any(commonvars)) {
-      cli::cli_alert_warning(paste0(
-        "Variable{?s} {.var ",
-        "{var_names[commonvars]}} already in",
-        " {.code var.mod}. Not repeating it."
-      ))
-    }
-    var_names <- var_names[!commonvars]
-    if (length(var_names) == 0) {
-      invisible()
-    }
+  if (append) {
+    var <- var[!(var %in% readLines(file_path))]
+  }
+  # Nothing to write
+  if (length(var) == 0) {
+    invisible()
   }
 
-  cat(var_names, file = file_path, sep = "\n", append = append)
+  cat(var, file = file_path, sep = "\n", append = append)
 }

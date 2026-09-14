@@ -48,8 +48,9 @@ overflow: visible;
 }
 </style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -60,7 +61,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -340,46 +341,127 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(SticsRFiles)</span></code></pre></div>
-<p>The XML files structure has changed between STICS version
-<strong>9.2</strong> and versions <strong>10.X.Y</strong> and a
-transformation is mandatory.</p>
+<p>The XML files structure has changed either between STICS version
+<strong>9.2</strong> and versions <strong>10.X.Y</strong> or between
+STICS versions <strong>10.X.Y</strong> and version 11.0.0. Files
+conversions are mandatory to be able to use them with a upper major
+version.</p>
 <p>So, to avoid difficulties and errors with manual XML files
 modifications, functionalities have been developed to do so
 automatically.</p>
-<p>One can either transform a complete workspace directory at once or
-each kind of file individually.</p>
+<p>One can either transform each kind of file individually (i.e. _tec,
+_ini,.. files) or a full workspace directory at once.</p>
+<p>Here are some examples of use of upgrade generic functions either
+from version 9 to 10 or 10 to 11. The initial version is detected and
+the target version as well. One have to chain upgrades for converting
+files version 9 to version 11.</p>
 <div id="upgrading-a-whole-workspace" class="section level2">
 <h2>Upgrading a whole workspace</h2>
 <p>In that case, a workspace adapted to the new version is
-recreated.</p>
-<p>So, apart from the XML files, some other files as outputs definition
+generated.</p>
+<p>Apart from the XML files, some other files as outputs definition
 files (*.mod), weather files attached to USMs and also observation files
-(named with the USM name, *.obs) are copied to the new workspace.</p>
+(named with the USM name, *.obs) are copied to the new upgraded
+workspace.</p>
+<p>To achieve conversions, the JavaStics folder path may be needed by
+functions and it must corresponds to the initial STICS version of the
+workspace you want to upgrade.</p>
+<p>The output directory will contain all needed files to run
+simulations. But, there are slight differences in the content
+considering the 2 following cases.</p>
+<div id="case-1-the-initial-workspace-does-not-contain-all-needed-files" class="section level3">
+<h3>Case 1: the initial workspace does not contain all needed files</h3>
+<p>In that case the JavaStics folder path have to be set in the function
+inputs</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>workspace <span class="ot">&lt;-</span> <span class="st">&quot;/path/to/workspace/dir/V9.2&quot;</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>out_dir <span class="ot">&lt;-</span> <span class="st">&quot;/path/to/out/dir/V10&quot;</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>javastics <span class="ot">&lt;-</span> <span class="st">&quot;/path/to/JavaSTICS-1.41-stics-9.2&quot;</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="fu">upgrade_workspace_xml</span>(<span class="at">workspace =</span> workspace, <span class="at">javastics =</span> javastics, <span class="at">out_dir =</span> out_dir)</span></code></pre></div>
+<p>The plant files (referenced in the usms.xml file) are not converted
+and copied in the output directory. Those given with the JavaStics
+distribution of the target release have to be used.</p>
+</div>
+<div id="case-2-the-initial-workspace-contains-all-the-input-files" class="section level3">
+<h3>Case 2: the initial workspace contains all the input files</h3>
+<p>In that case, a sub-directory <code>plant</code> exists and contains
+all the needed plant files (referenced in the usms.xml file). And the
+general parameter files also are in the workspace (param_gen.xml and
+param_newform.xml). So, no need to specify the JavaStics folder
+path.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>workspace <span class="ot">&lt;-</span> <span class="st">&quot;/path/to/workspace/dir/V9.2&quot;</span></span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>out_dir <span class="ot">&lt;-</span> <span class="st">&quot;/path/to/out/dir/V10.2.0&quot;</span></span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>javastics <span class="ot">&lt;-</span> <span class="st">&quot;/path/to/JavaSTICS-1.41-stics-9.2&quot;</span></span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="fu">upgrade_workspace_xml</span>(<span class="at">workspace =</span> workspace, <span class="at">javastics =</span> javastics, <span class="at">out_dir =</span> out_dir)</span></code></pre></div>
-<p>Here is the output display indicating the treated files:</p>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>out_dir <span class="ot">&lt;-</span> <span class="st">&quot;/path/to/out/dir/V10&quot;</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="fu">upgrade_workspace_xml</span>(<span class="at">workspace =</span> workspace, <span class="at">out_dir =</span> out_dir, <span class="at">verbose =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Here is the output display indicating the treated files (can be
+deactivated using the <code>verbose</code> argument set to
+<code>FALSE</code>):</p>
 <pre style="font-size:11px;">
-Upgrading files from version V9.2 to V10.2.0    
-From:  /path/to/workspace/dir/V9.2   
-To:  /path/to/out/dir/V10.2.0    
------------------------------------   
-param_gen.xml   
-param_new_form.xml   
-usms.xml   
-sols.xml   
-*_sta.xml   
-*_ini.xml   
-*_tec.xml   
-Copying *.mod files.   
-Copying *.obs files.   
-Copying weather files.   
-*_plt.xml    
------------------------------------   
-Files upgrade and copy is complete.   
+Upgrading files from version 9 to 10 
+From:  /path/to/workspace/dir/V9.2
+To:  /path/to/out/dir/V10 
+-----------------------------------
+
+param_gen.xml
+
+param_new_form.xml
+
+usms.xml
+
+sols.xml
+
+*_sta.xml
+
+*_ini.xml
+
+*_tec.xml
+
+Copying output definition (*.mod) files.
+[1] &quot;/path/to/out/dir/V10/prof.mod&quot; &quot;/path/to/out/dir/V10/rap.mod&quot;  &quot;/path/to/out/dir/V10/var.mod&quot; 
+Copying observation (*.obs) files.
+ [1] &quot;/path/to/out/dir/V10/banana.obs&quot;             &quot;/path/to/out/dir/V10/BareSoil.obs&quot;          
+ [3] &quot;/path/to/out/dir/V10/cc_BristleOat.obs&quot;      &quot;/path/to/out/dir/V10/cc_CrimsonClover.obs&quot;  
+ [5] &quot;/path/to/out/dir/V10/cc_ItalianRyegrass.obs&quot; &quot;/path/to/out/dir/V10/cc_mustard.obs&quot;        
+ [7] &quot;/path/to/out/dir/V10/cc_vetch.obs&quot;           &quot;/path/to/out/dir/V10/DurumWheat.obs&quot;        
+ [9] &quot;/path/to/out/dir/V10/fescue.obs&quot;             &quot;/path/to/out/dir/V10/flax.obs&quot;              
+[11] &quot;/path/to/out/dir/V10/grass.obs&quot;              &quot;/path/to/out/dir/V10/lettuce.obs&quot;           
+[13] &quot;/path/to/out/dir/V10/maize.obs&quot;              &quot;/path/to/out/dir/V10/potato.obs&quot;            
+[15] &quot;/path/to/out/dir/V10/proto_rice.obs&quot;         &quot;/path/to/out/dir/V10/rapeseed.obs&quot;          
+[17] &quot;/path/to/out/dir/V10/sorghum.obs&quot;            &quot;/path/to/out/dir/V10/soybean.obs&quot;           
+[19] &quot;/path/to/out/dir/V10/strawberry.obs&quot;         &quot;/path/to/out/dir/V10/sugarbeet.obs&quot;         
+[21] &quot;/path/to/out/dir/V10/SugarCane.obs&quot;          &quot;/path/to/out/dir/V10/sunflower.obs&quot;         
+[23] &quot;/path/to/out/dir/V10/timothy.obs&quot;            &quot;/path/to/out/dir/V10/tomato.obs&quot;            
+[25] &quot;/path/to/out/dir/V10/Turmeric.obs&quot;           &quot;/path/to/out/dir/V10/usms_fobs.xml&quot;         
+[27] &quot;/path/to/out/dir/V10/vine.obs&quot;               &quot;/path/to/out/dir/V10/wheat.obs&quot;             
+Copying LAI dynamics (*.lai) files.
+[1] &quot;/path/to/out/dir/V10/ble.lai&quot;     &quot;/path/to/out/dir/V10/bledur.lai&quot; 
+[3] &quot;/path/to/out/dir/V10/colza.lai&quot;   &quot;/path/to/out/dir/V10/mais.lai&quot;   
+[5] &quot;/path/to/out/dir/V10/salade.lai&quot;  &quot;/path/to/out/dir/V10/soja.lai&quot;   
+[7] &quot;/path/to/out/dir/V10/sortie.lai&quot;  &quot;/path/to/out/dir/V10/toursol.lai&quot;
+[9] &quot;/path/to/out/dir/V10/vigne.lai&quot;  
+Copying weather data (*.YYYY) files.
+ [1] &quot;/path/to/out/dir/V10/Auzeville.2012&quot; &quot;/path/to/out/dir/V10/Auzeville.2013&quot;
+ [3] &quot;/path/to/out/dir/V10/Auzeville.2014&quot; &quot;/path/to/out/dir/V10/chapaisj.2001&quot; 
+ [5] &quot;/path/to/out/dir/V10/clim_snow.2009&quot; &quot;/path/to/out/dir/V10/clim_snow.2010&quot;
+ [7] &quot;/path/to/out/dir/V10/climaisj.1996&quot;  &quot;/path/to/out/dir/V10/climbanj.1996&quot; 
+ [9] &quot;/path/to/out/dir/V10/climbetj.1994&quot;  &quot;/path/to/out/dir/V10/climbldj.2000&quot; 
+[11] &quot;/path/to/out/dir/V10/climbldj.2001&quot;  &quot;/path/to/out/dir/V10/climblej.1994&quot; 
+[13] &quot;/path/to/out/dir/V10/climblej.1995&quot;  &quot;/path/to/out/dir/V10/climcanj.1998&quot; 
+[15] &quot;/path/to/out/dir/V10/climcanj.1999&quot;  &quot;/path/to/out/dir/V10/climcolj.1994&quot; 
+[17] &quot;/path/to/out/dir/V10/climcolj.1995&quot;  &quot;/path/to/out/dir/V10/climfetj.2004&quot; 
+[19] &quot;/path/to/out/dir/V10/climfraj.2001&quot;  &quot;/path/to/out/dir/V10/climlinj.2002&quot; 
+[21] &quot;/path/to/out/dir/V10/climpdtj.1997&quot;  &quot;/path/to/out/dir/V10/climsalj.2000&quot; 
+[23] &quot;/path/to/out/dir/V10/climsnuj.1998&quot;  &quot;/path/to/out/dir/V10/climsojj.1990&quot; 
+[25] &quot;/path/to/out/dir/V10/climsorj.1996&quot;  &quot;/path/to/out/dir/V10/climtomj.2000&quot; 
+[27] &quot;/path/to/out/dir/V10/climtomj.2001&quot;  &quot;/path/to/out/dir/V10/climtouj.1996&quot; 
+[29] &quot;/path/to/out/dir/V10/climvigj.2003&quot;  &quot;/path/to/out/dir/V10/climvigj.2004&quot; 
+[31] &quot;/path/to/out/dir/V10/flux000j.2013&quot;  &quot;/path/to/out/dir/V10/fourquej.1988&quot; 
+[33] &quot;/path/to/out/dir/V10/prairiej.1995&quot;  &quot;/path/to/out/dir/V10/readingj.2004&quot; 
+[35] &quot;/path/to/out/dir/V10/statio5j.1992&quot;  &quot;/path/to/out/dir/V10/statio5j.1993&quot; 
+[37] &quot;/path/to/out/dir/V10/statio5j.1994&quot;  &quot;/path/to/out/dir/V10/statio5j.1995&quot; 
+[39] &quot;/path/to/out/dir/V10/statio5j.1996&quot; 
+-----------------------------------
+Files upgrade and copy is complete.
 </pre>
+</div>
 </div>
 <div id="upgrading-a-specific-file-kind" class="section level2">
 <h2>Upgrading a specific file kind</h2>
@@ -399,14 +481,33 @@ upgrade_param_newform_xml</li>
 </ul>
 <p>The input arguments of these functions may vary, refer to each
 function help for details about its use.</p>
-<p>Sometimes, general parameter files are needed as function inputs
-because of parameters or options codes movement to specific files.</p>
+<p>Sometimes, general parameter files (<code>param_gen.xml</code> or/and
+<code>param_newform.xml</code>) corresponding to the initial version are
+needed as function inputs because of parameters or options codes
+transfer to specific files.</p>
 <p>For example, the <strong><code>usms.xml</code></strong> file is to be
 upgraded as follows:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>usms_path <span class="ot">&lt;-</span> <span class="st">&quot;/path/to/workspace/dir/V9.2/usms.xml&quot;</span></span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>out_dir <span class="ot">&lt;-</span> <span class="st">&quot;/path/to/workspace/dir/V10.2.0&quot;</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>out_dir <span class="ot">&lt;-</span> <span class="st">&quot;/path/to/workspace/dir/V10&quot;</span></span>
 <span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>param_gen_path <span class="ot">&lt;-</span> <span class="st">&quot;/path/to/JavaSTICS-1.41-stics-9.2/config/param_gen.xml&quot;</span></span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="fu">upgrade_usms_xml</span>(<span class="at">file =</span> usms_path, <span class="at">param_gen_file =</span> param_gen_path, <span class="at">out_dir =</span> out_dir)</span></code></pre></div>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co"># or param_gen_path &lt;- &#39;/path/to/workspace/param_gen.xml&#39;</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="fu">upgrade_usms_xml</span>(<span class="at">file =</span> usms_path, <span class="at">param_gen_file =</span> param_gen_path, <span class="at">out_dir =</span> out_dir)</span></code></pre></div>
+</div>
+<div id="warnings-and-messages" class="section level2">
+<h2>Warnings and messages</h2>
+<ul>
+<li><p>When files <strong>already exist</strong>, warnings are displayed
+and in any case consider adding the optional functions’ argument
+<code>overwrite = TRUE</code> for overwriting them.</p></li>
+<li><p>When <strong>new parameters</strong> are introduced in an upper
+version, when converting them, their values can be fixed with default
+values. But, if their values depend on other parameters values, specific
+values will be used.<br />
+For example, when parameters values depend on species, for some of them,
+parameters values may exist and will be used. But if they are not, a
+message will be displayed indicating that default values are assigned to
+parameters.</p></li>
+</ul>
 </div>
 
 

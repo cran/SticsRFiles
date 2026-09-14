@@ -5,7 +5,7 @@ knitr::opts_chunk$set(
   tidy = TRUE
 )
 
-## ----eval=FALSE---------------------------------------------------------------
+## ----eval=FALSE, ,include=FALSE-----------------------------------------------
 # library(SticsRFiles)
 
 ## ----include=FALSE------------------------------------------------------------
@@ -31,11 +31,21 @@ stics_version <- get_stics_versions_compat()$latest_version
 
 ## ----eval = FALSE, results='markup'-------------------------------------------
 # workspace <- "/path/to/workspace/dir/V9.2"
-# out_dir <- "/path/to/out/dir/V10.2.0"
+# out_dir <- "/path/to/out/dir/V10"
 # javastics <- "/path/to/JavaSTICS-1.41-stics-9.2"
 # upgrade_workspace_xml(
-#   workspace = workspace, javastics = javastics,
+#   workspace = workspace,
+#   javastics = javastics,
 #   out_dir = out_dir
+# )
+
+## ----eval = FALSE, results='markup'-------------------------------------------
+# workspace <- "/path/to/workspace/dir/V9.2"
+# out_dir <- "/path/to/out/dir/V10"
+# upgrade_workspace_xml(
+#   workspace = workspace,
+#   out_dir = out_dir,
+#   verbose = TRUE
 # )
 
 ## ----include = FALSE, eval=FALSE----------------------------------------------
@@ -43,16 +53,19 @@ stics_version <- get_stics_versions_compat()$latest_version
 # out_dir <- file.path(tempdir(), "XmlFiles_V10.2.0")
 # param_gen_path <- file.path(javastics, "config", "param_gen.xml")
 # upgrade_usms_xml(
-#   file = usms_path, param_gen_file = param_gen_path,
-#   out_dir = out_dir, overwrite = TRUE
+#   file = usms_path,
+#   param_gen_file = param_gen_path,
+#   out_dir = out_dir
 # )
 
 ## ----eval = FALSE-------------------------------------------------------------
 # usms_path <- "/path/to/workspace/dir/V9.2/usms.xml"
-# out_dir <- "/path/to/workspace/dir/V10.2.0"
+# out_dir <- "/path/to/workspace/dir/V10"
 # param_gen_path <- "/path/to/JavaSTICS-1.41-stics-9.2/config/param_gen.xml"
+# # or param_gen_path <- "/path/to/workspace/param_gen.xml"
 # upgrade_usms_xml(
-#   file = usms_path, param_gen_file = param_gen_path,
+#   file = usms_path,
+#   param_gen_file = param_gen_path,
 #   out_dir = out_dir
 # )
 

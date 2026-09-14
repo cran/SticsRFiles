@@ -20,9 +20,9 @@
 #'
 all_out_var <- function(stics_version = "latest") {
   # Checking and getting the right version
-  stics_version <- check_version_compat(stics_version = stics_version)
+  stics_version <- check_version(stics_version = stics_version)
 
-  if (get_version_num(stics_version = stics_version) < 9.2) {
+  if (get_version_num(stics_version = stics_version) < get_version_num("9.2")) {
     cols_idx <- 1:4
   } else {
     cols_idx <- c(1:3, 5)
@@ -81,6 +81,10 @@ all_out_var <- function(stics_version = "latest") {
 #'
 #' @export
 #'
+#' @examples
+#'
+#' get_var_info()
+#'
 get_var_info <- function(var = NULL, keyword = NULL, stics_version = "latest") {
   all_vars <- all_out_var(stics_version)
   if (!is.null(var)) {
@@ -107,11 +111,12 @@ get_var_info <- function(var = NULL, keyword = NULL, stics_version = "latest") {
 #' @description Tells if one or more variable names are valid STICS
 #' output variables.
 #'
-#' @param var     A vector of variable names
+#' @param var A vector of variable names
 #' @param stics_version Name of the STICS version. Optional, can be used
 #' to search parameters information relative to a specific STICS version.
 #' By default the latest version returned by `get_stics_versions_compat()`
 #' is used.
+#' @param verbose if TRUE displaying warning, FALSE otherwise (default)
 #'
 #' @return A boolean vector: `TRUE` if the variable exist, `FALSE` otherwise
 #'
@@ -122,14 +127,14 @@ get_var_info <- function(var = NULL, keyword = NULL, stics_version = "latest") {
 #' @examples
 #' is_stics_var(c("lai(n)", "masec(n)", "unknown"))
 #'
-is_stics_var <- function(var, stics_version = "latest") {
+is_stics_var <- function(var, stics_version = "latest", verbose = FALSE) {
   all_vars <- all_out_var(stics_version)
   var_parsed <- var_to_col_names(var)
   vars_names_parsed <- var_to_col_names(all_vars$name)
 
   index_var <- match(var_parsed, vars_names_parsed)
   var_found <- !is.na(index_var)
-  if (any(!var_found)) {
+  if (any(!var_found) && verbose) {
     cli::cli_alert_warning(
       paste0(
         "Variable{?s} {.var {var_parsed[!var_found]}}",
@@ -137,5 +142,5 @@ is_stics_var <- function(var, stics_version = "latest") {
       )
     )
   }
-  return(var_found)
+  var_found
 }

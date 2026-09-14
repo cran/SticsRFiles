@@ -5,8 +5,6 @@
 #' @param stics_version Name of the STICS version. Optional, by default
 #' the latest version returned by `get_stics_versions_compat()` is used.
 #' @param overwrite TRUE for overwriting directory; FALSE otherwise
-#' @param version_name `r lifecycle::badge("deprecated")` `version_name` is no
-#'   longer supported, use `stics_version` instead.
 #'
 #' @return A directory path for examples files for given file type and STICS
 #' version or a vector of (for unknown file types "" is returned as path)
@@ -23,20 +21,8 @@
 get_examples_path <- function(
   file_type,
   stics_version = "latest",
-  overwrite = FALSE,
-  version_name = lifecycle::deprecated()
+  overwrite = FALSE
 ) {
-  if (lifecycle::is_present(version_name)) {
-    lifecycle::deprecate_warn(
-      "1.0.0",
-      "get_examples_path(version_name)",
-      "get_examples_path(stics_version)"
-    )
-  } else {
-    # to remove when we update inside the function
-    version_name <- stics_version
-  }
-
   # Getting files types list
   example_types <- get_examples_types()
 
@@ -56,12 +42,12 @@ get_examples_path <- function(
   }
 
   # Validating the version string
-  version_name <- check_version_compat(version_name)
+  stics_version <- check_version(stics_version)
 
   # Checking if files available for the given version
-  ver_data <- get_versions_info(stics_version = version_name)
+  ver_data <- get_versions_info(stics_version = stics_version)
   if (base::is.null(ver_data)) {
-    stop("No examples available for version: ", version_name)
+    stop("No examples available for version: ", stics_version)
   }
 
   # Getting files dir path for the given type
@@ -73,7 +59,7 @@ get_examples_path <- function(
       "Not any data in examples for ",
       paste(file_type[is_na_dirs], collapse = ", "),
       " and version ",
-      version_name
+      stics_version
     )
   }
 
@@ -106,7 +92,7 @@ get_examples_path <- function(
       "Not any available ",
       paste(file_type[!exist_ex_path], collapse = ", "),
       " examples for version: ",
-      version_name
+      stics_version
     )
   }
 
@@ -114,15 +100,15 @@ get_examples_path <- function(
   return(invisible(examples_path))
 }
 
-# TODO: evaluate if useful ?
+# TODO: evaluate if it is useful ?
 list_examples_files <- function(
   file_type,
-  version_name = "latest",
+  stics_version = "latest",
   full_names = TRUE
 ) {
   examples_path <- get_examples_path(
     file_type = file_type,
-    stics_version = version_name
+    stics_version = stics_version
   )
 
   files_list <- list.files(
@@ -136,7 +122,7 @@ list_examples_files <- function(
 
 
 get_examples_types <- function() {
-  file_types <- c(
+  c(
     "csv",
     "obs",
     "sti",
@@ -147,7 +133,6 @@ get_examples_types <- function() {
     "xml_param",
     "xsl"
   )
-  return(file_types)
 }
 
 
@@ -190,15 +175,15 @@ unzip_examples <- function(files_type, version_dir, overwrite = FALSE) {
     dir_path <- ""
   }
 
-  return(dir_path)
+  dir_path
 }
 
 
 #' Copy mod, obs, lai, and weather data files
 #' @param workspace JavaSTICS xml workspace path
+#' @param out_dir   Output directory path
 #' @param file_type file type to copy among "mod", "obs", "clim"
 #' @param javastics JavsSTICS folder path (Optional)
-#' @param out_dir   Output directry path
 #' @param verbose   logical, TRUE for displaying a copy message
 #' FALSE otherwise (default)
 #' @param overwrite Logical TRUE for overwriting files,
@@ -211,12 +196,15 @@ unzip_examples <- function(files_type, version_dir, overwrite = FALSE) {
 #'
 workspace_files_copy <- function(
   workspace,
+  out_dir,
   file_type = NULL,
   javastics = NULL,
-  out_dir,
   overwrite = FALSE,
   verbose = FALSE
 ) {
+  # creating the output folder if it does not exist
+  if (!dir.exists(out_dir)) dir.create(out_dir)
+
   # files types vector and associated regex
   file_types <- c("mod", "obs", "lai", "meteo")
   file_patt <- c("*.mod", "*.obs", "*.lai", "\\.[0-9]{4}$")
@@ -228,9 +216,11 @@ workspace_files_copy <- function(
   )
 
   # if file_type is not given, all files type are processed
-  if (is.null(file_type)) file_type <- file_types
+  if (is.null(file_type)) {
+    file_type <- file_types
+  }
 
-  # recurive call for a vector
+  # recursive call for a vector
   if (length(file_type) > 1) {
     stat_list <- vector(mode = "list", length(file_type))
     for (i in seq_along(file_type)) {
@@ -254,7 +244,7 @@ workspace_files_copy <- function(
     return()
   }
 
-  # getting the file path list to copy
+  # Getting the files path list to copy
   patt <- file_patt[type_idx]
   files_list <- list.files(
     path = workspace,
@@ -262,46 +252,57 @@ workspace_files_copy <- function(
     pattern = patt
   )
 
-  # Just for the *.mod files, looking in javastics if not found in the workspace
-  # TODO: combine both if partial match
-  if (length(files_list) == 0) {
-    if (file_type == "mod") {
-      if (is.null(javastics)) {
-        warning(paste(
-          "No",
-          "mod",
-          "files in the source workspace",
-          "the Javastics path must be given",
-          "as input for copying files from it"
-        ))
-      }
-
-      files_list <- list.files(
+  if ("mod" %in% file_type) {
+    if (!is.null(javastics)) {
+      javastics_files <- list.files(
         path = file.path(
           javastics,
-          "example",
-          full.names = TRUE,
-          pattern = patt
-        )
+          "config"
+        ),
+        full.names = TRUE,
+        pattern = patt
       )
+    } else {
+      javastics_files <- character(0)
+    }
+
+    diff_files <- setdiff(
+      basename(javastics_files),
+      basename(files_list)
+    )
+
+    # completion of files list with javastics ones
+    if (length(diff_files) > 0) {
+      javastics_files <-
+        javastics_files[basename(javastics_files) %in% diff_files]
+
+      files_list <- c(files_list, javastics_files)
     }
   }
 
-  # nothing to do
+  # Not any file neither in javastics nor in the workspace directories
   if (length(files_list) == 0) {
-    warning(paste0("Not any '", file_desc[type_idx], "' file to copy!"))
+    warning(
+      paste0("Not any '", file_desc[type_idx], "' file to copy!"),
+      " Neither in ",
+      javastics,
+      " nor in ",
+      workspace
+    )
     return()
   }
 
-  # copy and treat of the copy return
+  # opy and treat of the copy return
+  dest_files <- file.path(out_dir, basename(files_list))
   stat <- file.copy(
     from = files_list,
-    to = out_dir,
+    to = dest_files,
     overwrite = overwrite
   )
 
   if (verbose) {
     message(paste("Copying", file_desc[type_idx], "files.\n"))
+    print(dest_files)
   }
 
   if (!all(stat)) {
@@ -314,5 +315,5 @@ workspace_files_copy <- function(
       "Consider to set as input: overwrite = TRUE"
     )
   }
-  return(invisible(stat))
+  invisible(stat)
 }

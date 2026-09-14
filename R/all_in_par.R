@@ -20,12 +20,9 @@
 #'
 all_in_par <- function(stics_version = "latest") {
   # Checking and getting the right version
-  stics_version <- check_version_compat(stics_version = stics_version)
+  stics_version <- check_version(stics_version = stics_version)
 
-  #  if (get_version_num(stics_version = stics_version) < 9.2) {
-  #    cols_idx <- 1:4
-  #  } else {
-  cols_idx <- c(1, 4, 7:8, 2)
+  cols_idx <- c(1, 4, 7:8, 2, 3, 10)
   #  }
 
   par_df <- utils::read.csv2(
@@ -40,7 +37,17 @@ all_in_par <- function(stics_version = "latest") {
     stringsAsFactors = FALSE
   )[, cols_idx]
 
-  names(par_df) <- c("name", "file", "min", "max", "definition")
+  names(par_df) <- c(
+    "name",
+    "file",
+    "min",
+    "max",
+    "definition",
+    "unit",
+    "cultivar"
+  )
+
+  par_df$cultivar <- as.logical(par_df$cultivar)
 
   # Adding a version  attribute
   attr(x = par_df, which = "version") <- stics_version
@@ -67,7 +74,7 @@ all_in_par <- function(stics_version = "latest") {
 #' @details The function understand \code{\link[base]{regex}} as input.
 #'
 #' @return A data.frame with information about parameter(s) with columns
-#'        `name`,`file`,`min`,`max`, `definition`
+#'        `name`, `file`, `min`, `max`, `definition`, `unit` and `cultivar`
 #'
 #'
 #' @examples
@@ -84,10 +91,14 @@ all_in_par <- function(stics_version = "latest") {
 #'
 #' @export
 #'
+#' @examples
+#' get_param_info()
+#'
 get_param_info <- function(
-    param = NULL,
-    keyword = NULL,
-    stics_version = "latest") {
+  param = NULL,
+  keyword = NULL,
+  stics_version = "latest"
+) {
   all_pars <- all_in_par(stics_version)
 
   if (!is.null(keyword)) {
@@ -146,7 +157,7 @@ is_stics_param <- function(param, stics_version = "latest") {
   pars_names_parsed <- var_to_col_names(all_pars$name)
   index_par <- match(par_parsed, pars_names_parsed)
   par_found <- !is.na(index_par)
-  if (any(!par_found)) {
+  if (!all(par_found)) {
     cli::cli_alert_warning(
       paste0(
         "paremeters{?s} {.var {par_parsed[!par_found]}}",

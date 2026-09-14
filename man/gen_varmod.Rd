@@ -11,8 +11,7 @@ gen_varmod(
   file_name = "var.mod",
   stics_version = "latest",
   force = FALSE,
-  var_names = lifecycle::deprecated(),
-  version = lifecycle::deprecated()
+  verbose = FALSE
 )
 }
 \arguments{
@@ -32,11 +31,7 @@ to modify}
 \item{force}{Force variables writing even if they are not a
 STICS variable (default: FALSE).}
 
-\item{var_names}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} \code{var_names} is no
-longer supported, use \code{var} instead.}
-
-\item{version}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} \code{version} is no
-longer supported, use \code{stics_version} instead.}
+\item{verbose}{if TRUE displaying warning, FALSE otherwise (default)}
 }
 \value{
 None
@@ -49,12 +44,14 @@ Variable names can be found using \code{get_var_info()}. They are
 checked before writing. If any variable name does not exist,
 it will not be written by default, but the function will still write
 the variables that exist. \code{force= TRUE} may however be used to write
-variables that do not exist.
+variables that do not exist. Variables already present in a var.mod file
+can be listed using \code{get_varmod()}.
 }
 \examples{
+# generate a new file
 gen_varmod(tempdir(), c("lai(n)", "hauteur"))
-# Add a variable to the others:
+# Add a variable to the others
+# var.mod will contain now "lai(n)","hauteur" and "masec(n)"
 gen_varmod(tempdir(), "masec(n)", append = TRUE)
-# NB: var.mod will have "lai(n)","hauteur" and "masec(n)"
 
 }

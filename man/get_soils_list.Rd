@@ -2,14 +2,9 @@
 % Please edit documentation in R/get_soils_list.R
 \name{get_soils_list}
 \alias{get_soils_list}
-\title{Get the soil names for an usms.xml file}
+\title{Get the soil names for an usms.xml or sols.xml file}
 \usage{
-get_soils_list(
-  file,
-  soil = NULL,
-  file_path = lifecycle::deprecated(),
-  name = lifecycle::deprecated()
-)
+get_soils_list(file, soil = NULL)
 }
 \arguments{
 \item{file}{Either the path of an usm file or of a soil file.}
@@ -17,18 +12,12 @@ get_soils_list(
 \item{soil}{Vector of soil names (or partial names). Optional,
 if not provided, the function returns the names of all the soils included
 in the given file.}
-
-\item{file_path}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} \code{file_path} is no
-longer supported, use \code{file} instead.}
-
-\item{name}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} \code{name} is no
-longer supported, use \code{soil} instead.}
 }
 \value{
 A vector of soil names
 }
 \description{
-Extracts the soil names from a "usms.xml" file, or from
+Extracts the soil names from a USMs file, or from
 a soil file
 }
 \details{
